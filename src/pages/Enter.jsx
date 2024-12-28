@@ -3,7 +3,7 @@ import EmptySpacesPreloader from "../components/EmptySpacesPreloader";
 
 const Enter = () => {
   return (
-    <div className="w-full h-screen overflow-hidden relative">
+    <div className="w-full h-svh overflow-hidden relative">
       <div
         className="absolute bottom-[400px] sm:bottom-20 right-[400px] md:right-[300px] lg:right-[200px] bg-gradient-to-bl from-white/10 to-transparent 
         pointer-events-none z-50 blur-xs overflow-hidden rounded-md"
@@ -36,7 +36,7 @@ const Enter = () => {
           <motion.img
             src="./images/LogoHorizontal.svg"
             width={600}
-            className="relative m-10 z-10"
+            className="relative p-10"
             key="logo"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

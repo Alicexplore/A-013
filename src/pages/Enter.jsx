@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-// import EmptySpacesPreloader from "../components/EmptySpacesPreloader";
 
 const Enter = () => {
   return (
@@ -49,9 +48,6 @@ const Enter = () => {
             }}
           />
         </div>
-
-        {/* <EmptySpacesPreloader /> */}
-
       </motion.div>
     </div>
   );

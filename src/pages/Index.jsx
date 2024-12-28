@@ -9,7 +9,6 @@ import Desk from "./Desk";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
-// import EmptySpaces from "../components/EmptySpaces";
 import MetallicNails from "../components/MetallicNails";
 
 const Index = () => {
@@ -103,7 +102,6 @@ const Index = () => {
             <div className="absolute inset-0 border-[#000] border-[1px] rounded-md"></div>
             <div className="absolute inset-0 rounded-md bg-transparent "></div>
 
-            {/* <EmptySpaces /> */}
             
             <div className="font-Roboto absolute inset-0 items-start right-10 justify-center text-[8px] md:text-[10px] tracking-widest
             text-[#d9d9d9] pointer-events-none flex flex-row z-50 gap-[10px] -rotate-90">            

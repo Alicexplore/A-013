@@ -1,15 +1,14 @@
-import './App.css'
-import Loader from './pages/Loader'
-// import BoardNew from './pages/BoardNew'
+import Index from "./pages/Index"; 
+import Enter from "./pages/Enter";
 
 function App() {
 
   return (
-    <>
-        <Loader /> 
-        {/* <BoardNew />  */}
-    </>
-  )
+    <div> 
+        <Enter />
+        <Index />
+    </div>
+  );
 }
 
-export default App
+export default App;

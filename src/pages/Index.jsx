@@ -5,7 +5,6 @@ import MetalPlate from "../components/MetalPlate";
 import NeonLineUp from "../components/NeonLineUp";
 import NeonLineUpOff from "../components/NeonLineUpOff";
 import ButtonsDirections from "../components/ButtonsDirections";
-import Desk from "./Desk";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
@@ -46,36 +45,40 @@ const Index = () => {
   }, [isPowerOn]);
 
   return (
-    <div className="h-svh w-full bg-[#222] overflow-hidden flex flex-col items-center justify-center relative">
+    <div className="h-svh w-full bg-[#D4D4CE] overflow-hidden flex flex-col items-center justify-center relative">
+      <MetallicNails />
+      <TextFolio />
+      <TextName />
 
-
-      <Desk />
-      <MetallicNails /> 
-      <TextFolio /> 
-      <TextName /> 
-
-      <div className="flex items-center justify-center rounded-lg md:rounded-xl relative z-10 w-[90%] max-w-[380px] md:max-w-[500px]
+      <div
+        className="flex items-center justify-center rounded-lg md:rounded-xl relative z-10 w-[90%] max-w-[380px] md:max-w-[500px]
       aspect-[5/6] bg-[#D4D4CE] shadow-[4px_20px_30px_#252420,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#888885] 
-      md:shadow-[6px_35px_30px_#252420,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#888885]">
- 
-        <div className="absolute inset-[5px] rounded-[7px] sm:rounded-[10px] border-[#fff]/70 border-[2px] border-t-[2px] 
-        border-b-[2px] bg-transparent flex items-center justify-center blur-s"></div>
+      md:shadow-[6px_35px_30px_#252420,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#888885]"
+      >
+        <div
+          className="absolute inset-[5px] rounded-[7px] sm:rounded-[10px] border-[#fff]/70 border-[2px] border-t-[2px] 
+        border-b-[2px] bg-transparent flex items-center justify-center blur-s"
+        ></div>
 
-         <MediaCards />
+        <div className="hidden md:block">
+          <MediaCards />
+        </div>
 
-         <div className="grid grid-cols-5 grid-rows-6 w-full h-full gap-[8px] p-[10px] md:p-[14px] relative overflow-hidden">
-
-          <div className="absolute bottom-20 right-[250px] md:right-[400px] bg-gradient-to-bl from-white/20 to-transparent 
+        <div className="grid grid-cols-5 grid-rows-6 w-full h-full gap-[8px] p-[10px] md:p-[14px] relative overflow-hidden">
+          <div
+            className="absolute bottom-20 right-[250px] md:right-[400px] bg-gradient-to-bl from-white/20 to-transparent 
           pointer-events-none z-50 blur-xs overflow-hidden rounded-md"
             style={{
               width: "200%",
               height: "200%",
               transform: "rotate(-45deg)",
-            }}/> 
+            }}
+          />
 
-            {/* screen */}
+          {/* screen */}
 
-          <motion.div className="col-span-5 row-span-4 rounded-[4px] md:rounded-md relative h-full w-full"
+          <motion.div
+            className="col-span-5 row-span-4 rounded-[4px] md:rounded-md relative h-full w-full"
             initial={{
               backgroundColor: isPowerOn ? "#83802b" : "#2f2d11",
               boxShadow: isPowerOn
@@ -83,7 +86,7 @@ const Index = () => {
                 : "inset -4px -4px 10px #21230a, inset 4px 4px 10px #21230a",
             }}
             animate={{
-              backgroundColor: isPowerOn ? "#222" : "#000",
+              backgroundColor: isPowerOn ? "#83802b" : "#333211",
               boxShadow: isPowerOn
                 ? "inset -4px -4px 10px #000, inset 4px 4px 10px #000"
                 : "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
@@ -91,32 +94,34 @@ const Index = () => {
             transition={{
               duration: 0.3,
               ease: "easeIn",
-            }}>
-
+            }}
+          >
             {isPowerOn ? (
-               <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/60 to-transparent rounded-md"></div>
-             ) : (
-               <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/70 to-transparent rounded-md"></div>
+              <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/60 to-transparent rounded-md"></div>
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/70 to-transparent rounded-md"></div>
             )}
 
             <div className="absolute inset-0 border-[#000] border-[1px] rounded-md"></div>
             <div className="absolute inset-0 rounded-md bg-transparent "></div>
 
-            
-            <div className="font-Roboto absolute inset-0 items-start right-10 justify-center text-[8px] md:text-[10px] tracking-widest
-            text-[#d9d9d9] pointer-events-none flex flex-row z-50 gap-[10px] -rotate-90">            
+            <div
+              className="font-Roboto absolute inset-0 items-start right-10 justify-center text-[8px] md:text-[10px] tracking-widest
+            text-[#d9d9d9] pointer-events-none flex flex-row z-50 gap-[10px] -rotate-90"
+            >
               <motion.div
-              className="mt-[2px]"
-              key="on-text"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                 opacity: {
-                 duration: 0.25,
-                 delay: 0.15,
-                 ease: "easeInOut",
-                 },
-              }}>
+                className="mt-[2px]"
+                key="on-text"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  opacity: {
+                    duration: 0.25,
+                    delay: 0.15,
+                    ease: "easeInOut",
+                  },
+                }}
+              >
                 <img
                   src="./images/LogoHorizontal.svg"
                   alt="logo A-013"
@@ -131,12 +136,13 @@ const Index = () => {
                   animate={{ opacity: 1 }}
                   transition={{
                     opacity: {
-                    duration: 0,
-                    delay: 0.25,
-                    ease: "easeInOut",
+                      duration: 0,
+                      delay: 0.25,
+                      ease: "easeInOut",
                     },
-                  }}>
-                    <div className="absolute inset-0 bg-[#fff] blur-md z-50"></div>
+                  }}
+                >
+                  <div className="absolute inset-0 bg-[#fff] blur-md z-50"></div>
                 </motion.div>
               ) : (
                 <motion.div
@@ -146,11 +152,12 @@ const Index = () => {
                   animate={{ opacity: 1 }}
                   transition={{
                     opacity: {
-                    duration: 0.5,
-                    delay: 0.25,
-                    ease: "easeInOut",
+                      duration: 0.5,
+                      delay: 0.25,
+                      ease: "easeInOut",
                     },
-                  }}/>
+                  }}
+                />
               )}
             </div>
 
@@ -162,14 +169,15 @@ const Index = () => {
                 animate={{ opacity: 1 }}
                 transition={{
                   opacity: {
-                  ease: "linear",
-                  delay: 1,
+                    ease: "linear",
+                    delay: 1,
                   },
-                }}>
-                  <ScrambleTextScreen
-                    text="HELLO MY NAME IS A-013"
-                    scrambleDuration={2.5}
-                  />
+                }}
+              >
+                <ScrambleTextScreen
+                  text="HELLO MY NAME IS A-013"
+                  scrambleDuration={2.5}
+                />
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center"
                   initial={{ opacity: 0 }}
@@ -178,9 +186,14 @@ const Index = () => {
                     delay: 3.5,
                     duration: 1.5,
                     repeat: Infinity,
-                  }}>
-                    <h1 className="mt-[60px] sm:mt-[80px] text-[#d9d9d9] blur-xxxs font-Roboto text-[9px] md:text-xs tracking-widest 
-                    pointer-events-none uppercase">press menu</h1>
+                  }}
+                >
+                  <h1
+                    className="mt-[60px] sm:mt-[80px] text-[#d9d9d9] blur-xxxs font-Roboto text-[9px] md:text-xs tracking-widest 
+                    pointer-events-none uppercase"
+                  >
+                    press menu
+                  </h1>
                 </motion.div>
               </motion.div>
             ) : (
@@ -205,23 +218,29 @@ const Index = () => {
               />
             )}
 
-            <div className="font-Roboto absolute inset-0 items-start -right-10 justify-center text-[8px] md:text-[10px] tracking-widest
-            text-[#d9d9d9] pointer-events-none flex z-50 rotate-90">         
+            <div
+              className="font-Roboto absolute inset-0 items-start -right-10 justify-center text-[8px] md:text-[10px] tracking-widest
+            text-[#d9d9d9] pointer-events-none flex z-50 rotate-90"
+            >
               <h1>FOLIO 25</h1>
             </div>
-
           </motion.div>
 
           {/* end screen */}
 
-          <div className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000]"
+          <div
+            className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000]"
             onClick={() => {
               handlePress(0);
               handlePowerPress();
-            }}>
+            }}
+          >
             <motion.div
               className="absolute inset-[1px] rounded-[4px] md:rounded-md flex items-center justify-center cursor-pointer"
-              style={{ background: 'conic-gradient(from 135deg, #b2a9a9, #b2a8a8, #ffffff, #d7dbd9, #ffffff, #b2a8a8)'}}
+              style={{
+                background:
+                  "conic-gradient(from 135deg, #b2a9a9, #b2a8a8, #ffffff, #d7dbd9, #ffffff, #b2a8a8)",
+              }}
               animate={{
                 boxShadow: extraPressed
                   ? "inset 2px 2px 5px #412816, inset -2px -2px 5px #412816"
@@ -229,16 +248,25 @@ const Index = () => {
                   ? ""
                   : "inset 2px 2px 1px #fff, inset -1px -1px 1px #5f5f5f, 5px 5px 8px #222",
               }}
-              transition={{ duration: 0.1, ease: "easeInOut" }}>
-                <h1 className="text-[#2e2c0a] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium
-                pointer-events-none uppercase">power</h1>
+              transition={{ duration: 0.1, ease: "easeInOut" }}
+            >
+              <h1
+                className="text-[#2e2c0a] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium
+                pointer-events-none uppercase"
+              >
+                power
+              </h1>
             </motion.div>
           </div>
 
           <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000] cursor-pointer">
-            <motion.div className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#d4d4cf] flex items-center justify-center
-            shadow-[inset_2px_2px_1px_#fff,inset_-2px_-2px_1px_#979797,5px_5px_8px_#222]">
-              <h1 className="text-[#4a4840] font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium">menu</h1>
+            <motion.div
+              className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#d4d4cf] flex items-center justify-center
+            shadow-[inset_2px_2px_1px_#fff,inset_-2px_-2px_1px_#979797,5px_5px_8px_#222]"
+            >
+              <h1 className="text-[#4a4840] font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium">
+                menu
+              </h1>
             </motion.div>
           </div>
 
@@ -253,13 +281,18 @@ const Index = () => {
           <MetalPlate />
 
           <div className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000]">
-            <motion.div className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#d4d4cf] flex items-center justify-center
-            shadow-[inset_2px_2px_1px_#fff,inset_-2px_-2px_1px_#979797,5px_5px_8px_#222] cursor-pointer">
-              <h1 className="text-[#4a4840] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium pointer-events-none 
-              uppercase">select</h1>
+            <motion.div
+              className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#d4d4cf] flex items-center justify-center
+            shadow-[inset_2px_2px_1px_#fff,inset_-2px_-2px_1px_#979797,5px_5px_8px_#222] cursor-pointer"
+            >
+              <h1
+                className="text-[#4a4840] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium pointer-events-none 
+              uppercase"
+              >
+                select
+              </h1>
             </motion.div>
           </div>
-          
         </div>
       </div>
     </div>

@@ -1,12 +1,10 @@
 import Index from "./pages/Index"; 
-import Enter from "./pages/Enter";
 
 function App() {
 
   return (
-    <div> 
-        <Enter />
-        <Index />
+    <div>      
+      <Index />
     </div>
   );
 }

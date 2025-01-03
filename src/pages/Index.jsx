@@ -199,25 +199,26 @@ const Index = () => {
               // </motion.div>
               ""
             ) : (
-              <motion.div
-                className="absolute inset-0 bg-[#D4D4CE] blur-xs"
-                initial={{
-                  height: "100%",
-                  top: "0%",
-                  width: "100%",
-                }}
-                animate={{
-                  height: "0px",
-                  top: "50%",
-                  width: "100%",
-                  color: "#222",
-                }}
-                transition={{
-                  duration: 0.3,
-                  ease: "easeInOut",
-                }}
-                key="power-off-animation"
-              />
+              ""
+              // <motion.div
+              //   className="absolute inset-0 bg-[#D4D4CE] blur-xs"
+              //   initial={{
+              //     height: "100%",
+              //     top: "0%",
+              //     width: "100%",
+              //   }}
+              //   animate={{
+              //     height: "0px",
+              //     top: "50%",
+              //     width: "100%",
+              //     color: "#222",
+              //   }}
+              //   transition={{
+              //     duration: 0.3,
+              //     ease: "easeInOut",
+              //   }}
+              //   key="power-off-animation"
+              // />
             )}
 
             <div

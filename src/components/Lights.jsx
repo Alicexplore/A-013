@@ -11,8 +11,8 @@ const Lights = () => {
                 
                 <div 
                   key={index}
-                  className="rounded-[4px] md:rounded-[1px] bg-[#d4d4cf] flex items-center justify-center my-[0.5px] mx-[0.5px]
-                  shadow-[inset_3px_3px_0px_#fff,inset_-3px_-3px_0px_#979797,3px_3px_6px_#222]">
+                  className="rounded-none md:rounded-[1px] bg-[#d4d4cf] flex items-center justify-center my-[0.5px] mx-[0.5px]
+                  shadow-[inset_2px_2px_0px_#fff,inset_-2px_-2px_0px_#979797,3px_3px_6px_#222]">
                 </div>
             ))}
             </div>        

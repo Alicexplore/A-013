@@ -65,7 +65,7 @@ const Index = () => {
         </div>
 
         <div className="grid grid-cols-5 grid-rows-6 w-full h-full gap-[8px] p-[10px] md:p-[14px] relative overflow-hidden">
-          <div
+          {/* <div
             className="absolute bottom-20 right-[250px] md:right-[400px] bg-gradient-to-bl from-white/20 to-transparent 
           pointer-events-none z-50 blur-xs overflow-hidden rounded-md"
             style={{
@@ -73,7 +73,7 @@ const Index = () => {
               height: "200%",
               transform: "rotate(-45deg)",
             }}
-          />
+          /> */}
 
           {/* screen */}
 

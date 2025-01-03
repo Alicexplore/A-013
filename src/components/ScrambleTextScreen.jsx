@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-const ScrambleText = ({ text, scrambleDuration = 2.5 }) => {
+const ScrambleTextScreen = ({ text, scrambleDuration = 2.5 }) => {
   const [scrambledText, setScrambledText] = useState(text);
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#-$%^&*(){}_[]";
 
@@ -36,9 +36,9 @@ const ScrambleText = ({ text, scrambleDuration = 2.5 }) => {
   );
 };
 
-ScrambleText.propTypes = {
+ScrambleTextScreen.propTypes = {
   text: PropTypes.string.isRequired,
   scrambleDuration: PropTypes.number,
 };
 
-export default ScrambleText;
+export default ScrambleTextScreen;

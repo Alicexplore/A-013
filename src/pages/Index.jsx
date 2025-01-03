@@ -7,6 +7,7 @@ import ButtonsDirections from "../components/ButtonsDirections";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
+import ScrambleTextScreen from "../components/ScrambleTextScreen";
 
 const Index = () => {
   const [pressedStates, setPressedStates] = useState(Array(8).fill(false));
@@ -121,9 +122,9 @@ const Index = () => {
                   className="w-[35px] md:w-[45px]"
                 />
               </motion.div>
-              {/* {isPowerOn ? (
+              {isPowerOn ? (
                 <motion.div
-                  className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#fff] blur-xs z-50 shadow-[#a9a9a9] mt-[2px]"
+                  className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#fff] blur-xs z-50 shadow-[0px_0px_6px_#fff] mt-[2px]"
                   key="on-light"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -135,11 +136,10 @@ const Index = () => {
                     },
                   }}
                 >
-                  <div className="absolute inset-0 bg-[#fff] blur-md z-50"></div>
                 </motion.div>
               ) : (
                 <motion.div
-                  className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#373737] z-50 mt-[2px]"
+                  className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#000000] z-50 mt-[2px]"
                   key="off-light"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -151,67 +151,65 @@ const Index = () => {
                     },
                   }}
                 />
-              )} */}
+              )}
             </div>
 
             {isPowerOn || pressedStates[0] ? (
 
-              // <motion.div
-              //   className="absolute inset-0 flex flex-col items-center justify-center"
-              //   key="opening-screen"
-              //   initial={{ opacity: 0 }}
-              //   animate={{ opacity: 1 }}
-              //   transition={{
-              //     opacity: {
-              //       ease: "linear",
-              //       delay: 1,
-              //     },
-              //   }}
-              // >
-              //   <ScrambleTextScreen
-              //     text="HELLO MY NAME IS A-013"
-              //     scrambleDuration={2.5}
-              //   />
-              //   <motion.div
-              //     className="absolute inset-0 flex items-center justify-center"
-              //     initial={{ opacity: 0 }}
-              //     animate={{ opacity: [0, 1, 0] }}
-              //     transition={{
-              //       delay: 3.5,
-              //       duration: 1.5,
-              //       repeat: Infinity,
-              //     }}
-              //   >
-              //     <h1
-              //       className="mt-[60px] sm:mt-[80px] text-[#d9d9d9] blur-xxxs font-Roboto text-[9px] md:text-xs tracking-widest 
-              //       pointer-events-none uppercase"
-              //     >
-              //       press menu
-              //     </h1>
-              //   </motion.div>
-              // </motion.div>
-              ""
+              <motion.div
+                className="absolute inset-0 flex flex-col items-center justify-center"
+                key="opening-screen"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  opacity: {
+                    ease: "linear",
+                    delay: 1,
+                  },
+                }}
+              >
+                <ScrambleTextScreen
+                  text="HELLO MY NAME IS A-013"
+                  scrambleDuration={2.5}
+                />
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 1, 0] }}
+                  transition={{
+                    delay: 3.5,
+                    duration: 1.5,
+                    repeat: Infinity,
+                  }}
+                >
+                  <h1
+                    className="mt-[60px] sm:mt-[80px] text-[#d9d9d9] blur-xxxs font-Roboto text-[9px] md:text-xs tracking-widest 
+                    pointer-events-none uppercase"
+                  >
+                    press menu
+                  </h1>
+                </motion.div>
+              </motion.div>
             ) : (
-              ""
-              // <motion.div
-              //   className="absolute inset-0 bg-[#D4D4CE] blur-xs"
-              //   initial={{
-              //     height: "100%",
-              //     top: "0%",
-              //     width: "100%",
-              //   }}
-              //   animate={{
-              //     height: "0px",
-              //     top: "50%",
-              //     width: "100%",
-              //     color: "#222",
-              //   }}
-              //   transition={{
-              //     duration: 0.3,
-              //     ease: "easeInOut",
-              //   }}
-              //   key="power-off-animation"
-              // />
+              <motion.div
+                className="absolute inset-0 bg-[#D4D4CE] blur-xs"
+                initial={{
+                  height: "100%",
+                  top: "0%",
+                  width: "100%",
+                }}
+                animate={{
+                  height: "0px",
+                  top: "50%",
+                  width: "100%",
+                  color: "#222",
+                }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeInOut",
+                }}
+                key="power-off-animation"
+              />
             )}
 
             <div

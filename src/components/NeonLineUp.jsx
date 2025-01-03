@@ -10,7 +10,7 @@ const NeonLineUp = () => {
           key={index}
           className="rounded-full w-[4px] md:w-[6px] aspect-square bg-[#aba900]"
           animate={{
-            backgroundColor: ["#000", "#aba900", "#aba900", "#000"],
+            backgroundColor: ["#000", "#fff", "#fff", "#000"],
           }}
           transition={{
             delay: 4 + rowIndex * -0.1,

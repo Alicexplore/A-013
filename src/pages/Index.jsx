@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import MetalPlate from "../components/MetalPlate";
-import NeonLineUp from "../components/NeonLineUp";
-import NeonLineUpOff from "../components/NeonLineUpOff";
+// import NeonLineUp from "../components/NeonLineUp";
+// import NeonLineUpOff from "../components/NeonLineUpOff";
 import ButtonsDirections from "../components/ButtonsDirections";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
 import ScrambleTextScreen from "../components/ScrambleTextScreen";
+import Lights from "../components/Lights";
 
 const Index = () => {
   const [pressedStates, setPressedStates] = useState(Array(8).fill(false));
@@ -116,11 +117,19 @@ const Index = () => {
                   },
                 }}
               >
+                {isPowerOn ? (
                 <img
-                  src="./images/LogoHorizontal.svg"
+                  src="./images/LogoHorizontalPower.svg"
                   alt="logo A-013"
                   className="w-[35px] md:w-[45px]"
                 />
+                ):(
+                  <img
+                  src="./images/LogoHorizontalPower.svg"
+                  alt="logo A-013"
+                  className="w-[35px] md:w-[45px]"
+                />
+                )}
               </motion.div>
               {isPowerOn ? (
                 <motion.div
@@ -192,7 +201,7 @@ const Index = () => {
               </motion.div>
             ) : (
               <motion.div
-                className="absolute inset-0 bg-[#D4D4CE] blur-xs"
+                className="absolute inset-0 bg-[#83802b] blur-xs"
                 initial={{
                   height: "100%",
                   top: "0%",
@@ -211,13 +220,21 @@ const Index = () => {
                 key="power-off-animation"
               />
             )}
-
-            <div
+          {isPowerOn? (
+           <div
+           className="font-Roboto absolute inset-0 items-start -right-10 justify-center text-[8px] md:text-[10px] tracking-widest
+         text-[#d9d9d9] pointer-events-none flex z-50 rotate-90"
+         >
+           <h1>FOLIO 2025</h1>
+         </div>
+          ):(
+             <div
               className="font-Roboto absolute inset-0 items-start -right-10 justify-center text-[8px] md:text-[10px] tracking-widest
-            text-[#d9d9d9] pointer-events-none flex z-50 rotate-90"
+            text-[#000] pointer-events-none flex z-50 rotate-90"
             >
-              <h1>FOLIO 25</h1>
+              <h1>FOLIO 2025</h1>
             </div>
+          )}
           </motion.div>
 
           {/* end screen */}
@@ -265,12 +282,42 @@ const Index = () => {
           </div>
 
           <ButtonsDirections />
-
-          <div className="col-span-1 row-span-2 rounded-[4px] md:rounded-md flex items-center justify-center relative">
+          
+          {/* <motion.div
+            className="col-span-1 row-span-2 rounded-[4px] md:rounded-md flex items-center justify-center relative"
+            animate={{
+              backgroundColor: isPowerOn ? "#83802b" : "#333211",
+              boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
+            }}
+            initial={{
+              backgroundColor: isPowerOn ? "#83802b" : "#333211",
+              boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeIn",
+            }}
+          >
+            <div className="absolute inset-0 pointer-events-none">
+              {isPowerOn ? <NeonLineUp /> : <NeonLineUpOff />}
+              {isPowerOn ? (
+              <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/60 to-transparent rounded-md"></div>
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/70 to-transparent rounded-md"></div>
+            )}
+            </div>
+          </motion.div> */}
+          {/* <div className="col-span-1 row-span-2 rounded-[4px] md:rounded-md flex items-center justify-center relative">
             <div className="absolute inset-0 pointer-events-none">
               {isPowerOn ? <NeonLineUp /> : <NeonLineUpOff />}
             </div>
-          </div>
+          </div>  */}
+          
+          {isPowerOn? (
+            <Lights />
+          ):(
+            <Lights />
+          )}
 
           <MetalPlate />
 

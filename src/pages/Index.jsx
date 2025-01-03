@@ -183,7 +183,7 @@ const Index = () => {
                   }}
                 >
                   <h1
-                    className="mt-[60px] sm:mt-[80px] text-[#d9d9d9] blur-xxxs font-Roboto text-[9px] md:text-xs tracking-widest 
+                    className="mt-[60px] sm:mt-[80px] text-[#d9d9d9] font-Roboto text-[9px] md:text-xs tracking-widest 
                     pointer-events-none uppercase"
                   >
                     press menu

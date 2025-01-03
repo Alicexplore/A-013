@@ -30,7 +30,7 @@ const ScrambleTextScreen = ({ text, scrambleDuration = 2.5 }) => {
   }, [text, scrambleDuration]);
 
   return (
-    <h1 className="text-[#d9d9d9] blur-xxxs font-Roboto text-[9px] md:text-xs tracking-widest pointer-events-none">
+    <h1 className="text-[#d9d9d9] font-Roboto text-[9px] md:text-xs tracking-widest pointer-events-none">
       {scrambledText}
     </h1>
   );

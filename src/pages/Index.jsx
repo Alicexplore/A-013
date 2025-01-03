@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-// import ScrambleTextScreen from "../components/ScrambleTextScreen";
 import MetalPlate from "../components/MetalPlate";
 import NeonLineUp from "../components/NeonLineUp";
 import NeonLineUpOff from "../components/NeonLineUpOff";
@@ -8,7 +7,6 @@ import ButtonsDirections from "../components/ButtonsDirections";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
-import MetallicNails from "../components/MetallicNails";
 
 const Index = () => {
   const [pressedStates, setPressedStates] = useState(Array(8).fill(false));
@@ -46,7 +44,6 @@ const Index = () => {
 
   return (
     <div className="h-svh w-full bg-[#D4D4CE] overflow-hidden flex flex-col items-center justify-center relative">
-      <MetallicNails />
       <TextFolio />
       <TextName />
 
@@ -79,17 +76,13 @@ const Index = () => {
 
           <motion.div
             className="col-span-5 row-span-4 rounded-[4px] md:rounded-md relative h-full w-full"
-            initial={{
-              backgroundColor: isPowerOn ? "#83802b" : "#2f2d11",
-              boxShadow: isPowerOn
-                ? "inset -4px -4px 10px #6d6d6d, inset 4px 4px 10px #6d6d6d"
-                : "inset -4px -4px 10px #21230a, inset 4px 4px 10px #21230a",
-            }}
             animate={{
               backgroundColor: isPowerOn ? "#83802b" : "#333211",
-              boxShadow: isPowerOn
-                ? "inset -4px -4px 10px #000, inset 4px 4px 10px #000"
-                : "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
+              boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
+            }}
+            initial={{
+              backgroundColor: isPowerOn ? "#83802b" : "#333211",
+              boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
             }}
             transition={{
               duration: 0.3,
@@ -128,7 +121,7 @@ const Index = () => {
                   className="w-[35px] md:w-[45px]"
                 />
               </motion.div>
-              {isPowerOn ? (
+              {/* {isPowerOn ? (
                 <motion.div
                   className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#fff] blur-xs z-50 shadow-[#a9a9a9] mt-[2px]"
                   key="on-light"
@@ -158,7 +151,7 @@ const Index = () => {
                     },
                   }}
                 />
-              )}
+              )} */}
             </div>
 
             {isPowerOn || pressedStates[0] ? (

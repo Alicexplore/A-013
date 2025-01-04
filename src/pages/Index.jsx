@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import MetalPlate from "../components/MetalPlate";
-// import NeonLineUp from "../components/NeonLineUp";
-// import NeonLineUpOff from "../components/NeonLineUpOff";
 import ButtonsDirections from "../components/ButtonsDirections";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
 import ScrambleTextScreen from "../components/ScrambleTextScreen";
 import Lights from "../components/Lights";
+import LightsPower from "../components/LightsPower";
 
 const Index = () => {
   const [pressedStates, setPressedStates] = useState(Array(8).fill(false));
@@ -78,13 +77,12 @@ const Index = () => {
 
           <motion.div
             className="col-span-5 row-span-4 rounded-[4px] md:rounded-md relative h-full w-full"
+            style={{boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000"}}
             animate={{
               backgroundColor: isPowerOn ? "#83802b" : "#333211",
-              boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
             }}
             initial={{
-              backgroundColor: isPowerOn ? "#83802b" : "#333211",
-              boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
+              backgroundColor: isPowerOn ? "#1b49bc" : "#333211",
             }}
             transition={{
               duration: 0.3,
@@ -125,7 +123,7 @@ const Index = () => {
                 />
                 ):(
                   <img
-                  src="./images/LogoHorizontalPower.svg"
+                  src="./images/LogoHorizontal.svg"
                   alt="logo A-013"
                   className="w-[35px] md:w-[45px]"
                 />
@@ -283,38 +281,8 @@ const Index = () => {
 
           <ButtonsDirections />
           
-          {/* <motion.div
-            className="col-span-1 row-span-2 rounded-[4px] md:rounded-md flex items-center justify-center relative"
-            animate={{
-              backgroundColor: isPowerOn ? "#83802b" : "#333211",
-              boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
-            }}
-            initial={{
-              backgroundColor: isPowerOn ? "#83802b" : "#333211",
-              boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "easeIn",
-            }}
-          >
-            <div className="absolute inset-0 pointer-events-none">
-              {isPowerOn ? <NeonLineUp /> : <NeonLineUpOff />}
-              {isPowerOn ? (
-              <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/60 to-transparent rounded-md"></div>
-            ) : (
-              <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/70 to-transparent rounded-md"></div>
-            )}
-            </div>
-          </motion.div> */}
-          {/* <div className="col-span-1 row-span-2 rounded-[4px] md:rounded-md flex items-center justify-center relative">
-            <div className="absolute inset-0 pointer-events-none">
-              {isPowerOn ? <NeonLineUp /> : <NeonLineUpOff />}
-            </div>
-          </div>  */}
-          
           {isPowerOn? (
-            <Lights />
+            <LightsPower />
           ):(
             <Lights />
           )}

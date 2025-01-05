@@ -8,6 +8,8 @@ import MediaCards from "../components/MediaCards";
 import ScrambleTextScreen from "../components/ScrambleTextScreen";
 import Lights from "../components/Lights";
 import LightsPower from "../components/LightsPower";
+// import NeonLineUp from "../components/NeonLineUp";
+// import NeonLineUpOff from "../components/NeonLineUpOff";
 
 const Index = () => {
   const [pressedStates, setPressedStates] = useState(Array(8).fill(false));
@@ -44,18 +46,18 @@ const Index = () => {
   }, [isPowerOn]);
 
   return (
-    <div className="h-svh w-full bg-[#D4D4CE] overflow-hidden flex flex-col items-center justify-center relative">
+    <div className="h-svh w-full bg-[#222] overflow-hidden flex flex-col items-center justify-center relative">
       <TextFolio />
       <TextName />
 
       <div
         className="flex items-center justify-center rounded-lg md:rounded-xl relative z-10 w-[90%] max-w-[380px] md:max-w-[500px]
-      aspect-[5/6] bg-[#D4D4CE] shadow-[4px_20px_30px_#252420,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#888885] 
-      md:shadow-[6px_35px_30px_#252420,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#888885]"
+      aspect-[5/6] bg-[#222] shadow-[4px_20px_30px_#000,inset_4px_4px_4px_#383838,inset_-4px_-4px_4px_#161616] 
+      md:shadow-[6px_35px_30px_#000,inset_4px_4px_4px_#383838,inset_-4px_-4px_4px_#161616]"
       >
         <div
-          className="absolute inset-[5px] rounded-[7px] sm:rounded-[10px] border-[#fff]/70 border-[2px] border-t-[2px] 
-        border-b-[2px] bg-transparent flex items-center justify-center blur-s"
+          className="absolute inset-[3px] md:inset-[5px] rounded-[7px] sm:rounded-[10px] border-[#fff]/5 md:border-[#fff]/10 border-[2px] border-t-[2px] 
+        border-b-[2px] bg-transparent flex items-center justify-center blur-xs md:blur-s"
         ></div>
 
         <div className="hidden md:block">
@@ -79,10 +81,10 @@ const Index = () => {
             className="col-span-5 row-span-4 rounded-[4px] md:rounded-md relative h-full w-full"
             style={{boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000"}}
             animate={{
-              backgroundColor: isPowerOn ? "#83802b" : "#333211",
+              backgroundColor: isPowerOn ? "#83802b" : "#181708", 
             }}
             initial={{
-              backgroundColor: isPowerOn ? "#1b49bc" : "#333211",
+              backgroundColor: isPowerOn ? "#83802b" : "#29280d",
             }}
             transition={{
               duration: 0.3,
@@ -255,7 +257,7 @@ const Index = () => {
                   ? "inset 2px 2px 5px #412816, inset -2px -2px 5px #412816"
                   : pressedStates[0]
                   ? ""
-                  : "inset 2px 2px 1px #fff, inset -1px -1px 1px #5f5f5f, 5px 5px 8px #222",
+                  : "inset 2px 2px 1px #fff, inset -1px -1px 1px #5f5f5f, 5px 5px 8px #000",
               }}
               transition={{ duration: 0.1, ease: "easeInOut" }}
             >
@@ -270,10 +272,10 @@ const Index = () => {
 
           <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000] cursor-pointer">
             <motion.div
-              className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#d4d4cf] flex items-center justify-center
-            shadow-[inset_2px_2px_1px_#fff,inset_-2px_-2px_1px_#979797,5px_5px_8px_#222]"
+              className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#222] flex items-center justify-center
+            shadow-[inset_2px_2px_1px_#3a3a3a,inset_-2px_-2px_1px_#131313,5px_5px_8px_#000]"
             >
-              <h1 className="text-[#4a4840] font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium">
+              <h1 className="text-[#d4d4ce] font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium">
                 menu
               </h1>
             </motion.div>
@@ -286,13 +288,21 @@ const Index = () => {
           ):(
             <Lights />
           )}
+          {/* <div className="relative col-span-1 row-span-2 w-full h-full">
+            {isPowerOn?(
+              <NeonLineUp />
+            ):(
+              <NeonLineUpOff />
+            )}
+          </div> */}
+         
 
           <MetalPlate />
 
           <div className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000]">
             <motion.div
               className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#d4d4cf] flex items-center justify-center
-            shadow-[inset_2px_2px_1px_#fff,inset_-2px_-2px_1px_#979797,5px_5px_8px_#222] cursor-pointer"
+            shadow-[inset_2px_2px_1px_#fff,inset_-2px_-2px_1px_#979797,5px_5px_8px_#000] cursor-pointer"
             >
               <h1
                 className="text-[#4a4840] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium pointer-events-none 

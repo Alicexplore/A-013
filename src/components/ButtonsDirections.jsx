@@ -21,25 +21,25 @@ const ButtonsDirections = () => {
               animate={{
                 boxShadow: extraPressed
                   ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
-                  : "inset 2px 2px 1px #fff, inset -2px -2px 1px #979797, 5px 5px 8px #222",
+                  : "inset 2px 2px 1px #fff, inset -2px -2px 1px #979797, 5px 5px 8px #000",
               }}
               transition={{ duration: 0.1, ease: "easeInOut" }}
             >
               <ion-icon name="caret-up-outline"></ion-icon>
             </motion.div>
 
-            <div className="col-span-1 bg-[#d4d4cf]">
+            <div className="col-span-1 bg-[#222]">
                 <div className="flex justify-between h-full w-full">
                   {Array(7).fill(null).map((_, index) => (
                     <div
                       key={index}
                       className={`h-full ${
                         index === 0
-                          ? "w-[6px] md:w-[10px] shadow-[inset_-2px_0px_1px_#eeeee8]"
+                          ? "w-[6px] md:w-[10px] shadow-[inset_-2px_0px_1px_#3a3a3a]"
                           : index === 6
-                          ? "w-[6px] md:w-[10px] shadow-[inset_2px_0px_1px_#bcbcb7]"
-                          : "w-[8px] md:w-[12px] shadow-[inset_2px_0px_1px_#bcbcb7,inset_-2px_0px_1px_#eeeee8]"
-                     } bg-[#d4d4cf]`}
+                          ? "w-[6px] md:w-[10px] shadow-[inset_2px_0px_1px_#131313]"
+                          : "w-[8px] md:w-[12px] shadow-[inset_2px_0px_1px_#131313,inset_-2px_0px_1px_#3a3a3a]"
+                     } bg-[#222]`}
                     ></div>
                   ))}
                 </div>
@@ -52,7 +52,7 @@ const ButtonsDirections = () => {
               animate={{
                 boxShadow: extraPressed
                   ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
-                  : "inset 2px 2px 1px #fff, inset -2px -2px 1px #979797, 5px 5px 8px #222",
+                  : "inset 2px 2px 1px #fff, inset -2px -2px 1px #979797, 5px 5px 8px #000",
               }}
               transition={{ duration: 0.1, ease: "easeInOut" }}
             >

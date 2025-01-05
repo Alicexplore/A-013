@@ -3,7 +3,7 @@ import ScrambleText from "./ScrambleText"
 const TextName = () => {
   return (
     <div className="absolute top-5 left-5 sm:top-10 sm:left-10 flex flex-col font-Roboto text-[9px] sm:text-[10.5px] md:text-xs 
-    tracking-widest text-[#222] z-40">
+    tracking-widest text-[#d9d9d9] z-40">
         <div className="pointer-events-none mix-blend-difference">
             <h1>ALICE BERGONHE</h1>
             <h1>FRONTEND DEVELOPER</h1>

@@ -4,7 +4,7 @@ const TextFolio = () => {
   return (
     <div
           className="absolute bottom-5 right-5 md:bottom-5 md:right-10 font-Roboto text-[9px] sm:text-[10.5px] md:text-xs tracking-widest 
-        text-[#222222] mb-0 sm:mb-5 sm:text-left pointer-events-none">
+        text-[#d9d9d9] mb-0 sm:mb-5 sm:text-left pointer-events-none">
           <h1>A-013 / V1.0.0</h1>
           <div className="flex items-baseline">
             <p>FOLIO 2025</p>

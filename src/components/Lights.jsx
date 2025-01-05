@@ -20,8 +20,8 @@ const Lights = () => {
 
   <div className="h-[4px] w-full bg-black"></div>
 </div>
-            <div className="absolute h-full w-full bg-[#D4D4CE]/30 inset-0 rounded-[4px] md:rounded-md">
-                <div className="absolute w-full h-full rounded-[4px] md:rounded-md shadow-[inset_2px_2px_1px_#bcbcbc,inset_-2px_-2px_1px_#979797,_5px_5px_8px_#222] z-10"></div>
+            <div className="absolute h-full w-full bg-[#222]/30 inset-0 rounded-[4px] md:rounded-md">
+                <div className="absolute w-full h-full rounded-[4px] md:rounded-md shadow-[inset_2px_2px_1px_#777,inset_-2px_-2px_1px_#6b6b6b,_5px_5px_8px_#000] z-10"></div>
                 <div className="absolute w-full h-full backdrop-blur-[2px] bg-[#D4D4CE]/30 overflow-hidden rounded-[4px] md:rounded-md"></div>
             </div> 
 

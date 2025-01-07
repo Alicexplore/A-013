@@ -15,7 +15,7 @@ const LightsPower = () => {
         key={index}
         className="relative bg-[#3A3913] rounded-none md:rounded-[1px] w-full h-full border-l-[4px] border-r-[4px] border-black"
           animate={{
-            backgroundColor: ["#3B3A14", "#837f10", "#837f10", "#3B3A14"],
+            backgroundColor: ["#21200b", "#837f10", "#837f10", "#21200b"],
           }}
           transition={{
             delay: 4 + index * -0.1,

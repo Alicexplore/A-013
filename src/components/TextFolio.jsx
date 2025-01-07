@@ -9,7 +9,7 @@ const TextFolio = () => {
           <div className="flex items-baseline">
             <p>FOLIO 2025</p>
             <motion.div
-              className="right-[2px] w-[7px] h-[9px] bg-[#222222] ml-[1px] mt-[3px]"
+              className="right-[2px] w-[5px] md:w-[7px] h-[7px] md:h-[9px] bg-[#d9d9d9] ml-[1px] mt-[3px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 1, 1, 0] }}
               transition={{

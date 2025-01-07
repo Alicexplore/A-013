@@ -8,13 +8,15 @@ import MediaCards from "../components/MediaCards";
 import ScrambleTextScreen from "../components/ScrambleTextScreen";
 import Lights from "../components/Lights";
 import LightsPower from "../components/LightsPower";
-// import NeonLineUp from "../components/NeonLineUp";
-// import NeonLineUpOff from "../components/NeonLineUpOff";
+import SelectButton from "../components/SelectButton";
+import MenuButton from "../components/MenuButton";
+import Sound from "../components/Sound";
 
 const Index = () => {
   const [pressedStates, setPressedStates] = useState(Array(8).fill(false));
   const [extraPressed, setExtraPressed] = useState(false);
   const [isPowerOn, setIsPowerOn] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   const handlePowerPress = () => {
     setIsPowerOn((prevState) => !prevState);
@@ -45,6 +47,10 @@ const Index = () => {
     }
   }, [isPowerOn]);
 
+  useEffect(() => {
+    setIsInitialized(true);
+  }, []);
+
   return (
     <div className="h-svh w-full bg-[#222] overflow-hidden flex flex-col items-center justify-center relative">
       <TextFolio />
@@ -65,15 +71,6 @@ const Index = () => {
         </div>
 
         <div className="grid grid-cols-5 grid-rows-6 w-full h-full gap-[8px] p-[10px] md:p-[14px] relative overflow-hidden">
-          {/* <div
-            className="absolute bottom-20 right-[250px] md:right-[400px] bg-gradient-to-bl from-white/20 to-transparent 
-          pointer-events-none z-50 blur-xs overflow-hidden rounded-md"
-            style={{
-              width: "200%",
-              height: "200%",
-              transform: "rotate(-45deg)",
-            }}
-          /> */}
 
           {/* screen */}
 
@@ -164,62 +161,64 @@ const Index = () => {
             </div>
 
             {isPowerOn || pressedStates[0] ? (
+  <motion.div
+    className="absolute inset-0 flex flex-col items-center justify-center"
+    key="opening-screen"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{
+      opacity: {
+        ease: "linear",
+        delay: 1,
+      },
+    }}
+  >
+    <ScrambleTextScreen
+      text="HELLO MY NAME IS A-013"
+      scrambleDuration={2.5}
+    />
+    <motion.div
+      className="absolute inset-0 flex items-center justify-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: [0, 1, 0] }}
+      transition={{
+        delay: 3.5,
+        duration: 1.5,
+        repeat: Infinity,
+      }}
+    >
+      <h1
+        className="mt-[60px] sm:mt-[80px] text-[#d9d9d9] font-Roboto text-[9px] md:text-xs tracking-widest 
+        pointer-events-none uppercase"
+      >
+        press menu
+      </h1>
+    </motion.div>
+  </motion.div>
+) : (
+  !isPowerOn && isInitialized && (
+    <motion.div
+      className="absolute inset-0 bg-[#83802b] blur-xs"
+      initial={{
+        height: "100%",
+        top: "0%",
+        width: "100%",
+      }}
+      animate={{
+        height: "0px",
+        top: "50%",
+        width: "100%",
+        color: "#222",
+      }}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut",
+      }}
+      key="power-off-animation"
+    />
+  )
+)}
 
-              <motion.div
-                className="absolute inset-0 flex flex-col items-center justify-center"
-                key="opening-screen"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  opacity: {
-                    ease: "linear",
-                    delay: 1,
-                  },
-                }}
-              >
-                <ScrambleTextScreen
-                  text="HELLO MY NAME IS A-013"
-                  scrambleDuration={2.5}
-                />
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{
-                    delay: 3.5,
-                    duration: 1.5,
-                    repeat: Infinity,
-                  }}
-                >
-                  <h1
-                    className="mt-[60px] sm:mt-[80px] text-[#d9d9d9] font-Roboto text-[9px] md:text-xs tracking-widest 
-                    pointer-events-none uppercase"
-                  >
-                    press menu
-                  </h1>
-                </motion.div>
-              </motion.div>
-            ) : (
-              <motion.div
-                className="absolute inset-0 bg-[#83802b] blur-xs"
-                initial={{
-                  height: "100%",
-                  top: "0%",
-                  width: "100%",
-                }}
-                animate={{
-                  height: "0px",
-                  top: "50%",
-                  width: "100%",
-                  color: "#222",
-                }}
-                transition={{
-                  duration: 0.3,
-                  ease: "easeInOut",
-                }}
-                key="power-off-animation"
-              />
-            )}
           {isPowerOn? (
            <div
            className="font-Roboto absolute inset-0 items-start -right-10 justify-center text-[8px] md:text-[10px] tracking-widest
@@ -238,48 +237,48 @@ const Index = () => {
           </motion.div>
 
           {/* end screen */}
+          
+         
+            <Sound /> 
+        
+         
 
-          <div
-            className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000]"
-            onClick={() => {
-              handlePress(0);
-              handlePowerPress();
-            }}
-          >
+          <div className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000]">
+            <div className="absolute inset-[1px] rounded-sm border-[#000]"
+            style={{
+              background:
+                "conic-gradient(from 135deg, #b2a9a9, #b2a8a8, #ffffff, #d7dbd9, #ffffff, #b2a8a8)",
+            }}>
+            <div className="absolute inset-[7px] md:inset-[10px] rounded-sm md:border-[0.5px] border-[#000] bg-[#000]">           
             <motion.div
-              className="absolute inset-[1px] rounded-[4px] md:rounded-md flex items-center justify-center cursor-pointer"
+              className="absolute inset-[1px] rounded-[4px] md:rounded-[5px] flex items-center justify-center cursor-pointer"
+              onClick={() => {
+                handlePress(0);
+                handlePowerPress();
+              }}
               style={{
                 background:
                   "conic-gradient(from 135deg, #b2a9a9, #b2a8a8, #ffffff, #d7dbd9, #ffffff, #b2a8a8)",
               }}
               animate={{
                 boxShadow: extraPressed
-                  ? "inset 2px 2px 5px #412816, inset -2px -2px 5px #412816"
+                  ? "inset 2px 2px 5px #111, inset -2px -2px 5px #111"
                   : pressedStates[0]
                   ? ""
-                  : "inset 2px 2px 1px #fff, inset -1px -1px 1px #5f5f5f, 5px 5px 8px #000",
+                  : "inset 2px 2px 2px #fff, inset -1px -1px 2px #808080, 5px 5px 9px #111",
               }}
-              transition={{ duration: 0.1, ease: "easeInOut" }}
-            >
+              transition={{ duration: 0.1, ease: "easeInOut" }}>
               <h1
                 className="text-[#2e2c0a] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium
-                pointer-events-none uppercase"
-              >
-                power
+                pointer-events-none uppercase">
+            
               </h1>
             </motion.div>
+          </div>
+          </div>
           </div>
 
-          <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000] cursor-pointer">
-            <motion.div
-              className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#222] flex items-center justify-center
-            shadow-[inset_2px_2px_1px_#3a3a3a,inset_-2px_-2px_1px_#131313,5px_5px_8px_#000]"
-            >
-              <h1 className="text-[#d4d4ce] font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium">
-                menu
-              </h1>
-            </motion.div>
-          </div>
+          <MenuButton />
 
           <ButtonsDirections />
           
@@ -288,30 +287,9 @@ const Index = () => {
           ):(
             <Lights />
           )}
-          {/* <div className="relative col-span-1 row-span-2 w-full h-full">
-            {isPowerOn?(
-              <NeonLineUp />
-            ):(
-              <NeonLineUpOff />
-            )}
-          </div> */}
-         
 
           <MetalPlate />
-
-          <div className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000]">
-            <motion.div
-              className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#d4d4cf] flex items-center justify-center
-            shadow-[inset_2px_2px_1px_#fff,inset_-2px_-2px_1px_#979797,5px_5px_8px_#000] cursor-pointer"
-            >
-              <h1
-                className="text-[#4a4840] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium pointer-events-none 
-              uppercase"
-              >
-                select
-              </h1>
-            </motion.div>
-          </div>
+          <SelectButton />
         </div>
       </div>
     </div>

@@ -13,13 +13,13 @@ const MetalPlate = () => {
 
           <div className="flex flex-row justify-between">
 
-          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[1px]
+          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px]
           border-[#494949] flex items-center justify-center rotate-45 relative">
             <div className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
              -translate-y-1/2"></div>
           </div>
 
-          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[1px]
+          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px]
           border-[#494949] flex items-center justify-center rotate-90 relative">
             <div className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
              -translate-y-1/2"></div>
@@ -27,13 +27,13 @@ const MetalPlate = () => {
           </div>
 
           <div className="flex flex-row justify-between">
-          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[1px] 
+          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px] 
           border-[#494949] flex items-center justify-center relative">
             <div className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
              -translate-y-1/2"></div>
           </div>
 
-          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[1px] 
+          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px]
           border-[#494949] flex items-center justify-center -rotate-45 relative">
             <div className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
              -translate-y-1/2"></div>

@@ -14,7 +14,6 @@ The goal? To demonstrate my expertise in **React** and **modern CSS**, while cre
 - **Responsive and fluid design**: Built for an immersive experience across all devices.  
 - **Evolving structure**: A project designed to adapt and improve, showcasing its scalability.  
 
-
 ---
 
 ## Technologies Used

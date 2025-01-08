@@ -8,10 +8,12 @@ This project represents my vision of a neo-futuristic mini-computer designed to 
 **A-013** is a unique interface inspired by a retro-futuristic console.  
 The goal? To demonstrate my expertise in **React** and **modern CSS**, while creating an immersive and visually striking user experience.
 
-Main Features:
-- **Ultra-realistic CSS**: Every element, from the buttons to the cards, has been meticulously designed for a lifelike appearance.
-- **Frontend Interactivity**: Smooth and responsive navigation.
-- **Designed for Growth**: This project is constantly evolving with exciting future improvements!
+### Main Features:  
+- **Ultra-realistic CSS design**: Every element, from buttons to the cards, has been meticulously crafted for a life-like rendering.  
+- **Interactive Frontend Logic**: Complex user interactions, such as the **power button**, seamless transitions, and dynamic element responses, demonstrate a high level of frontend expertise.  
+- **Responsive and fluid design**: Built for an immersive experience across all devices.  
+- **Evolving structure**: A project designed to adapt and improve, showcasing its scalability.  
+
 
 ---
 

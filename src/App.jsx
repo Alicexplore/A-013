@@ -1,10 +1,10 @@
-import Index from "./pages/Index"; 
+import Dashboard from "./pages/Dashboard"; 
 
 function App() {
 
   return (
     <div>      
-      <Index />
+      <Dashboard />
     </div>
   );
 }

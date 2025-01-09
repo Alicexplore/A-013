@@ -1,17 +1,21 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { UseRetroSounds } from "../Hooks/UseRetroSounds";
 
 const ButtonsDirections = () => {
   const [upPressed, setUpPressed] = useState(false);
   const [downPressed, setDownPressed] = useState(false);
+  const { playKeyPressSound } = UseRetroSounds();
 
   const handleUpClick = () => {
     setUpPressed(true);
+    playKeyPressSound();
     setTimeout(() => setUpPressed(false), 200); 
   };
 
   const handleDownClick = () => {
     setDownPressed(true);
+    playKeyPressSound();
     setTimeout(() => setDownPressed(false), 200);
   };
 

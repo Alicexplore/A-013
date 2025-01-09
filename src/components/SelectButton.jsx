@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { UseRetroSounds } from "../Hooks/UseRetroSounds";
 
 const SelectButton = () => {
     const [Pressed, setPressed] = useState(false);
+    const { playEnterSound } = UseRetroSounds();
     
     const handleClick = () => {
     setPressed(true);
+    playEnterSound();
     setTimeout(() => setPressed(false), 200); 
     };
 
@@ -24,7 +27,7 @@ const SelectButton = () => {
         >
             <h1 className="text-[#d4d4ce] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium 
             pointer-events-none uppercase">
-                select
+                enter
             </h1>
         </motion.div>
     </div>

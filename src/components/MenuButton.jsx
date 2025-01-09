@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { UseRetroSounds } from "../Hooks/UseRetroSounds";
 
 const MenuButton = () => {
     const [Pressed, setPressed] = useState(false);
+    const { playMenuSound } = UseRetroSounds();
     
     const handleClick = () => {
     setPressed(true);
+    playMenuSound();
     setTimeout(() => setPressed(false), 200); 
     };
     

@@ -35,7 +35,7 @@ const Dashboard = () => {
         </div>
 
         <div className="grid grid-cols-5 grid-rows-6 w-full h-full gap-[8px] p-[10px] md:p-[14px] relative overflow-hidden">
-          {/* Screen */}
+       
           <motion.div
             className="col-span-5 row-span-4 rounded-[4px] md:rounded-md relative h-full w-full"
             style={{ boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000" }}
@@ -128,8 +128,13 @@ const Dashboard = () => {
               />
             )}
 
-            <div className="font-Roboto absolute inset-0 items-start -right-10 justify-center text-[8px] md:text-[10px] tracking-widest text-[#d9d9d9] pointer-events-none flex z-50 rotate-90">
-              <h1>© 2025</h1>
+            <div className="font-Roboto absolute inset-0 items-start -right-10 justify-center text-[8px] md:text-[10px] 
+            tracking-widest pointer-events-none flex z-50 rotate-90">
+              {isPowerOn?(
+                <h1 className="text-[#d9d9d9]">© 2025</h1>
+              ):(
+                <h1 className="text-black">© 2025</h1>
+              )}
             </div>
           </motion.div>
 

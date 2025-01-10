@@ -5,8 +5,8 @@ const MetalPlate = () => {
       style={{ background: 'conic-gradient(from 135deg, #b2a9a9, #b2a8a8, #ffffff, #d7dbd9, #ffffff, #b2a8a8)' }}> 
         <div className="absolute flex flex-col items-center">
         <h1 className=" font-Roboto text-[#222] text-[8px] md:text-[11px] uppercase">a-013 / v1.0.0</h1>
-        <h2 className="font-Roboto tracking-widest text-[#222] text-[5px] md:text-[7px] uppercase">alice bergonhe / <span className="text-[7px] md:text-[9px]">©</span>2025</h2>
-        <h3 className="font-Roboto tracking-widest text-[#222] text-[5px] md:text-[7px] uppercase">serial number 13051984</h3>
+        <p className="font-Roboto tracking-widest text-[#222] text-[5px] md:text-[7px] uppercase">serial number 13051984</p>
+        <p className="font-Roboto tracking-widest text-[#222] text-[5px] md:text-[7px] uppercase">alice bergonhe / 2025</p>
         </div>
 
         <div className="w-full h-full flex flex-col justify-between p-[3px] md:p-1">

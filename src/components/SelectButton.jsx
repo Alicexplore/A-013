@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { UseRetroSounds } from "../Hooks/UseRetroSounds";
 
-const SelectButton = () => {
+const SelectButton = ({isPowerOn}) => {
     const [Pressed, setPressed] = useState(false);
     const { playEnterSound } = UseRetroSounds();
     
@@ -25,13 +26,25 @@ const SelectButton = () => {
           }}
         transition={{ duration: 0.1, ease: "easeInOut" }}
         >
-            <h1 className="text-[#d4d4ce] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium 
+          {isPowerOn? (
+            <h1 className="text-[#d9d9d9] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium 
             pointer-events-none uppercase">
                 enter
             </h1>
+          ):(
+            <h1 className="text-[#777] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium 
+            pointer-events-none uppercase">
+                enter
+            </h1>
+          )}
+            
         </motion.div>
     </div>
   )
 }
+
+SelectButton.propTypes = {
+  isPowerOn: PropTypes.bool.isRequired,
+};
 
 export default SelectButton

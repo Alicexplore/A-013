@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { UseRetroSounds } from "../Hooks/UseRetroSounds";
 
-const ButtonsDirections = () => {
+const ButtonsDirections = ({isPowerOn}) => {
   const [upPressed, setUpPressed] = useState(false);
   const [downPressed, setDownPressed] = useState(false);
   const { playKeyPressSound } = UseRetroSounds();
@@ -26,8 +27,8 @@ const ButtonsDirections = () => {
           <div className="grid grid-rows-3 h-full w-full gap-[1.5px] md:gap-[2px] bg-[#000]">
            
             <motion.div
-              className="col-span-1 rounded-[4px] md:rounded-md bg-[#222] z-2 flex items-center justify-center 
-              text-lg md:text-2xl text-[#d4d4ce] cursor-pointer"
+              className={`col-span-1 rounded-[4px] md:rounded-md bg-[#222] z-2 flex items-center justify-center 
+                text-lg md:text-2xl cursor-pointer ${ isPowerOn ? "text-[#d9d9d9]" : "text-[#777]"}`}
               onClick={handleUpClick}
               animate={{
                 boxShadow: upPressed
@@ -59,16 +60,15 @@ const ButtonsDirections = () => {
             </div>
            
             <motion.div
-              className="col-span-1 rounded-[4px] md:rounded-md bg-[#222] z-2 flex items-center justify-center 
-              text-lg md:text-2xl text-[#d4d4ce] cursor-pointer"
+              className={`col-span-1 rounded-[4px] md:rounded-md bg-[#222] z-2 flex items-center justify-center 
+                text-lg md:text-2xl cursor-pointer ${ isPowerOn ? "text-[#d9d9d9]" : "text-[#777]"}`}
               onClick={handleDownClick}
               animate={{
                 boxShadow: downPressed
                   ? "inset 2px 2px 5px #111, inset -2px -2px 5px #111"
                   : "inset 2px 2px 1px #3a3a3a, inset -2px -2px 1px #131313, 5px 5px 8px #000",
               }}
-              transition={{ duration: 0.1, ease: "easeInOut" }}
-            >
+              transition={{ duration: 0.1, ease: "easeInOut" }}>
               <ion-icon name="caret-down-outline"></ion-icon>
             </motion.div>
           </div>
@@ -76,6 +76,10 @@ const ButtonsDirections = () => {
       </div>
     </div>
   );
+};
+
+ButtonsDirections.propTypes = {
+  isPowerOn: PropTypes.bool.isRequired,
 };
 
 export default ButtonsDirections;

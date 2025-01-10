@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { UseRetroSounds } from "../Hooks/UseRetroSounds";
 
-const MenuButton = () => {
+const MenuButton = ({isPowerOn}) => {
     const [Pressed, setPressed] = useState(false);
     const { playMenuSound } = UseRetroSounds();
     
@@ -23,12 +24,22 @@ const MenuButton = () => {
               : "inset 2px 2px 1px #3a3a3a, inset -2px -2px 1px #131313, 5px 5px 8px #000",
           }}
         transition={{ duration: 0.1, ease: "easeInOut" }}>
-            <h1 className="text-[#d4d4ce] font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium">
-                menu
+          {isPowerOn ?(
+            <h1 className="text-[#d9d9d9] font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium">
+              menu
             </h1>
+          ):(
+            <h1 className="text-[#777] font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium">
+             menu
+            </h1>
+          )}
         </motion.div>
     </div>
   )
 }
 
-export default MenuButton
+MenuButton.propTypes = {
+  isPowerOn: PropTypes.bool.isRequired,
+};
+
+export default MenuButton;

@@ -15,7 +15,7 @@ const LightsPower = () => {
         key={index}
         className="relative bg-[#3A3913] rounded-none md:rounded-[1px] w-full h-full border-l-[4px] border-r-[4px] border-black"
           animate={{
-            backgroundColor: ["#21200b", "#837f10", "#837f10", "#21200b"],
+            backgroundColor: ["#222", "#fff", "#fff", "#222"],
           }}
           transition={{
             delay: 4 + index * -0.1,
@@ -30,9 +30,9 @@ const LightsPower = () => {
 
   <div className="h-[4px] w-full bg-black"></div>
 </div>
-            <div className="absolute h-full w-full bg-[#D4D4CE]/30 inset-0 rounded-[4px] md:rounded-md">
+            <div className="absolute h-full w-full bg-[#d9d9d9]/30 inset-0 rounded-[4px] md:rounded-md">
                 <div className="absolute w-full h-full rounded-[4px] md:rounded-md shadow-[inset_2px_2px_1px_#afafaf,inset_-2px_-2px_1px_#979797,_5px_5px_8px_#000] z-10"></div>
-                <div className="absolute w-full h-full backdrop-blur-[2px] bg-[#D4D4CE]/30 overflow-hidden rounded-[4px] md:rounded-md"></div>
+                <div className="absolute w-full h-full backdrop-blur-[2px] bg-[#d9d9d9]/30 overflow-hidden rounded-[4px] md:rounded-md"></div>
             </div> 
 
         </div>

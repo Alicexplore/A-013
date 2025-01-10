@@ -40,7 +40,7 @@ const Dashboard = () => {
             className="col-span-5 row-span-4 rounded-[4px] md:rounded-md relative h-full w-full"
             style={{ boxShadow: "inset -4px -4px 10px #000, inset 4px 4px 10px #000" }}
             animate={{
-              backgroundColor: isPowerOn ? "#83802b" : "#181708"
+              backgroundColor: isPowerOn ? "#d9d9d9" : "#222"
             }}
             initial={{
               backgroundColor: isPowerOn ? "#83802b" : "#29280d"
@@ -53,50 +53,55 @@ const Dashboard = () => {
             <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/60 to-transparent rounded-md"></div>
             <div className="absolute inset-0 border-[#000] border-[1px] rounded-md"></div>
 
-            <div className="font-Roboto absolute inset-0 items-start right-10 justify-center text-[8px] md:text-[10px] tracking-widest text-[#d9d9d9] pointer-events-none flex flex-row z-50 gap-[10px] -rotate-90">
-              <motion.img
-                src="./images/LogoHorizontalPower.svg"
-                alt="logo A-013 (Power On)"
-                className="absolute w-[35px] md:w-[45px]"
-                initial={{ opacity: isPowerOn ? 1 : 0 }}
-                animate={{ opacity: isPowerOn ? 1 : 0 }}
-                transition={{
-                  opacity: { duration: 0.5, ease: "easeInOut" }
-                }}
-              />
-              <motion.img
-                src="./images/LogoHorizontal.svg"
-                alt="logo A-013 (Power Off)"
-                className="absolute w-[35px] md:w-[45px]"
-                initial={{ opacity: isPowerOn ? 0 : 1 }}
-                animate={{ opacity: isPowerOn ? 0 : 1 }}
-                transition={{
-                  opacity: { duration: 0.5, ease: "easeInOut" }
-                }}
-              />
-
+            <div className="font-Roboto absolute inset-0 flex items-start right-10 justify-center text-[8px] md:text-[10px] 
+            tracking-widest text-[#d9d9d9] pointer-events-none z-50 gap-[10px] -rotate-90">
               {isPowerOn ? (
-                <motion.div
-                  className="absolute rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#fff] blur-xs z-50 shadow-[0px_0px_6px_#fff] mt-[2px]"
-                  key="on-light"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                <motion.img
+                  src="./images/LogoHorizontalPower.svg"
+                  alt="logo A-013 (Power On)"
+                  className="w-[35px] md:w-[45px]"
+                  initial={{ opacity: isPowerOn ? 1 : 0 }}
+                  animate={{ opacity: isPowerOn ? 1 : 0 }}
                   transition={{
-                    opacity: { duration: 0, delay: 0.25, ease: "easeInOut" }
-                  }}
-                />
+                     opacity: { duration: 0.5, ease: "easeInOut" },
+                   }}
+                 />
               ) : (
-                <motion.div
-                  className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#000] z-50 mt-[2px]"
-                  key="off-light"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{
-                    opacity: { duration: 0.5, delay: 0.25, ease: "easeInOut" }
-                  }}
+                 <motion.img
+                   src="./images/LogoHorizontal.svg"
+                   alt="logo A-013 (Power Off)"
+                   className="w-[35px] md:w-[45px]"
+                   initial={{ opacity: isPowerOn ? 0 : 1 }}
+                   animate={{ opacity: isPowerOn ? 0 : 1 }}
+                   transition={{
+                     opacity: { duration: 0.5, ease: "easeInOut" },
+                   }}
                 />
               )}
+
+                {isPowerOn ? (
+                  <motion.div
+                    className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#fff] blur-xs z-50 shadow-[0px_0px_6px_#fff]"
+                    key="on-light"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                       opacity: { duration: 0, delay: 0.25, ease: "easeInOut" },
+                    }}
+                  />
+                ) : (
+                  <motion.div
+                     className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#000] z-50"
+                     key="off-light"
+                     initial={{ opacity: 0 }}
+                     animate={{ opacity: 1 }}
+                     transition={{
+                      opacity: { duration: 0.5, delay: 0.25, ease: "easeInOut" },
+                    }}
+                  />
+                )}
             </div>
+
 
             {isPowerOn ? (
               <motion.div
@@ -128,14 +133,14 @@ const Dashboard = () => {
               />
             )}
 
-            <div className="font-Roboto absolute inset-0 items-start -right-10 justify-center text-[8px] md:text-[10px] 
+            {/* <div className="font-Roboto absolute inset-0 items-start -right-10 justify-center text-[8px] md:text-[10px] 
             tracking-widest pointer-events-none flex z-50 rotate-90">
               {isPowerOn?(
                 <h1 className="text-[#d9d9d9]">© 2025</h1>
               ):(
                 <h1 className="text-black">© 2025</h1>
               )}
-            </div>
+            </div> */}
           </motion.div>
 
           <Sound />

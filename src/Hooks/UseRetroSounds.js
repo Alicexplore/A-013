@@ -8,7 +8,7 @@ export const UseRetroSounds = () => {
   }));
 
   const [shutDownSound] = useState(new Howl({
-    src: ['./sounds/Off.mp3'],
+    src: ['./sounds/theEnd.mp3'],
     volume: 0.2,
   }));
   

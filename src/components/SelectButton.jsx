@@ -32,7 +32,7 @@ const SelectButton = ({isPowerOn}) => {
                 enter
             </h1>
           ):(
-            <h1 className="text-[#777] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium 
+            <h1 className="text-[#555] font-Roboto tracking-widest text-[8px] md:text-[11px] font-medium 
             pointer-events-none uppercase">
                 enter
             </h1>

@@ -28,7 +28,7 @@ const ButtonsDirections = ({isPowerOn}) => {
            
             <motion.div
               className={`col-span-1 rounded-[4px] md:rounded-md bg-[#222] z-2 flex items-center justify-center 
-                text-lg md:text-2xl cursor-pointer ${ isPowerOn ? "text-[#d9d9d9]" : "text-[#777]"}`}
+                text-lg md:text-2xl cursor-pointer ${ isPowerOn ? "text-[#d9d9d9]" : "text-[#555]"}`}
               onClick={handleUpClick}
               animate={{
                 boxShadow: upPressed
@@ -61,7 +61,7 @@ const ButtonsDirections = ({isPowerOn}) => {
            
             <motion.div
               className={`col-span-1 rounded-[4px] md:rounded-md bg-[#222] z-2 flex items-center justify-center 
-                text-lg md:text-2xl cursor-pointer ${ isPowerOn ? "text-[#d9d9d9]" : "text-[#777]"}`}
+                text-lg md:text-2xl cursor-pointer ${ isPowerOn ? "text-[#d9d9d9]" : "text-[#555]"}`}
               onClick={handleDownClick}
               animate={{
                 boxShadow: downPressed

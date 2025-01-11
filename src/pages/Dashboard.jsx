@@ -14,6 +14,7 @@ import MenuButton from "../components/MenuButton";
 import Sound from "../components/Sound";
 import PowerButton from "../components/PowerButton";
 
+
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(false);
 
@@ -22,7 +23,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="h-svh w-full bg-[#222] overflow-hidden flex flex-col items-center justify-center relative">
+    <div className="h-svh w-full bg-[#222] overflow-hidden flex flex-col items-center justify-center relative background">
       
       <TextName />
       <TextFolio />
@@ -45,21 +46,21 @@ const Dashboard = () => {
             className="col-span-5 row-span-4 rounded-[4px] md:rounded-md relative h-full w-full"
             style={{
               boxShadow: isPowerOn
-                ? "inset -4px -4px 10px #222, inset 4px 4px 10px #222"
-                : "inset -4px -4px 10px #000, inset 4px 4px 10px #000",
+                ? "inset -4px -4px 8px #000, inset 4px 4px 8px #000"
+                : "inset -4px -4px 8px #000, inset 4px 4px 8px #000",
             }}
             animate={{
-              backgroundColor: isPowerOn ? "#d9d9d9" : "#222"
+              backgroundColor: isPowerOn ? "#262626" : "#222"
             }}
             initial={{
-              backgroundColor: isPowerOn ? "#d9d9d9" : "#222"
+              backgroundColor: isPowerOn ? "#222" : "#222"
             }}
             transition={{
               duration: 0.3,
               ease: "easeIn"
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/60 to-transparent rounded-[4px] md:rounded-md"></div>
+            <div className="absolute inset-0 bg-gradient-to-tl from-[#111]/70 to-transparent rounded-[4px] md:rounded-md"></div>
             <div className="absolute inset-0 border-[#000] border-[0.5px] md:border-[1px] rounded-[4px] md:rounded-md">
 
             </div>

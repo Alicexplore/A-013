@@ -2,7 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.background {
-    background-image: url(./images/concrete-wall.png);
-}
-  

@@ -22,7 +22,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="h-svh w-full bg-[#222] overflow-hidden flex flex-col items-center justify-center relative background">
+    <div className="h-svh w-full bg-[#222] overflow-hidden flex flex-col items-center justify-center relative">
       <TextName />
       <TextFolio />
 

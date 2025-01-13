@@ -153,9 +153,7 @@ const Dashboard = () => {
           </motion.div>
 
           <Sound />
-
           <PowerButton handlePowerPress={handlePowerPress} isPowerOn={isPowerOn} />
-
           <MenuButton isPowerOn={isPowerOn} />
           <ButtonsDirections isPowerOn={isPowerOn} />
           {isPowerOn ? <LightsPower /> : <Lights />}

@@ -75,10 +75,10 @@ const Dashboard = () => {
                     opacity: { duration: 0, delay: 0.25, ease: "easeInOut" },
                   }}>
                   <div className="flex flex-row items-center gap-2 md:gap-3">
-                    <div className="text-[#d9d9d9] text-[16px] md:text-[24px] mt-[4px] md:mt-[6px] blur-xxxs">
+                    <div className="text-[#d9d9d9] text-[16px] md:text-[24px] mt-[4px] md:mt-[6px]">
                     <ion-icon name="battery-full-sharp"></ion-icon>
                     </div>
-                    <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#d9d9d9] blur-xs z-50 
+                    <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#d9d9d9]  z-50 
                     shadow-[0px_0px_6px_#d9d9d9]"></div>
                   </div>                 
                 </motion.div>
@@ -91,8 +91,8 @@ const Dashboard = () => {
                   transition={{
                     opacity: { duration: 0.5, delay: 0.25, ease: "easeInOut" },
                   }}>
-                    <div className="flex flex-row items-center gap-3">
-                    <div className="text-[#373737] md:text-[24px] mt-[6px]">
+                    <div className="flex flex-row items-center gap-2 md:gap-3">
+                    <div className="text-[#373737] text-[16px] md:text-[24px] mt-[4px] md:mt-[6px]">
                     <ion-icon name="battery-full-sharp"></ion-icon>
                     </div>
                     <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#373737] z-50"></div>

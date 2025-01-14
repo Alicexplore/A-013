@@ -1,7 +1,7 @@
 const MetalPlate = () => {
   return (
-    <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] rounded-bl-xl bg-[#000] pointer-events-none">
-      <div className="absolute inset-[1px] rounded-sm rounded-bl-[10px] flex items-center justify-center"
+    <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] rounded-bl-lg border-[#000] bg-[#000] pointer-events-none">
+      <div className="absolute inset-[1px] rounded-sm rounded-bl-md flex items-center justify-center"
       style={{ background: 'conic-gradient(from 135deg, #b2a9a9, #b2a8a8, #ffffff, #d7dbd9, #ffffff, #b2a8a8)' }}> 
         <div className="absolute flex flex-col items-center">
         <h1 className=" font-Roboto text-[#222] text-[8px] md:text-[11px] uppercase">a-013 / v1.0.0</h1>

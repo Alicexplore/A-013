@@ -10,13 +10,17 @@ const ButtonsDirections = ({isPowerOn}) => {
 
   const handleUpClick = () => {
     setUpPressed(true);
-    playKeyPressSound();
+    if (isPowerOn) {
+      playKeyPressSound();
+    }
     setTimeout(() => setUpPressed(false), 200); 
   };
 
   const handleDownClick = () => {
     setDownPressed(true);
-    playKeyPressSound();
+    if (isPowerOn) {
+      playKeyPressSound();
+    }
     setTimeout(() => setDownPressed(false), 200);
   };
 
@@ -27,20 +31,22 @@ const ButtonsDirections = ({isPowerOn}) => {
           <div className="grid grid-rows-3 h-full w-full gap-[1.5px] md:gap-[2px] bg-[#000]">
            
             <motion.div
-              className={`col-span-1 rounded-[4px] md:rounded-md bg-[#222] z-2 flex items-center justify-center 
-                text-lg md:text-2xl cursor-pointer ${ isPowerOn ? "text-[#d9d9d9]" : "text-[#555]"}`}
+              className="col-span-1 rounded-[4px] md:rounded-md bg-[#d9d9d9] z-2 flex items-center justify-center cursor-pointer"
               onClick={handleUpClick}
               animate={{
                 boxShadow: upPressed
-                  ? "inset 2px 2px 5px #111, inset -2px -2px 5px #111"
-                  : "inset 2px 2px 1px #3a3a3a, inset -2px -2px 1px #131313, 5px 5px 8px #000",
+                  ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
+                  : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #000",
               }}
               transition={{ duration: 0.1, ease: "easeInOut" }}
             >
-              <ion-icon name="caret-up-outline"></ion-icon>
+              <span className={`text-lg md:text-2xl flex items-center justify-center cursor-pointer transition duration-700
+            ${ isPowerOn ? "text-[#222] opacity-100" : "text-transparent opacity-0 pointer-events-none"}`}>
+                <ion-icon name="caret-up-outline"></ion-icon>
+              </span>
             </motion.div>
            
-            <div className="col-span-1 bg-[#222]">
+            <div className="col-span-1 bg-[#d9d9d9]">
               <div className="flex justify-between h-full w-full">
                 {Array(7)
                   .fill(null)
@@ -49,27 +55,29 @@ const ButtonsDirections = ({isPowerOn}) => {
                       key={index}
                       className={`h-full ${
                         index === 0
-                          ? "w-[6px] md:w-[10px] shadow-[inset_-2px_0px_1px_#3a3a3a]"
+                          ? "w-[6px] md:w-[10px] shadow-[inset_-2px_0px_1px_#fff]"
                           : index === 6
-                          ? "w-[6px] md:w-[10px] shadow-[inset_2px_0px_1px_#131313]"
-                          : "w-[8px] md:w-[12px] shadow-[inset_2px_0px_1px_#131313,inset_-2px_0px_1px_#3a3a3a]"
-                      } bg-[#222]`}
+                          ? "w-[6px] md:w-[10px] shadow-[inset_2px_0px_1px_#939393]"
+                          : "w-[8px] md:w-[12px] shadow-[inset_2px_0px_1px_#939393,inset_-2px_0px_1px_#fff]"
+                      } bg-[#d9d9d9]`}
                     ></div>
                   ))}
               </div>
             </div>
            
             <motion.div
-              className={`col-span-1 rounded-[4px] md:rounded-md bg-[#222] z-2 flex items-center justify-center 
-                text-lg md:text-2xl cursor-pointer ${ isPowerOn ? "text-[#d9d9d9]" : "text-[#555]"}`}
+              className="col-span-1 rounded-[4px] md:rounded-md bg-[#d9d9d9] z-2 flex items-center justify-center cursor-pointer"
               onClick={handleDownClick}
               animate={{
                 boxShadow: downPressed
-                  ? "inset 2px 2px 5px #111, inset -2px -2px 5px #111"
-                  : "inset 2px 2px 1px #3a3a3a, inset -2px -2px 1px #131313, 5px 5px 8px #000",
+                  ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
+                  : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #000",
               }}
               transition={{ duration: 0.1, ease: "easeInOut" }}>
-              <ion-icon name="caret-down-outline"></ion-icon>
+                <span className={`text-lg md:text-2xl flex items-center justify-center cursor-pointer transition duration-700
+              ${ isPowerOn ? "text-[#222] opacity-100" : "text-transparent opacity-0 pointer-events-none"}`}>
+                <ion-icon name="caret-down-outline"></ion-icon>
+              </span>
             </motion.div>
           </div>
         </div>

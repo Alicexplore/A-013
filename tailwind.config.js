@@ -38,6 +38,7 @@ export default {
         27: '27',
         28: '28',
         29: '29',
+        100: '100',
       },
       gridTemplateColumns: {
         35: 'repeat(35, minmax(0, 1fr))', 

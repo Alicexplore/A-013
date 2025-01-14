@@ -16,7 +16,7 @@ const PowerButton = ({ handlePowerPress }) => {
         playShutDownSound();
     }
     setPressed(true);
-    setTimeout(() => setPressed(false), 200);
+    setTimeout(() => setPressed(false), 150);
     setIsOn((prevState) => !prevState);
     handlePowerPress();
   };

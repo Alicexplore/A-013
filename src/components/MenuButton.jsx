@@ -12,7 +12,7 @@ const MenuButton = ({isPowerOn}) => {
     if (isPowerOn) {
       playMenuSound();
     }
-    setTimeout(() => setPressed(false), 200); 
+    setTimeout(() => setPressed(false), 150); 
     };
     
   return (

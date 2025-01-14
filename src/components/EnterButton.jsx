@@ -12,7 +12,7 @@ const EnterButton = ({isPowerOn}) => {
     if (isPowerOn) {
       playEnterSound();
     }
-    setTimeout(() => setPressed(false), 200); 
+    setTimeout(() => setPressed(false), 150); 
     };
 
   return (

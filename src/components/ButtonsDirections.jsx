@@ -41,7 +41,7 @@ const ButtonsDirections = ({isPowerOn}) => {
               transition={{ duration: 0.1, ease: "easeInOut" }}
             >
               <span className={`text-lg md:text-2xl flex items-center justify-center cursor-pointer transition duration-700
-            ${ isPowerOn ? "text-[#222] opacity-100" : "text-transparent opacity-0 pointer-events-none"}`}>
+            ${ isPowerOn ? "text-[#222] opacity-100" : "text-[#222] opacity-100 pointer-events-none"}`}>
                 <ion-icon name="caret-up-outline"></ion-icon>
               </span>
             </motion.div>
@@ -75,7 +75,7 @@ const ButtonsDirections = ({isPowerOn}) => {
               }}
               transition={{ duration: 0.1, ease: "easeInOut" }}>
                 <span className={`text-lg md:text-2xl flex items-center justify-center cursor-pointer transition duration-700
-              ${ isPowerOn ? "text-[#222] opacity-100" : "text-transparent opacity-0 pointer-events-none"}`}>
+              ${ isPowerOn ? "text-[#222] opacity-100" : "text-[#222] opacity-100 pointer-events-none"}`}>
                 <ion-icon name="caret-down-outline"></ion-icon>
               </span>
             </motion.div>

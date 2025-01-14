@@ -29,7 +29,7 @@ const EnterButton = ({isPowerOn}) => {
         >
             <h1 className={`font-Roboto tracking-widest text-[8px] md:text-[11px]
             pointer-events-none uppercase transition duration-700
-            ${ isPowerOn ? "text-[#222] opacity-100" : "text-transparent opacity-0 pointer-events-none"}`}>
+            ${ isPowerOn ? "text-[#222] opacity-100" : "text-[#222] opacity-100 pointer-events-none"}`}>
                 enter
             </h1>           
         </motion.div>

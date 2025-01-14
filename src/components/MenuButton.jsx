@@ -27,7 +27,7 @@ const MenuButton = ({isPowerOn}) => {
           }}
         transition={{ duration: 0.1, ease: "easeInOut" }}>     
             <h1 className={`"font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium transition duration-700
-            ${ isPowerOn ? "text-[#222] opacity-100" : "text-transparent opacity-0 pointer-events-none"}`}>
+            ${ isPowerOn ? "text-[#222] opacity-100" : "text-[#222] opacity-100 pointer-events-none"}`}>
               menu
             </h1>
         </motion.div>

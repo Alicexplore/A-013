@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const LightsPower = () => {
   return (
     <div className="col-span-1 row-span-2 flex items-center justify-center">
-      <div className="w-full h-full relative flex items-center bg-black border-[0.5px] md:border-[1px] border-black">
+      <div className="w-full h-full relative flex items-center rounded-br-lg bg-black border-[0.5px] md:border-[1px] border-black">
         <div className="absolute inset-[1px] bg-black rounded-sm">
         <div className="relative h-full w-full bg-black flex flex-col">
 

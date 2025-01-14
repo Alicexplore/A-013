@@ -7,14 +7,14 @@ const MediaCards = () => {
     
     <div className="rotate-[-20deg]">
     <motion.div
-      className="relative w-[45px] h-[55px] md:w-[60px] md:h-[75px] bg-[#2e2e2e] rounded-[3px] md:rounded-[4px] cursor-pointer"
+      className="relative w-[45px] h-[55px] md:w-[60px] md:h-[75px] bg-[#d9d9d9] rounded-[3px] md:rounded-[4px] cursor-pointer"
       initial={{
         scale: 1,
-        boxShadow: "2px 2px 8px #000, inset 1px 1px 2px #3b3b3b, inset -2px -2px 2px #131313",
+        boxShadow: "2px 2px 8px #333, inset 1px 1px 2px #fff, inset -2px -2px 2px #939393",
       }}
       whileHover={{
         scale: 1.1,
-        boxShadow: "6px 6px 15px #000, inset 1px 1px 3px #3b3b3b, inset -3px -3px 3px #131313",
+        boxShadow: "6px 6px 15px #333, inset 1px 1px 3px #fff, inset -3px -3px 3px #939393",
       }}
       transition={{
         duration: 0.6, 
@@ -22,12 +22,12 @@ const MediaCards = () => {
       }}>
         <div className="absolute inset-[1px] md:inset-[2px] border-[#fff]/40 border-l-[0.5px] border-t-[0.5px] 
         rounded-[2px] md:rounded-[3px] blur-xxs md:blur-xs"></div>
-        {/* <div className="absolute inset\-[3px] md:inset-[5px] border-[#4b4b4b] border-[0.5px] rounded-[1px] md:rounded-[2px]"></div> */}
+        <div className="absolute inset-[3px] md:inset-[5px] border-[#fff] border-[0.5px] rounded-[1px] md:rounded-[2px]"></div> 
 
         <div className="absolute w-full h-full grid grid-rows-2">
             <div className="row-span-1 flex items-center justify-center">
-                <div className="w-2/3 h-full bg-[#D4D4CE] flex items-end justify-center rounded-b-[2px] md:rounded-b-[4px]
-                shadow-[inset_0_3px_3px_#fff,1px_1px_2px_#000]">
+                <div className="w-2/3 h-full bg-[#fff] flex items-end justify-center rounded-b-[2px] md:rounded-b-[4px]
+                shadow-[1px_1px_2px_#555]">
                     <span className="font-Roboto tracking-widest text-[4px] md:text-[6px] text-[#222] uppercase mb-1">linkedin</span> 
                 </div>
             </div>
@@ -51,14 +51,14 @@ const MediaCards = () => {
 
     <div className="rotate-[10deg]">
     <motion.div
-      className="relative w-[45px] h-[55px] md:w-[60px] md:h-[75px] bg-[#2e2e2e] rounded-[3px] md:rounded-[4px] cursor-pointer"
+      className="relative w-[45px] h-[55px] md:w-[60px] md:h-[75px] bg-[#d9d9d9] rounded-[3px] md:rounded-[4px] cursor-pointer"
       initial={{
         scale: 1,
-        boxShadow: "2px 2px 8px #000, inset 1px 1px 2px #3b3b3b, inset -2px -2px 2px #131313",
+        boxShadow: "2px 2px 8px #333, inset 1px 1px 2px #fff, inset -2px -2px 2px #939393",
       }}
       whileHover={{
         scale: 1.1,
-        boxShadow: "6px 6px 15px #000, inset 1px 1px 3px #3b3b3b, inset -3px -3px 3px #131313",
+        boxShadow: "6px 6px 15px #333, inset 1px 1px 3px #fff, inset -3px -3px 3px #939393",
       }}
       transition={{
         duration: 0.6, 
@@ -66,12 +66,12 @@ const MediaCards = () => {
       }}>
         <div className="absolute inset-[1px] md:inset-[2px] border-[#fff]/40 border-l-[0.5px] border-t-[0.5px] 
         rounded-[2px] md:rounded-[3px] blur-xxs md:blur-xs"></div>
-        {/* <div className="absolute inset\-[3px] md:inset-[5px] border-[#4b4b4b] border-[0.5px] rounded-[1px] md:rounded-[2px]"></div> */}
+        <div className="absolute inset-[3px] md:inset-[5px] border-[#fff] border-[0.5px] rounded-[1px] md:rounded-[2px]"></div> 
 
         <div className="absolute w-full h-full grid grid-rows-2">
             <div className="row-span-1 flex items-center justify-center">
-                <div className="w-2/3 h-full bg-[#D4D4CE] flex items-end justify-center rounded-b-[2px] md:rounded-b-[4px]
-                shadow-[inset_0_3px_3px_#fff,1px_1px_2px_#000]">
+                <div className="w-2/3 h-full bg-[#fff] flex items-end justify-center rounded-b-[2px] md:rounded-b-[4px]
+                shadow-[1px_1px_2px_#555]">
                     <span className="font-Roboto tracking-widest text-[4px] md:text-[6px] text-[#222] uppercase mb-1">github</span> 
                 </div>
             </div>

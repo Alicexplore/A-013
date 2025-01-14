@@ -69,7 +69,7 @@ const LoadingBar = () => {
       <div className="absolute bottom-5 w-full px-10">
         <div className="relative h-4 w-full bg-transparent">
           <motion.div
-            className="h-[6px] bg-[#d9d9d9] blur-xxxs rounded-lg"
+            className="h-[6px] bg-[#d9d9d9] rounded-lg"
             initial={{ opacity: 0, width: "0%" }}
             animate={controls}
           />

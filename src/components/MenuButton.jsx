@@ -23,7 +23,7 @@ const MenuButton = ({isPowerOn}) => {
         animate={{
             boxShadow: Pressed
               ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
-              : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #000",
+              : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #222",
           }}
         transition={{ duration: 0.1, ease: "easeInOut" }}>     
             <h1 className={`"font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium transition duration-700

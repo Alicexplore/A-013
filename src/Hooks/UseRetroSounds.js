@@ -3,8 +3,8 @@ import { Howl } from "howler";
 
 export const UseRetroSounds = () => {
   const [powerSound] = useState(new Howl({
-    src: ['./sounds/Open.mp3'],
-    volume: 0.8,
+    src: ['./sounds/theEnd.mp3'],
+    volume: 0.2,
   }));
 
   const [shutDownSound] = useState(new Howl({

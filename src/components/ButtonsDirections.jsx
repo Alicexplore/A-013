@@ -10,17 +10,13 @@ const ButtonsDirections = ({isPowerOn}) => {
 
   const handleUpClick = () => {
     setUpPressed(true);
-    if (isPowerOn) {
       playKeyPressSound();
-    }
     setTimeout(() => setUpPressed(false), 150); 
   };
 
   const handleDownClick = () => {
     setDownPressed(true);
-    if (isPowerOn) {
       playKeyPressSound();
-    }
     setTimeout(() => setDownPressed(false), 150);
   };
 

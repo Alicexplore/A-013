@@ -9,9 +9,7 @@ const EnterButton = ({isPowerOn}) => {
     
     const handleClick = () => {
     setPressed(true);
-    if (isPowerOn) {
       playEnterSound();
-    }
     setTimeout(() => setPressed(false), 150); 
     };
 

@@ -9,9 +9,7 @@ const MenuButton = ({isPowerOn}) => {
     
     const handleClick = () => {
     setPressed(true);
-    if (isPowerOn) {
       playMenuSound();
-    }
     setTimeout(() => setPressed(false), 150); 
     };
     

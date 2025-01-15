@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import MetalPlate from "../components/MetalPlate";
@@ -6,7 +6,6 @@ import ButtonsDirections from "../components/ButtonsDirections";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
-// import ScrambleTextScreen from "../components/ScrambleTextScreen";
 import Lights from "../components/Lights";
 import LightsPower from "../components/LightsPower";
 import EnterButton from "../components/EnterButton";
@@ -16,11 +15,23 @@ import PowerButton from "../components/PowerButton";
 import LoadingBar from "../components/LoadingBar";
 
 const Dashboard = () => {
-  const [isPowerOn, setIsPowerOn] = useState(false);
-
+  const [isPowerOn, setIsPowerOn] = useState(() => {
+ 
+    return localStorage.getItem("isPowerOn") === "true";
+  });
+  const [isInitialized, setIsInitialized] = useState(false); 
   const handlePowerPress = () => {
-    setIsPowerOn((prevState) => !prevState);
+    setIsPowerOn((prevState) => {
+      const newState = !prevState;
+      localStorage.setItem("isPowerOn", newState);
+      return newState;
+    });
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsInitialized(true), 500); 
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <div className="h-svh w-full bg-[#d9d9d9] overflow-hidden flex flex-col items-center justify-center relative">
@@ -103,43 +114,33 @@ const Dashboard = () => {
             </div>
             
 
-            {isPowerOn ? (
-              <motion.div
-              className="absolute inset-0 flex flex-col items-center justify-center"
-              key="opening-screen"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ opacity: { ease: "linear", delay: 1 } }}>
-                <LoadingBar />
-              </motion.div>
-              // <motion.div
-              //   className="absolute inset-0 flex flex-col items-center justify-center"
-              //   key="opening-screen"
-              //   initial={{ opacity: 0 }}
-              //   animate={{ opacity: 1 }}
-              //   transition={{ opacity: { ease: "linear", delay: 1 } }}>
-              //   <ScrambleTextScreen
-              //     text="HELLO MY NAME IS A-013"
-              //     scrambleDuration={2.5}
-              //   />
-              //   <motion.div
-              //     className="absolute inset-0 flex items-center justify-center"
-              //     initial={{ opacity: 0 }}
-              //     animate={{ opacity: [0, 1, 0] }}
-              //     transition={{ delay: 3.5, duration: 1.5, repeat: Infinity }}>
-              //     <h1 className="mt-[60px] sm:mt-[80px] text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest 
-              //     pointer-events-none uppercase">press menu</h1>
-              //   </motion.div>
-              // </motion.div>
-            ) : (
-              <motion.div
-                className="absolute inset-0 bg-[#d9d9d9] blur-xs"
-                initial={{ height: "100%", top: "0%", width: "100%" }}
-                animate={{ height: "0px", top: "50%", width: "100%", color: "#222" }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                key="power-off-animation"
-              />
-            )}
+            <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInitialized ? 1 : 0 }} 
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
+        {isPowerOn ? (
+          <motion.div
+            className="absolute inset-0 flex flex-col items-center justify-center"
+            key="opening-screen"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ opacity: { ease: "linear", delay: 1 } }}
+          >
+            <LoadingBar />
+          </motion.div>
+        ) : (
+          <motion.div
+            className="absolute inset-0 bg-[#d9d9d9] blur-xs"
+            initial={{ height: "100%", top: "0%", width: "100%" }}
+            animate={{ height: "0px", top: "50%", width: "100%", color: "#222" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            key="power-off-animation"
+          />
+        )}
+      </motion.div>
+
           </motion.div>
 
           <Sound />

@@ -16,10 +16,11 @@ import LoadingBar from "../components/LoadingBar";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(() => {
- 
     return localStorage.getItem("isPowerOn") === "true";
   });
+
   const [isInitialized, setIsInitialized] = useState(false); 
+
   const handlePowerPress = () => {
     setIsPowerOn((prevState) => {
       const newState = !prevState;
@@ -144,12 +145,12 @@ const Dashboard = () => {
           </motion.div>
 
           <Sound />
-          <PowerButton handlePowerPress={handlePowerPress} isPowerOn={isPowerOn} />
-          <MenuButton isPowerOn={isPowerOn} />
-          <ButtonsDirections isPowerOn={isPowerOn} />
+          <PowerButton handlePowerPress={handlePowerPress} isPowerOn={isPowerOn} isInitialized={isInitialized} />
+          <MenuButton isPowerOn={isPowerOn} isInitialized={isInitialized} />
+          <ButtonsDirections isPowerOn={isPowerOn} isInitialized={isInitialized} />
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />
-          <EnterButton isPowerOn={isPowerOn} />
+          <EnterButton isPowerOn={isPowerOn} isInitialized={isInitialized} />
         </div>
       </div>
     </div>

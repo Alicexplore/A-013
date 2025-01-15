@@ -3,22 +3,19 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { UseRetroSounds } from "../Hooks/UseRetroSounds";
 
-const PowerButton = ({ handlePowerPress }) => {
+const PowerButton = ({ handlePowerPress, isPowerOn }) => {
   const [Pressed, setPressed] = useState(false);
-  const [isOn, setIsOn] = useState(false);
-  const { playPowerSound } = UseRetroSounds();
-  const { playShutDownSound } = UseRetroSounds();
+  const { playPowerSound, playShutDownSound } = UseRetroSounds();
 
   const handleClick = () => {
-    if (!isOn) {
-        playPowerSound(); 
+    if (!isPowerOn) {
+      playPowerSound(); 
     } else {
-        playShutDownSound();
+      playShutDownSound(); 
     }
     setPressed(true);
-    setTimeout(() => setPressed(false), 150);
-    setIsOn((prevState) => !prevState);
-    handlePowerPress();
+    setTimeout(() => setPressed(false), 150); 
+    handlePowerPress(); 
   };
 
   return (
@@ -41,9 +38,9 @@ const PowerButton = ({ handlePowerPress }) => {
             animate={{
               boxShadow: Pressed
                 ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
-                : isOn
-                ? "none"
-                : "inset 2px 2px 2px #fff, inset -1px -1px 2px #808080, 5px 5px 9px #111",
+                : isPowerOn
+                ? "none" 
+                : "inset 2px 2px 2px #fff, inset -1px -1px 2px #808080, 5px 5px 9px #111", 
             }}
             transition={{ duration: 0.1, ease: "easeInOut" }}
           />
@@ -55,6 +52,7 @@ const PowerButton = ({ handlePowerPress }) => {
 
 PowerButton.propTypes = {
   handlePowerPress: PropTypes.func.isRequired,
+  isPowerOn: PropTypes.bool.isRequired, 
 };
 
 export default PowerButton;

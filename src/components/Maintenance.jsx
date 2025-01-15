@@ -13,7 +13,7 @@ const Maintenance = () => {
             <div className="bg-[#222] text-white px-6 py-2 rounded-sm md:rounded-md cursor-not-allowed 
             text-[8px] md:text-sm"
               title="Fake button buddy 🫶">
-              See you soon 
+              coming up 
             </div>
         </div>
     </div>

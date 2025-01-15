@@ -7,9 +7,8 @@ const Maintenance = () => {
               <span className="relative -top-[1.5px]">✌︎</span> Welcome <span className="relative -top-[1.5px]">✌︎</span>
             </h1>
             <p className="text-[#222]/80 text-[9px] md:text-[13px] text-justify p-2 md:p-3 mb-4 md:mb-5 tracking-tight">
-              A-013 is my new personal website, a neo-futuristic mini computer built to showcase my passion for Frontend
-              Development, A-013 will be launched on the <strong>21st of January</strong>.<br />Hope to see you then 
-              <span className="absolute text-sm md:text-xl ml-[4px] md:ml-[6px] -mt-[3px] md:-mt-[4px]">☺︎</span>
+              A-013 is a neo-futuristic mini computer built to showcase my passion for Frontend
+              Development, it will be launched on the <strong>21st of January</strong>, Hope to see you then!
             </p>
             <div className="bg-[#222] text-white px-6 py-2 w-2/4 rounded-lg cursor-not-allowed 
             text-[8px] md:text-sm"

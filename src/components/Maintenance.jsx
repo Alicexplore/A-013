@@ -8,7 +8,7 @@ const Maintenance = () => {
             </h1>
             <p className="text-[#222]/80 text-[9px] md:text-[13px] text-justify p-2 md:p-3 mb-4 md:mb-5 tracking-tight">
               A-013 is a neo-futuristic mini computer built to showcase my passion for Frontend
-              Development, it will be launched on the <strong>21st of January</strong>, Hope to see you then 🖖
+              Development, it will be launched on the <strong>21st of January</strong>, Hope to see you then 🚀
             </p>
             <div className="bg-[#222] text-white px-6 py-2 rounded-sm md:rounded-md cursor-not-allowed 
             text-[8px] md:text-sm"

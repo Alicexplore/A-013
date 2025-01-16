@@ -16,9 +16,9 @@ const Maintenance = () => {
           Welcome
         </motion.h1>
 
-        <div className="text-[#d9d9d9]/80 font-light text-[9px] md:text-[13px] text-center p-2 md:p-3 mb-4 md:mb-5 space-y-1">
+        <div className="text-[#d9d9d9]/80 text-[9px] md:text-[13px] text-center p-2 md:p-3 mb-4 md:mb-5 space-y-1">
           <motion.p
-            className="tracking-tighter"
+            className="tracking-tighter font-light"
             initial="hidden"
             whileInView="show"
             variants={fadeIn(2)}
@@ -28,7 +28,7 @@ const Maintenance = () => {
           </motion.p>
 
           <motion.p
-            className="tracking-wide"
+            className="tracking-wide font-light"
             initial="hidden"
             whileInView="show"
             variants={fadeIn(2.6)}
@@ -38,6 +38,7 @@ const Maintenance = () => {
           </motion.p>
 
           <motion.p
+            className='font-light'
             initial="hidden"
             whileInView="show"
             variants={fadeIn(3.2)}
@@ -67,7 +68,7 @@ const Maintenance = () => {
               whileInView="show"
               variants={fadeIn(4.8)}
               viewport={{ once: true, amount: 0 }}
-              className="inline"
+              className="inline font-light"
             >
               Hope to see you then ❤︎
             </motion.p>

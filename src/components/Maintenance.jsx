@@ -28,7 +28,7 @@ const Maintenance = () => {
           </motion.p>
 
           <motion.p
-            className="tracking-wide"
+            className="tracking-[0.023rem] md:tracking-[0.03rem]"
             initial="hidden"
             whileInView="show"
             variants={fadeIn(2.6)}

@@ -1,21 +1,21 @@
-import { useState } from "react";
 import Maintenance from "./components/Maintenance";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard"; 
 
 function App() {
-  const [isMaintenanceVisible, setMaintenanceVisible] = useState(true);
-
-  const closeMaintenance = () => {
-    setMaintenanceVisible(false);
-  };
+  const isMaintenance = true;
 
   return (
     <div className="relative">
-      {/* Dashboard toujours visible */}
-      <Dashboard />
+  
+      <div className="relative z-0">
+        <Dashboard />
+      </div>
 
-      {/* Afficher Maintenance si isMaintenanceVisible est true */}
-      {isMaintenanceVisible && <Maintenance onClose={closeMaintenance} />}
+      {isMaintenance && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <Maintenance />
+        </div>
+      )}
     </div>
   );
 }

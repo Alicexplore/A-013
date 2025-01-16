@@ -9,7 +9,7 @@ const Maintenance = () => {
          items-center justify-center flex flex-col">
 
             <motion.h1 
-            className="text-xl md:text-2xl font-bold text-[#d9d9d9] mb-3 md:mb-5 font-Roboto"
+            className="text-xl md:text-2xl font-bold text-[#d9d9d9] mb-3 md:mb-5 font-Roboto tracking-wider"
             initial="hidden"
             whileInView="show"
             variants={fadeIn(1)}
@@ -75,14 +75,14 @@ const Maintenance = () => {
 
             </div>
 
-            <motion.img 
-            src='./images/logo-white.svg'
-            alt='logo white'
-            className='-mt-1 w-[50px] md:w-[70px]'
-            initial="hidden"
-            whileInView="show"
-            variants={fadeIn(8)}
-            viewport={{ once: true, amount: 0 }}/>
+            <motion.img
+  src='./images/logo-white.svg'
+  alt='logo white'
+  className='-mt-1 w-[50px] md:w-[70px]'
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 2, delay: 8, ease: "easeInOut" }}
+/>
 
         </div>
     </div>

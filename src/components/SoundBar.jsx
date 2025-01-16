@@ -1,4 +1,4 @@
-const Sound = () => {
+const SoundBar = () => {
   return (
     <div className="absolute top-[10px] md:top-[14px] w-full h-full flex justify-center">
         <div className="bg-[#d9d9d9] w-3/5 h-[20px] md:h-[30px] rounded-b-md shadow-[inset_-1px_-1px_2px_#161616,0px_4px_8px_#000] 
@@ -12,4 +12,4 @@ const Sound = () => {
   )
 }
 
-export default Sound
+export default SoundBar

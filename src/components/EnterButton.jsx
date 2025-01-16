@@ -14,6 +14,7 @@ const EnterButton = ({ isPowerOn, isInitialized }) => {
   const playSound = (sound) => {
     sound.currentTime = 0; 
     sound.play();
+    enterAudio.volume = 0.3;
   };
 
   const handleClick = () => {

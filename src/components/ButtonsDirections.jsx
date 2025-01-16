@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const ButtonsDirections = ({ isPowerOn, isInitialized }) => {
+const ButtonsDirections = ({ isInitialized }) => {
   const [upPressed, setUpPressed] = useState(false);
   const [downPressed, setDownPressed] = useState(false);
 
@@ -35,11 +35,12 @@ const ButtonsDirections = ({ isPowerOn, isInitialized }) => {
                 boxShadow: upPressed
                   ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
                   : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #222",
-                transition: "box-shadow 0.1s ease-in-out", 
+                  transition: upPressed ? "box-shadow 0.1s ease-in-out" : "none", 
               }}>
-              <span className={`text-lg md:text-2xl flex items-center justify-center cursor-pointer transition duration-700
-            ${ isPowerOn ? "text-[#222] opacity-100" : "text-[#222] opacity-100 pointer-events-none"}`}>
-                <ion-icon name="caret-up-outline"></ion-icon>
+              <span
+                className="text-lg md:text-2xl flex items-center justify-center cursor-pointer transition-none"
+                style={{ transition: "none" }}>
+                  <ion-icon name="caret-up-outline"></ion-icon>
               </span>
             </motion.div>
 
@@ -69,11 +70,12 @@ const ButtonsDirections = ({ isPowerOn, isInitialized }) => {
                 boxShadow: downPressed
                   ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
                   : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #222",
-                transition: "box-shadow 0.1s ease-in-out", 
+                  transition: downPressed ? "box-shadow 0.1s ease-in-out" : "none",
               }}>
-                <span className={`text-lg md:text-2xl flex items-center justify-center cursor-pointer transition duration-700
-              ${ isPowerOn ? "text-[#222] opacity-100" : "text-[#222] opacity-100 pointer-events-none"}`}>
-                <ion-icon name="caret-down-outline"></ion-icon>
+                <span
+                className="text-lg md:text-2xl flex items-center justify-center cursor-pointer transition-none"
+                style={{ transition: "none" }}>
+                  <ion-icon name="caret-down-outline"></ion-icon>
               </span>
             </motion.div>
           </div>
@@ -84,7 +86,6 @@ const ButtonsDirections = ({ isPowerOn, isInitialized }) => {
 };
 
 ButtonsDirections.propTypes = {
-  isPowerOn: PropTypes.bool.isRequired,
   isInitialized: PropTypes.bool.isRequired,
 };
 

@@ -1,6 +1,6 @@
 const Maintenance = () => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#222] bg-opacity-60 z-50 uppercase p-10">
+    <div className="fixed inset-0 flex items-center justify-center bg-[#222] bg-opacity-80 z-50 uppercase p-10">
         <div className="bg-[#d9d9d9] w-[300px] h-[240px] md:w-[400px] md:h-[320px] p-6 rounded-md md:rounded-lg shadow-lg text-center
          items-center justify-center flex flex-col">
             <h1 className="text-xl md:text-2xl font-bold text-black mb-3 md:mb-4 font-Roboto">

@@ -69,7 +69,7 @@ const Dashboard = () => {
 
             <div className="absolute inset-0 border-[#000] border-[0.5px] md:border-[1px] rounded-lg md:rounded-xl"></div>
 
-            <div className="absolute flex right-[13px] md:right-[18px] pointer-events-none z-30">
+            <div className="absolute flex right-[10px] md:right-[16px] top-[10px] md:top-[16px] pointer-events-none z-30">
               {isPowerOn ? (
                 <motion.div
                   className=""
@@ -77,7 +77,8 @@ const Dashboard = () => {
                   style={{
                     transition: "opacity 0.25s ease-in-out",
                   }}>
-                  <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#d9d9d9] z-50 shadow-[0px_0px_6px_#d9d9d9]"></div>
+                  <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#d9d9d9] z-50 
+                  shadow-[0px_0px_6px_#d9d9d9]"></div>
                 </motion.div>
               ) : (
                 <motion.div

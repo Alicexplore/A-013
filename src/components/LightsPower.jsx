@@ -22,7 +22,7 @@ const LightsPower = () => {
             duration: 2,
             ease: "easeInOut", 
             repeat: Infinity,
-            repeatDelay: 7
+            repeatDelay: 6
           }}
         />
     ))}

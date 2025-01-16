@@ -10,7 +10,6 @@ import Lights from "../components/Lights";
 import LightsPower from "../components/LightsPower";
 import EnterButton from "../components/EnterButton";
 import MenuButton from "../components/MenuButton";
-import SoundBar from "../components/SoundBar";
 import PowerButton from "../components/PowerButton";
 import LoadingBar from "../components/LoadingBar";
 
@@ -124,7 +123,6 @@ const Dashboard = () => {
             </motion.div>
           </motion.div>
 
-          <SoundBar />
           <PowerButton
             handlePowerPress={handlePowerPress}
             isPowerOn={isPowerOn}

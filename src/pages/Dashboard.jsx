@@ -15,7 +15,7 @@ import LoadingBar from "../components/LoadingBar";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(() => {
-    return localStorage.getItem("isPowerOn") === "true";
+    return localStorage.getItem("isPowerOn") === "false";
   });
 
   const [isInitialized, setIsInitialized] = useState(false);

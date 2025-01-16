@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const MenuButton = ({ isPowerOn, isInitialized }) => {
   const [Pressed, setPressed] = useState(false);
 
-  const menuSound = new Audio('/sounds/highclick.mp3');
+  const menuSound = new Audio('/sounds/MenuButton.mp3');
   menuSound.volume = 0.2;
 
   const handleClick = () => {

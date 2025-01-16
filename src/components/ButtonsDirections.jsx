@@ -6,7 +6,7 @@ const ButtonsDirections = ({ isInitialized }) => {
   const [upPressed, setUpPressed] = useState(false);
   const [downPressed, setDownPressed] = useState(false);
 
-  const keyPressSound = new Audio('/sounds/Key.mp3');
+  const keyPressSound = new Audio('/sounds/ButtonDirection.mp3');
   keyPressSound.volume = 0.2; 
 
   const handleUpClick = () => {

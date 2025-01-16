@@ -6,7 +6,7 @@ const PowerButton = ({ handlePowerPress, isPowerOn, isInitialized }) => {
   const [powerAudio, setPowerAudio] = useState(null);
 
   useEffect(() => {
-    setPowerAudio(new Audio('/sounds/Power.mp3'));
+    setPowerAudio(new Audio('/sounds/PowerButton.mp3'));
   }, []);
 
   const playSound = (sound) => {

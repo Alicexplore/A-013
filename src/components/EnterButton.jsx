@@ -8,7 +8,7 @@ const EnterButton = ({ isPowerOn, isInitialized }) => {
   const [enterAudio, setEnterAudio] = useState(null);
 
   useEffect(() => {
-    setEnterAudio(new Audio('/sounds/Enter.mp3'));
+    setEnterAudio(new Audio('/sounds/EnterButton.mp3'));
   }, []);
 
   const playSound = (sound) => {

@@ -8,7 +8,7 @@ const Maintenance = () => {
       justify-center flex flex-col mb-[120px] md:mb-[160px]">
         
         <motion.h1
-          className="text-xl md:text-2xl font-bold text-[#d9d9d9] mb-3 md:mb-5 font-Roboto tracking-wider"
+          className="text-2xl md:text-3xl font-bold text-[#d9d9d9] mb-3 md:mb-5 tracking-wide"
           initial="hidden"
           whileInView="show"
           variants={fadeIn(1)}
@@ -81,7 +81,7 @@ const Maintenance = () => {
           className="-mt-1 w-[50px] md:w-[70px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2, delay: 6.4, ease: "easeInOut" }}
+          transition={{ duration: 1.5, delay: 6.4, ease: "easeInOut" }}
         />
       </div>
     </div>

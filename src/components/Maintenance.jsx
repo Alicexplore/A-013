@@ -3,8 +3,9 @@ import { fadeIn } from '../fadeIn';
 
 const Maintenance = () => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#222] bg-opacity-90 z-50 uppercase p-10">
-      <div className="w-[300px] h-[240px] md:w-[400px] md:h-[320px] p-6 rounded-md md:rounded-lg text-center items-center justify-center flex flex-col">
+    <div className="fixed inset-0 flex items-center justify-center bg-[#222] bg-opacity-50 z-50 uppercase p-10">
+      <div className="w-[300px] h-[240px] md:w-[400px] md:h-[320px] p-6 rounded-md md:rounded-lg text-center items-center 
+      justify-center flex flex-col mb-[120px] md:mb-[160px]">
         
         <motion.h1
           className="text-xl md:text-2xl font-bold text-[#d9d9d9] mb-3 md:mb-5 font-Roboto tracking-wider"

@@ -3,7 +3,7 @@ import { fadeIn } from '../fadeIn';
 
 const Maintenance = () => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#222] bg-opacity-50 z-50 uppercase p-10">
+    <div className="fixed inset-0 flex items-center justify-center bg-[#222] bg-opacity-50 z-50 p-10">
       <div className="w-[300px] h-[240px] md:w-[400px] md:h-[320px] p-6 rounded-md md:rounded-lg text-center items-center 
       justify-center flex flex-col mb-[120px] md:mb-[160px]">
         
@@ -14,10 +14,11 @@ const Maintenance = () => {
           variants={fadeIn(1)}
           viewport={{ once: true, amount: 0 }}
         >
-          Welcome
+          Hi
         </motion.h1>
 
-        <div className="text-[#d9d9d9]/80 font-light text-[9px] md:text-[13px] text-center p-2 md:p-3 mb-4 md:mb-5 space-y-1">
+        <div className="text-[#d9d9d9]/80 font-light text-[9px] md:text-[13px] text-center p-2 md:p-3 mb-4 md:mb-5 space-y-1
+        uppercase ">
           <motion.p
             className="tracking-tighter"
             initial="hidden"
@@ -78,7 +79,7 @@ const Maintenance = () => {
         <motion.img
           src="./images/logo-white.svg"
           alt="logo white"
-          className="-mt-1 w-[50px] md:w-[70px]"
+          className="-mt-1 w-[35px] md:w-[50px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 6.4, ease: "easeInOut" }}

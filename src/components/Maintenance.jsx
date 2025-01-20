@@ -3,7 +3,8 @@ import { fadeIn } from '../fadeIn';
 
 const Maintenance = () => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-[#222] bg-opacity-50 z-50 p-10">
+    <div className="fixed inset-0 flex items-center justify-center bg-[#222] bg-opacity-50 z-50 p-10
+    pointer-events-none">
       <div className="w-[300px] h-[240px] md:w-[400px] md:h-[320px] p-6 rounded-md md:rounded-lg text-center items-center 
       justify-center flex flex-col mb-[120px] md:mb-[160px]">
         
@@ -13,7 +14,7 @@ const Maintenance = () => {
           whileInView="show"
           variants={fadeIn(1)}
           viewport={{ once: true, amount: 0 }}
-        >
+        > 
           Hi
         </motion.h1>
 

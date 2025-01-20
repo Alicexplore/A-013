@@ -12,7 +12,6 @@ import EnterButton from "../components/EnterButton";
 import MenuButton from "../components/MenuButton";
 import PowerButton from "../components/PowerButton";
 import LoadingBar from "../components/LoadingBar";
-import InformationTooltip from "../components/InformationTooltip";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(() => {
@@ -38,7 +37,6 @@ const Dashboard = () => {
     <div className="h-svh w-full bg-[#d9d9d9] overflow-hidden flex flex-col items-center justify-center relative">
       <TextName />
       <TextFolio />
-      <InformationTooltip />
 
       <div className="flex items-center justify-center rounded-xl md:rounded-3xl relative z-10 w-[90%] max-w-[380px] 
           md:max-w-[500px] aspect-[5/6] bg-[#d9d9d9] shadow-[4px_20px_30px_#222,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#979797] 

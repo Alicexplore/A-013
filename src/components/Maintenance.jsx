@@ -72,7 +72,7 @@ const Maintenance = () => {
               viewport={{ once: true, amount: 0 }}
               className="inline"
             >
-              Hope to see you then ❤︎
+              Hope to see you then ↗
             </motion.p>
           </motion.div>
         </div>

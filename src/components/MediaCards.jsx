@@ -4,7 +4,8 @@ const MediaCards = () => {
   return (
     <div className="absolute flex flex-row md:flex-col items-start md:items-center justify-between bottom-[180px] 
     left-8 md:-left-[150px] gap-[35px] md:gap-[50px]">
-    
+
+    <a href="https://www.linkedin.com/in/alicebergonhe/" target="_blank" rel="noopener noreferrer">
     <div className="rotate-[-20deg]">
     <motion.div
       className="relative w-[45px] h-[55px] md:w-[60px] md:h-[75px] bg-[#d9d9d9] rounded-[3px] md:rounded-[4px] cursor-pointer"
@@ -48,7 +49,9 @@ const MediaCards = () => {
         </div>
     </motion.div>
     </div>
+    </a>
 
+    <a href="https://github.com/Alicexplore" target="_blank" rel="noopener noreferrer">
     <div className="rotate-[10deg]">
     <motion.div
       className="relative w-[45px] h-[55px] md:w-[60px] md:h-[75px] bg-[#d9d9d9] rounded-[3px] md:rounded-[4px] cursor-pointer"
@@ -92,6 +95,7 @@ const MediaCards = () => {
         </div>
     </motion.div>
     </div>
+    </a>
 
     </div>
   )

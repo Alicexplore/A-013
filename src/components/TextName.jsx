@@ -9,16 +9,20 @@ const TextName = () => {
             <h1>FRONTEND DEVELOPER</h1>
         </div>
         <div className="mt-3 sm:mt-4">
-            <ScrambleText
-              className="text-xs"
-              text="/ LINKEDIN"
-              scrambleDuration={1.5}
-            />
-            <ScrambleText
-              className="text-xs"
-              text="/ GITHUB"
-              scrambleDuration={1.5}
-            />
+            <a href="https://www.linkedin.com/in/alicebergonhe/" target="_blank" rel="noopener noreferrer">
+                <ScrambleText
+                  className="text-xs"
+                  text="/ LINKEDIN"
+                  scrambleDuration={1.5}
+                />
+            </a>
+            <a href="https://github.com/Alicexplore" target="_blank" rel="noopener noreferrer">
+                <ScrambleText
+                  className="text-xs"
+                  text="/ GITHUB"
+                  scrambleDuration={1.5}
+                />
+            </a>
         </div>
     </div> 
   )

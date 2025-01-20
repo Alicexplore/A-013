@@ -30,8 +30,8 @@ const MenuButton = ({ isPowerOn, isInitialized }) => {
           ${isPowerOn ? "text-[#222] opacity-100" : "text-[#222] opacity-100 pointer-events-none"}`}>
             menu
           </h1>
-          <div className="absolute bottom-[15px] w-2/3 h-[3px] rounded-full"
-               style={{ boxShadow: "inset 1px 1px 1px #fff, inset -1px -1px 1px #939393, 0px 2px 2px #7777777"}}>
+          <div className="absolute bottom-[10px] md:bottom-[15px] w-2/3 h-[2px] md:h-[3px] rounded-full"
+               style={{ boxShadow: "inset 1px 1px 1px #fff, inset -1px -1px 1px #939393, 0px 1px 2px #777777"}}>
           </div>
       </motion.div>
     </div>

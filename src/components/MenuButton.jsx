@@ -25,14 +25,14 @@ const MenuButton = ({ isPowerOn, isInitialized }) => {
             ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
             : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #222",
           transition: "box-shadow 0.1s ease-in-out",
-        }}
-      >
-        <h1
-          className={`font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium transition duration-700
-            ${isPowerOn ? "text-[#222] opacity-100" : "text-[#222] opacity-100 pointer-events-none"}`}
-        >
-          menu
-        </h1>
+        }}>
+          <h1 className={`font-Roboto tracking-[0.15em] text-[8px] md:text-[11px] uppercase font-medium transition duration-700
+          ${isPowerOn ? "text-[#222] opacity-100" : "text-[#222] opacity-100 pointer-events-none"}`}>
+            menu
+          </h1>
+          <div className="absolute bottom-[15px] w-2/3 h-[3px] rounded-full"
+               style={{ boxShadow: "inset 1px 1px 1px #fff, inset -1px -1px 1px #939393, 0px 2px 2px #7777777"}}>
+          </div>
       </motion.div>
     </div>
   );

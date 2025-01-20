@@ -39,7 +39,7 @@ const EnterButton = ({ isPowerOn, isInitialized }) => {
         }}
       >
         <h1
-          className={`font-Roboto tracking-widest text-[8px] md:text-[11px]
+          className={`font-Roboto font-medium tracking-widest text-[8px] md:text-[11px]
           pointer-events-none uppercase transition duration-700
           ${
             isPowerOn

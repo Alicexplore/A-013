@@ -3,55 +3,75 @@
 Welcome to **A-013**, my 2025 personal website.  
 This project represents my vision of a neo-futuristic mini-computer designed to showcase my passion for **Frontend Development**, both through its technical complexity and its ultra-realistic visuals entirely crafted in **CSS with Tailwind**.
 
-## About the Project
+---
+
+![A-013 Project Screenshot](./goodone.png)
+
+---
+
+## 🔥 Badges
+
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react&logoColor=white)  
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.3.2-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)  
+![Vite](https://img.shields.io/badge/Vite-4.3.9-646CFF?style=for-the-badge&logo=vite&logoColor=white)  
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)  
+
+---
+
+## 🚀 About the Project
 
 **A-013** is a unique interface inspired by a retro-futuristic console.  
-The goal? To demonstrate my expertise in **React** and **modern CSS**, while creating an immersive and visually striking user experience.
+The goal? To demonstrate my expertise in **React**, **modern CSS**, and **JavaScript**, while creating an immersive and visually striking user experience.
 
-### Main Features:  
+### ✨ Main Features
+
 - **Ultra-realistic CSS design**: Every element, from buttons to the cards, has been meticulously crafted for a life-like rendering.  
 - **Interactive Frontend Logic**: Complex user interactions, such as the **power button**, seamless transitions, and dynamic element responses, demonstrate a high level of frontend expertise.  
 - **Responsive and fluid design**: Built for an immersive experience across all devices.  
-- **Evolving structure**: A project designed to adapt and improve, showcasing its scalability.  
+- **Scalable structure**: A project designed to adapt and improve, showcasing its potential for evolution.  
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
-The **A-013** project was developed using:
-- [React](https://reactjs.org/): For structure and interactive components.
-- [Tailwind CSS](https://tailwindcss.com/): For a responsive and elegant design.
-- **JavaScript**: For dynamic logic and functionality.
+### **Why React?**
+React was chosen for its component-based architecture, ease of state management, and thriving ecosystem. It allows me to create highly interactive user interfaces and reusable components efficiently.  
+
+### **Why Tailwind CSS?**
+Tailwind CSS enables rapid styling with a focus on utility classes. It helps maintain consistent designs and speeds up development time without sacrificing creativity. Its flexibility made it perfect for crafting the ultra-realistic visuals of this project.  
+
+### **Why Vite?**
+Vite provides a lightning-fast development experience due to its modern build tools and HMR (Hot Module Replacement). It enhances performance and debugging during development compared to older bundlers like Webpack.  
+
+### Additional Tools:
+- **Framer Motion**: For fluid animations and transitions.
+- **Ionicons**: For sleek, modern icons.
+- **JavaScript ES6+**: Ensuring a robust and dynamic logic layer.  
 
 ---
 
-## Future Improvements
+## 🌱 Future Improvements
 
 This project is constantly evolving. Here are some ideas I plan to implement:
-1. **Migrating to TypeScript**: For better type management and a more robust codebase.
-2. **Interactive Cards**: The cards on the left will become interactive, possibly integrating APIs (LinkedIn, GitHub, etc.).
-3. **New Sections**: Adding additional projects or a blog feature.
-4. **Enhanced Animations and Transitions**: Enriching interactions with more complex animations for an even more immersive experience.
+1. **Interactive Cards**: The cards on the left will become fully interactive, possibly integrating APIs (LinkedIn, GitHub, etc.).  
+2. **Custom Games**: Adding unique games that I design myself, to enhance interactivity.  
+3. **Advanced Fullscreen Animations**: When switching to fullscreen mode, introducing a set of contemporary animations that contrast with the retro vibe of the console.  
+4. **Migrating to TypeScript**: For better type management and code robustness.  
+5. **New Sections**: Adding more projects, a blog, or a gallery feature.  
 
 ---
 
-## Project Preview
-
-Here’s a preview of **A-013**:
-
-![A-013 Project Screenshot](./Capture-d-ecran-A013.png)
-
----
-
-## About Me
+## 📌 About Me
 
 My name is **Alice**, a passionate Junior Frontend Developer.  
 After completing an apprenticeship at **Qonto**, I continue honing my skills by working on innovative projects like **A-013**.
 
-[LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com)
+🎯 **Actively looking for a Frontend Developer position!**  
+If you’re looking for a passionate, creative, and detail-oriented developer, feel free to reach out. 🚀  
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/alicebergonhe/)  
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/Alicexplore)  
 
 ---
 
 Thank you for taking the time to discover **A-013**!  
-If you’re looking for a passionate and creative developer, feel free to reach out. 🚀
-

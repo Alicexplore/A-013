@@ -1,13 +1,14 @@
-# A-013
+# A-013 💾 
 
-Welcome to **A-013**, my 2025 personal website.  
+Welcome to **A-013**, my 2025 personal website. 
 This project represents my vision of a neo-futuristic mini-computer designed to showcase my passion for **Frontend Development**, both through its technical complexity and its ultra-realistic visuals entirely crafted in **CSS with Tailwind**.
 
----
+</br>
 
-![A-013 Project Screenshot](./goodone.png)
+<img width="1440" alt="goodone" src="https://github.com/user-attachments/assets/292f717c-86e8-486e-b5b9-2bba58bbd91b" />
 
----
+</br>
+</br>
 
 ## 🔥 Badges
 
@@ -16,21 +17,22 @@ This project represents my vision of a neo-futuristic mini-computer designed to 
 ![Vite](https://img.shields.io/badge/Vite-4.3.9-646CFF?style=for-the-badge&logo=vite&logoColor=white)  
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)  
 
----
+</br>
 
 ## 🚀 About the Project
 
 **A-013** is a unique interface inspired by a retro-futuristic console.  
 The goal? To demonstrate my expertise in **React**, **modern CSS**, and **JavaScript**, while creating an immersive and visually striking user experience.
 
+
 ### ✨ Main Features
 
 - **Ultra-realistic CSS design**: Every element, from buttons to the cards, has been meticulously crafted for a life-like rendering.  
-- **Interactive Frontend Logic**: Complex user interactions, such as the **power button**, seamless transitions, and dynamic element responses, demonstrate a high level of frontend expertise.  
+- **Interactive Frontend Logic**: Complex user interactions, such as the **power button**, seamless transitions, and dynamic element responses, demonstrate my passion for Frontend Development.  
 - **Responsive and fluid design**: Built for an immersive experience across all devices.  
-- **Scalable structure**: A project designed to adapt and improve, showcasing its potential for evolution.  
+- **Scalable structure**: A project designed to adapt and improve, showcasing its potential for evolution.
 
----
+</br>
 
 ## 🛠️ Technologies Used
 
@@ -48,7 +50,7 @@ Vite provides a lightning-fast development experience due to its modern build to
 - **Ionicons**: For sleek, modern icons.
 - **JavaScript ES6+**: Ensuring a robust and dynamic logic layer.  
 
----
+</br>
 
 ## 🌱 Future Improvements
 
@@ -59,7 +61,7 @@ This project is constantly evolving. Here are some ideas I plan to implement:
 4. **Migrating to TypeScript**: For better type management and code robustness.  
 5. **New Sections**: Adding more projects, a blog, or a gallery feature.  
 
----
+</br>
 
 ## 📌 About Me
 
@@ -72,6 +74,5 @@ If you’re looking for a passionate, creative, and detail-oriented developer, f
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/alicebergonhe/)  
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/Alicexplore)  
 
----
 
 Thank you for taking the time to discover **A-013**!  

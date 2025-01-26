@@ -1,5 +1,7 @@
 # A-013 💾 
 
+[![Star](https://img.shields.io/github/stars/Alicexplore/A-013?style=for-the-badge)](https://github.com/Alicexplore/A-013/stargazers)
+
 Welcome to **A-013**, my 2025 personal website. 
 This project represents my vision of a neo-futuristic mini-computer designed to showcase my passion for **Frontend Development**, both through its technical complexity and its ultra-realistic visuals entirely crafted in **CSS with Tailwind**.
 
@@ -73,3 +75,4 @@ If you’re looking for a passionate, creative, and detail-oriented developer, f
 
 
 Thank you for taking the time to discover **A-013**!  
+[![Star](https://img.shields.io/github/stars/Alicexplore/A-013?style=for-the-badge)](https://github.com/Alicexplore/A-013/stargazers)

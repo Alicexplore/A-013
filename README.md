@@ -12,7 +12,7 @@ This project represents my vision of a neo-futuristic mini-computer designed to 
 
 ## 🔥 Built with
 
-[![My Skills](https://skillicons.dev/icons?i=react,tailwind,vite,js,html,css,vscode,github,git,apple)](https://skillicons.dev) 
+[![My Skills](https://skillicons.dev/icons?i=react,tailwind,vite,js,html,css,vscode,github,git,vercel,apple)](https://skillicons.dev) 
 
 </br>
 

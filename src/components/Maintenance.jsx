@@ -60,9 +60,9 @@ const Maintenance = () => {
               whileInView="show"
               variants={fadeIn(3.8)}
               viewport={{ once: true, amount: 0 }}
-              className="inline"
+              className="inline font-bold"
             >
-              <strong>4th of February.</strong>
+              4th of February.
             </motion.p>
 
             <motion.p

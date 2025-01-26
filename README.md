@@ -75,4 +75,5 @@ If you’re looking for a passionate, creative, and detail-oriented developer, f
 
 
 Thank you for taking the time to discover **A-013**!  
+
 [![Star](https://img.shields.io/github/stars/Alicexplore/A-013?style=for-the-badge)](https://github.com/Alicexplore/A-013/stargazers)

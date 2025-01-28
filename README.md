@@ -54,11 +54,12 @@ Vite provides a lightning-fast development experience due to its modern build to
 ## 🌱 Future Improvements
 
 This project is constantly evolving. Here are some ideas I plan to implement:
-1. **Interactive Cards**: The cards on the left will become fully interactive, possibly integrating APIs (LinkedIn, GitHub, etc.).  
-2. **Custom Games**: Adding unique games that I design myself, to enhance interactivity.  
-3. **Advanced Fullscreen Animations**: When switching to fullscreen mode, introducing a set of contemporary animations that contrast with the retro vibe of the console.  
-4. **Migrating to TypeScript**: For better type management and code robustness.  
-5. **New Sections**: Adding more projects, a blog, or a gallery feature.  
+1. **Migrating to TypeScript**: For better type management and code robustness. 
+2. **Advanced Fullscreen Animations**: When switching to fullscreen mode, introducing a set of contemporary animations that contrast with the retro vibe of the console.
+3. **Website Preloader animation**: Card's animation inserted in the console.  
+4. **Interactive Cards**: The cards on the left will become fully interactive, possibly integrating APIs.  
+5. **Custom Games**: Adding unique games that I design myself, to enhance interactivity.  
+6. **New Sections**: Adding more projects, a blog, or a gallery feature.
 
 </br>
 

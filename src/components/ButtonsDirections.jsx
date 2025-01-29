@@ -35,7 +35,7 @@ const ButtonsDirections = ({ isInitialized }) => {
                 boxShadow: upPressed
                   ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
                   : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #222",
-                  transition: upPressed ? "box-shadow 0.1s ease-in-out" : "none", 
+                  transition: "box-shadow 0.1s ease-in-out", 
               }}>
               <span
                 className="text-lg md:text-2xl flex items-center justify-center cursor-pointer transition-none"
@@ -70,7 +70,7 @@ const ButtonsDirections = ({ isInitialized }) => {
                 boxShadow: downPressed
                   ? "inset 2px 2px 5px #222, inset -2px -2px 5px #222"
                   : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #222",
-                  transition: downPressed ? "box-shadow 0.1s ease-in-out" : "none",
+                  transition: "box-shadow 0.1s ease-in-out",
               }}>
                 <span
                 className="text-lg md:text-2xl flex items-center justify-center cursor-pointer transition-none"

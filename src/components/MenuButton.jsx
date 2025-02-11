@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const MenuButton = ({ isPowerOn, isInitialized }) => {
+const MenuButton = ({ isPowerOn, isInitialized, isMenuOpen, setIsMenuOpen }) => {
   const [Pressed, setPressed] = useState(false);
 
   const menuSound = new Audio('/sounds/MenuButton.mp3');
@@ -11,9 +11,19 @@ const MenuButton = ({ isPowerOn, isInitialized }) => {
   const handleClick = () => {
     if (!isInitialized) return;
     setPressed(true);
-    menuSound.play(); 
+    menuSound.play();
     setTimeout(() => setPressed(false), 150);
+    if (!isPowerOn) return;
+    if (!isMenuOpen) {
+      setIsMenuOpen(true); 
+    }
   };
+  useEffect(() => {
+    if (!isPowerOn) {
+      setIsMenuOpen(false); 
+    }
+  }, [isPowerOn, setIsMenuOpen]);
+  
 
   return (
     <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000] cursor-pointer button">
@@ -41,6 +51,9 @@ const MenuButton = ({ isPowerOn, isInitialized }) => {
 MenuButton.propTypes = {
   isPowerOn: PropTypes.bool.isRequired,
   isInitialized: PropTypes.bool.isRequired,
+  isMenuOpen: PropTypes.bool.isRequired, 
+  setIsMenuOpen: PropTypes.func.isRequired, 
 };
 
 export default MenuButton;
+

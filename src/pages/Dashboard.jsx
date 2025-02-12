@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import MetalPlate from "../components/MetalPlate";
-import ButtonsDirections from "../components/ButtonsDirections";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
@@ -13,6 +12,7 @@ import MenuButton from "../components/MenuButton";
 import PowerButton from "../components/PowerButton";
 import LoadingBar from "../components/LoadingBar";
 import Menu from "../components/Menu";
+import ButtonsDirections from "../components/ButtonsDirections";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(() => {
@@ -80,15 +80,15 @@ const Dashboard = () => {
             className="col-span-5 row-span-4 rounded-lg md:rounded-xl relative h-full w-full"
             style={{
               boxShadow: isPowerOn
-                ? "inset -6px -6px 10px #000, inset 6px 6px 10px #000"
+                ? "inset -6px -6px 10px #000, inset 6px 6px 10px #22210c"
                 : "inset -6px -6px 10px #000, inset 6px 6px 10px #000",
               backgroundColor: isPowerOn ? "#83802b" : "#353212",
               transition: "0.3 easeIn",
             }}>
             <div className={`absolute inset-0 rounded-lg md:rounded-xl
                 ${ isPowerOn
-                    ? "bg-gradient-to-tl from-[#111]/70 to-transparent"
-                    : "bg-gradient-to-tl from-[#000]/70 to-transparent"
+                    ? "bg-gradient-to-tl from-[#22210c]/85 to-transparent"
+                    : "bg-gradient-to-tl from-[#000]/80 to-transparent"
                 }`}>
             </div>
 
@@ -168,7 +168,7 @@ const Dashboard = () => {
           <ButtonsDirections
             isPowerOn={isPowerOn}
             isInitialized={isInitialized}
-          />
+          /> 
 
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />

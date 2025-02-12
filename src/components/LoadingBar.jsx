@@ -1,11 +1,11 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
-import PressMenu from "./PressMenu";
+import PressMenuMessage from "./PressMenuMessage";
 
 const LoadingBar = () => {
   const controls = useAnimation();
   const logoControls = useAnimation();
-  const [showPressMenu, setShowPressMenu] = useState(false);
+  const [showPressMenuMessage, setShowPressMenuMessage] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -48,9 +48,9 @@ const LoadingBar = () => {
 
       setTimeout(() => {
         if (isMounted) {
-          setShowPressMenu(true);
+          setShowPressMenuMessage(true);
         }
-      }, 50);
+      }, 0);
     };
 
     sequence();
@@ -85,14 +85,14 @@ const LoadingBar = () => {
           />
         </div>
       </div>
-      {showPressMenu && (
+      {showPressMenuMessage && (
       <motion.div
         className="absolute inset-0 flex flex-col items-center justify-center"
         key="opening-screen"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ opacity: { ease: "linear", delay: 0.5 } }}>
-          <PressMenu />
+          <PressMenuMessage />
       </motion.div>
       )} 
     </div>

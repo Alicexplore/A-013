@@ -24,7 +24,7 @@ const MenuButton = ({ isPowerOn, isInitialized, isMenuOpen, setIsMenuOpen }) => 
     if (!isPowerOn && isMenuOpen) {
       setIsMenuOpen(false);
     }
-  }, [isPowerOn, isMenuOpen]); 
+  },); 
 
   return (
     <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000] cursor-pointer button">

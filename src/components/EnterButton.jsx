@@ -19,9 +19,7 @@ const EnterButton = ({ isPowerOn, isInitialized }) => {
 
   const handleClick = () => {
     if (!isInitialized) return;
-
     playSound(enterAudio); 
-
     setPressed(true);
     setTimeout(() => setPressed(false), 150);
   };

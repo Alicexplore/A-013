@@ -49,7 +49,7 @@ const Dashboard = () => {
     if (isMenuOpen) {
       const timeout = setTimeout(() => {
         setShowMenuWithDelay(true);
-      }, 8000); 
+      }, 8200); 
   
       return () => clearTimeout(timeout);
     } else {
@@ -82,7 +82,7 @@ const Dashboard = () => {
               boxShadow: isPowerOn
                 ? "inset -6px -6px 10px #000, inset 6px 6px 10px #000"
                 : "inset -6px -6px 10px #000, inset 6px 6px 10px #000",
-              backgroundColor: isPowerOn ? "#333" : "#222",
+              backgroundColor: isPowerOn ? "#83802b" : "#353212",
               transition: "0.3 easeIn",
             }}>
             <div className={`absolute inset-0 rounded-lg md:rounded-xl
@@ -113,7 +113,7 @@ const Dashboard = () => {
                   transition={{
                     opacity: { duration: 0.5, delay: 0.25, ease: "easeInOut" },
                   }}>
-                    <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#373737] z-100"></div>
+                    <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#000] shadow-[0px_0px_6px_#000]"></div>
                 </motion.div>
               )}
             </div>
@@ -134,7 +134,7 @@ const Dashboard = () => {
                 </motion.div>
               ) : (
                 <motion.div
-                  className="absolute inset-0 bg-[#d9d9d9] blur-xs"
+                  className="absolute inset-0 bg-[#83802b] blur-xs"
                   initial={{ height: "100%", top: "0%", width: "100%" }}
                   animate={{
                     height: "0px",

@@ -50,7 +50,7 @@ const LoadingBar = () => {
         if (isMounted) {
           setShowPressMenu(true);
         }
-      },);
+      }, 50);
     };
 
     sequence();

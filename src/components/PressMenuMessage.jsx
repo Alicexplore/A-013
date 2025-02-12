@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import ScrambleTextScreen from "./ScrambleTextScreen";
 
-const PressMenu = () => {
+const PressMenuMessage = () => {
 
   return (
     <div>
@@ -30,4 +30,4 @@ const PressMenu = () => {
   );
 };
 
-export default PressMenu;
+export default PressMenuMessage;

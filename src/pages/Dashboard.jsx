@@ -12,7 +12,7 @@ import EnterButton from "../components/EnterButton";
 import MenuButton from "../components/MenuButton";
 import PowerButton from "../components/PowerButton";
 import LoadingBar from "../components/LoadingBar";
-
+import Menu from "../components/Menu";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(() => {
@@ -20,6 +20,9 @@ const Dashboard = () => {
   });
 
   const [isInitialized, setIsInitialized] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [showMenuWithDelay, setShowMenuWithDelay] = useState(false);
+
 
   const handlePowerPress = () => {
     setIsPowerOn((prevState) => {
@@ -29,10 +32,32 @@ const Dashboard = () => {
     });
   };
 
+
   useEffect(() => {
     const timeout = setTimeout(() => setIsInitialized(true), 500);
     return () => clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      setTimeout(() => {
+      }, 100);
+    }
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      const timeout = setTimeout(() => {
+        setShowMenuWithDelay(true);
+      }, 8000); 
+  
+      return () => clearTimeout(timeout);
+    } else {
+      setShowMenuWithDelay(false); 
+    }
+  }, [isMenuOpen]);
+  
+  
 
   return (
     <div className="h-svh w-full bg-[#d9d9d9] overflow-hidden flex flex-col items-center justify-center relative">
@@ -77,19 +102,18 @@ const Dashboard = () => {
                   style={{
                     transition: "opacity 0.25s ease-in-out",
                   }}>
-                  <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#d9d9d9] z-50 
+                  <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#d9d9d9]
                   shadow-[0px_0px_6px_#d9d9d9]"></div>
                 </motion.div>
               ) : (
                 <motion.div
-                  className=""
                   key="off-light"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{
                     opacity: { duration: 0.5, delay: 0.25, ease: "easeInOut" },
                   }}>
-                    <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#373737] z-50"></div>
+                    <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#373737] z-100"></div>
                 </motion.div>
               )}
             </div>
@@ -122,6 +146,12 @@ const Dashboard = () => {
                   key="power-off-animation"/>
               )}
             </motion.div>
+            {showMenuWithDelay && (
+              <motion.div 
+                className="absolute w-full h-full">
+                  {isMenuOpen && <Menu />}
+              </motion.div>
+            )}
           </motion.div>
 
           <PowerButton
@@ -129,18 +159,23 @@ const Dashboard = () => {
             isPowerOn={isPowerOn}
             isInitialized={isInitialized}
           />
-          <MenuButton 
-            isPowerOn={isPowerOn} 
-            isInitialized={isInitialized} />
+          <MenuButton
+            isPowerOn={isPowerOn}
+            isInitialized={isInitialized}
+            isMenuOpen={isMenuOpen} 
+            setIsMenuOpen={setIsMenuOpen} 
+          />
           <ButtonsDirections
             isPowerOn={isPowerOn}
             isInitialized={isInitialized}
           />
+
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />
           <EnterButton 
             isPowerOn={isPowerOn} 
             isInitialized={isInitialized} />
+
         </div>
       </div>
     </div>

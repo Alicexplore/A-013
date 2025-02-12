@@ -62,7 +62,7 @@ const Maintenance = () => {
               viewport={{ once: true, amount: 0 }}
               className="inline font-bold"
             >
-              18th of February.
+              25th of February.
             </motion.p>
 
             <motion.p

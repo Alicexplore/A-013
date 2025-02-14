@@ -2,31 +2,35 @@ const Menu = () => {
 
     return (
       <div className="w-full h-full items-center justify-center flex">
-        <div className="bg-[#333] w-[80%] h-[80%] p-2">
-          <h2 className="text-center mb-4 text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">menu</h2>
+        <div className="w-[80%] h-[80%] p-2 mt-6">
+          <h2 className="text-center mb-10 text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">menu</h2>
           <ul className="space-y-4">
             <li>
               <button
-                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase hover:text-[#333] text-left p-2 hover:bg-gray-100 transition-colors"
-             
-              >
-                <ion-icon name="caret-forward-outline"></ion-icon> About
+                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
+                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
+                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  about 
               </button>
             </li>
             <li>
-            <button
-                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase hover:text-[#333] text-left p-2 hover:bg-gray-100 transition-colors"
-             
-              >
-                <ion-icon name="caret-forward-outline"></ion-icon> About
+              <button
+                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
+                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
+                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  projects
               </button>
             </li>
             <li>
-            <button
-                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase hover:text-[#333] text-left p-2 hover:bg-gray-100 transition-colors"
-             
-              >
-                <ion-icon name="caret-forward-outline"></ion-icon> About
+              <button
+                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
+                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
+                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  next features
+              </button>
+            </li>
+            <li>
+              <button
+                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
+                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
+                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  contact
               </button>
             </li>
           </ul>

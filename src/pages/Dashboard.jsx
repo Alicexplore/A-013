@@ -7,22 +7,22 @@ import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
 import Lights from "../components/Lights";
 import LightsPower from "../components/LightsPower";
-import EnterButton from "../components/EnterButton";
+import MiniScreen from "../components/MiniScreen";
 import MenuButton from "../components/MenuButton";
 import PowerButton from "../components/PowerButton";
 import LoadingBar from "../components/LoadingBar";
 import Menu from "../components/Menu";
-import ButtonsDirections from "../components/ButtonsDirections";
+import Cursor from "../components/Cursor";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(() => {
-    return localStorage.getItem("isPowerOn") === "true";
+    return localStorage.getItem("isPowerOn") === "false";
   });
 
   const [isInitialized, setIsInitialized] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
   const [showMenuWithDelay, setShowMenuWithDelay] = useState(false);
-
+  const [isCursorDown, setIsCursorDown] = useState(false);
 
   const handlePowerPress = () => {
     setIsPowerOn((prevState) => {
@@ -31,7 +31,6 @@ const Dashboard = () => {
       return newState;
     });
   };
-
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsInitialized(true), 500);
@@ -80,7 +79,7 @@ const Dashboard = () => {
             className="col-span-5 row-span-4 rounded-lg md:rounded-xl relative h-full w-full"
             style={{
               boxShadow: isPowerOn
-                ? "inset -6px -6px 10px #000, inset 6px 6px 10px #22210c"
+                ? "inset -6px -6px 10px #000, inset 6px 6px 10px #000"
                 : "inset -6px -6px 10px #000, inset 6px 6px 10px #000",
               backgroundColor: isPowerOn ? "#83802b" : "#353212",
               transition: "0.3 easeIn",
@@ -102,8 +101,8 @@ const Dashboard = () => {
                   style={{
                     transition: "opacity 0.25s ease-in-out",
                   }}>
-                  <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#d9d9d9]
-                  shadow-[0px_0px_6px_#d9d9d9]"></div>
+                  <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#ea9307]
+                  shadow-[0px_0px_6px_#ea9307]"></div>
                 </motion.div>
               ) : (
                 <motion.div
@@ -113,7 +112,7 @@ const Dashboard = () => {
                   transition={{
                     opacity: { duration: 0.5, delay: 0.25, ease: "easeInOut" },
                   }}>
-                    <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#000] shadow-[0px_0px_6px_#000]"></div>
+                    <div className="rounded-full w-2 h-2 md:w-3 md:h-3 bg-[#e20e04] shadow-[0px_0px_10px_#e20e04]"></div>
                 </motion.div>
               )}
             </div>
@@ -165,16 +164,18 @@ const Dashboard = () => {
             isMenuOpen={isMenuOpen} 
             setIsMenuOpen={setIsMenuOpen} 
           />
-          <ButtonsDirections
+          <Cursor
             isPowerOn={isPowerOn}
-            isInitialized={isInitialized}
+            isCursorDown={isCursorDown}
+            setIsCursorDown={setIsCursorDown}
           /> 
 
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />
-          <EnterButton 
+          <MiniScreen
             isPowerOn={isPowerOn} 
-            isInitialized={isInitialized} />
+            isInitialized={isInitialized}
+            isCursorDown={isCursorDown} />
 
         </div>
       </div>

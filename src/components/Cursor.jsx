@@ -18,7 +18,7 @@ const Cursor = ({ isCursorDown, setIsCursorDown, isPowerOn }) => {
     if (powerState === "false") {
       setIsCursorDown(false);
     }
-  }, []);
+  },);
 
   return (
     <div className="col-span-1 row-span-2 flex items-center justify-center">

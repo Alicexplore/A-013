@@ -32,6 +32,10 @@ const Dashboard = () => {
     });
   };
 
+  const handlePowerOff = () => {
+    setIsPowerOn(false);
+  };
+
   useEffect(() => {
     const timeout = setTimeout(() => setIsInitialized(true), 500);
     return () => clearTimeout(timeout);
@@ -56,8 +60,6 @@ const Dashboard = () => {
     }
   }, [isMenuOpen]);
   
-  
-
   return (
     <div className="h-svh w-full bg-[#d9d9d9] overflow-hidden flex flex-col items-center justify-center relative">
       <TextName />
@@ -84,6 +86,7 @@ const Dashboard = () => {
               backgroundColor: isPowerOn ? "#83802b" : "#353212",
               transition: "0.3 easeIn",
             }}>
+              
             <div className={`absolute inset-0 rounded-lg md:rounded-xl
                 ${ isPowerOn
                     ? "bg-gradient-to-tl from-[#22210c]/85 to-transparent"
@@ -175,7 +178,8 @@ const Dashboard = () => {
           <MiniScreen
             isPowerOn={isPowerOn} 
             isInitialized={isInitialized}
-            isCursorDown={isCursorDown} />
+            isCursorDown={isCursorDown}
+            onPowerOff={handlePowerOff} />
 
         </div>
       </div>

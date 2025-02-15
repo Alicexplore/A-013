@@ -1,33 +1,109 @@
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const MiniScreen = ({ isCursorDown }) => {
+const MiniScreen = ({ isCursorDown, isPowerOn, onPowerOff }) => {
+  const [batteryLevel, setBatteryLevel] = useState(4); 
+  const timeoutRef = useRef(null);
+  const rechargeTimeoutRef = useRef(null); 
+
+  const [shadow, setShadow] = useState("");
+
+
+  useEffect(() => {
+    if (isCursorDown) {
+      setShadow("inset 1px 1px 3px #939393, inset -1px -1px 3px #939393");
+    } else {
+      setTimeout(() => {
+        setShadow("");
+      }, 1500);
+    }
+  }, [isCursorDown]);
+
+
+  useEffect(() => {
+    if (!isPowerOn) {
+      setBatteryLevel(4);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    }
+  }, [isPowerOn]);
+
+
+  useEffect(() => {
+    if (!isCursorDown && batteryLevel < 4 && isPowerOn) {
+      if (rechargeTimeoutRef.current) {
+        clearTimeout(rechargeTimeoutRef.current);
+      }
+      rechargeTimeoutRef.current = setTimeout(() => {
+        setBatteryLevel(4);  
+      }, 2000); 
+    }
+  }, [isCursorDown, batteryLevel, isPowerOn]);
+
+
+  useEffect(() => {
+    if (isPowerOn && batteryLevel > 0) {
+      const interval = setInterval(() => {
+        setBatteryLevel((prev) => prev - 1);
+      }, 60000);
+      return () => clearInterval(interval);
+    }
+
+  
+    if (batteryLevel === 0) {
+      timeoutRef.current = setTimeout(() => {
+        onPowerOff();
+      }, 60000); 
+    }
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      if (rechargeTimeoutRef.current) {
+        clearTimeout(rechargeTimeoutRef.current);
+      }
+    };
+  }, [isPowerOn, batteryLevel, isCursorDown, onPowerOff]);
+
+
+  const batteryColors = [
+    "bg-[#d60000]", 
+    "bg-[#e53600]", 
+    "bg-[#dd6900]", 
+    "bg-[#f4940b]"  
+  ];
+
   return (
     <div className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-black overflow-hidden">
-   
-      <div className="absolute inset-[1px] bg-[#333] flex items-center justify-center
-      shadow-[inset_2px_2px_5px_#000,inset_-1px_-1px_3px_#000]">
-
-        <div className="absolute w-[70%] h-[70%] bg-[#222] rounded-full
-        shadow-[inset_3px_3px_10px_#000,inset_-3px_-3px_10px_#777] border-[0.5px] border-[#2b2b2b]"></div>
-
-          <div className="absolute top-[4.5px] left-1/2 w-[4px] h-[4px] bg-[#7a7604] -translate-x-1/2 rounded-full" />
-          <div className="absolute bottom-[4.5px] left-1/2 w-[4px] h-[4px] bg-[#555] -translate-x-1/2 rounded-full" />
-          <div className="absolute left-[4.5px] top-1/2 w-[4px] h-[4px] bg-[#555] -translate-y-1/2 rounded-full" />
-          <div className="absolute right-[4.5px] top-1/2 w-[4px] h-[4px] bg-[#555] -translate-y-1/2 rounded-full" />
-
-        <div className="relative w-[50%] h-[50%] rounded-full bg-[#333] cursor-pointer
-          shadow-[inset_0px_1px_4px_#000,inset_0px_-1px_4px_#111,inset_1px_0px_4px_#111,inset_-1px_0px_4px_#111]"> 
-          {/* <div className="absolute top-[2px] left-1/2 w-[1px] h-[8px] bg-black -translate-x-1/2 rounded-full" /> */}  
-        </div>
-        
+      <div className="absolute inset-[1px] bg-[#333] flex flex-col items-center justify-center shadow-[inset_-2px_-2px_6px_#111,inset_2px_2px_6px_#111]">
+        {isPowerOn ? (
+          <>
+            <p className="mb-2 font-Roboto uppercase text-[8px] md:text-[10px] tracking-wider text-[#c3c3c3] z-20">battery</p>
+            <div className="flex flex-row gap-1 z-20">
+              {[...Array(4)].map((_, i) => (
+                <div
+                  key={i}
+                  className={`w-2 md:w-3 h-[25px] md:h-[35px] ${batteryLevel > i ? batteryColors[i] : "bg-[#444]"}`}
+                />
+              ))}
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/45 to-transparent z-10"></div>
+          </>
+        ) : null}
       </div>
- 
+
       <motion.div
-        className="absolute top-[1px] left-[1px] right-[1px] h-[calc(100%-2px)] rounded-tr-[4px] rounded-tl-[4px] 
-        md:rounded-tr-md md:rounded-tl-md bg-[#d9d9d9] shadow-[6px_6px_15px_#000]"
-        initial={{ y: 0 }}
-        animate={{ y: isCursorDown ? "102%" : "0%" }}
+        className="absolute top-[1px] left-[1px] right-[1px] h-[calc(100%-2px)] rounded-[4px] md:rounded-md bg-[#d9d9d9] z-50"
+        initial={{ y: 0, boxShadow: "" }}
+        animate={{
+          y: isCursorDown ? "102%" : "0%", 
+          boxShadow: isCursorDown
+            ? "inset 1px 1px 3px #939393, inset -1px -1px 3px #939393"
+            : shadow,
+        }}
         transition={{ type: "tween", duration: 1, ease: "easeInOut" }}
       />
     </div>
@@ -36,7 +112,8 @@ const MiniScreen = ({ isCursorDown }) => {
 
 MiniScreen.propTypes = {
   isCursorDown: PropTypes.bool.isRequired,
+  isPowerOn: PropTypes.bool.isRequired,
+  onPowerOff: PropTypes.func.isRequired,
 };
 
 export default MiniScreen;
-

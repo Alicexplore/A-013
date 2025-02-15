@@ -33,6 +33,13 @@ const Menu = () => {
                 <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  contact
               </button>
             </li>
+            <li>
+              <button
+                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
+                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
+                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  settings / infos
+              </button>
+            </li>
           </ul>
         </div>
       </div>

@@ -11,7 +11,6 @@ import MiniScreen from "../components/MiniScreen";
 import MenuButton from "../components/MenuButton";
 import PowerButton from "../components/PowerButton";
 import LoadingBar from "../components/LoadingBar";
-import Menu from "../components/Menu";
 import Cursor from "../components/Cursor";
 
 const Dashboard = () => {
@@ -20,8 +19,6 @@ const Dashboard = () => {
   });
 
   const [isInitialized, setIsInitialized] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
-  const [showMenuWithDelay, setShowMenuWithDelay] = useState(false);
   const [isCursorDown, setIsCursorDown] = useState(false);
 
   const handlePowerPress = () => {
@@ -40,25 +37,6 @@ const Dashboard = () => {
     const timeout = setTimeout(() => setIsInitialized(true), 500);
     return () => clearTimeout(timeout);
   }, []);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      setTimeout(() => {
-      }, 100);
-    }
-  }, [isMenuOpen]);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      const timeout = setTimeout(() => {
-        setShowMenuWithDelay(true);
-      }, 8200); 
-  
-      return () => clearTimeout(timeout);
-    } else {
-      setShowMenuWithDelay(false); 
-    }
-  }, [isMenuOpen]);
   
   return (
     <div className="h-svh w-full bg-[#d9d9d9] overflow-hidden flex flex-col items-center justify-center relative">
@@ -71,10 +49,10 @@ const Dashboard = () => {
 
         <div className="absolute inset-[3px] md:inset-[5px] rounded-xl md:rounded-[20px] border-[#fff]/70 
             md:border-[#fff]/90 border-[2px] bg-transparent flex items-center justify-center blur-xs md:blur-s"></div>
-
         <div className="hidden md:block">
           <MediaCards />
         </div>
+       
 
         <div className="grid grid-cols-5 grid-rows-6 w-full h-full gap-[8px] p-[10px] md:p-[14px] relative overflow-hidden">
           <motion.div
@@ -83,16 +61,11 @@ const Dashboard = () => {
               boxShadow: isPowerOn
                 ? "inset -6px -6px 10px #000, inset 6px 6px 10px #000"
                 : "inset -6px -6px 10px #000, inset 6px 6px 10px #000",
-              backgroundColor: isPowerOn ? "#83802b" : "#353212",
+              backgroundColor: isPowerOn ? "#333" : "#000",
               transition: "0.3 easeIn",
             }}>
               
-            <div className={`absolute inset-0 rounded-lg md:rounded-xl
-                ${ isPowerOn
-                    ? "bg-gradient-to-tl from-[#22210c]/85 to-transparent"
-                    : "bg-gradient-to-tl from-[#000]/80 to-transparent"
-                }`}>
-            </div>
+            <div className="absolute inset-0 rounded-lg md:rounded-xl bg-gradient-to-tl from-[#111]/85 to-transparent"></div>
 
             <div className="absolute inset-0 border-[#000] border-[0.5px] md:border-[1px] rounded-lg md:rounded-xl"></div>
 
@@ -136,7 +109,7 @@ const Dashboard = () => {
                 </motion.div>
               ) : (
                 <motion.div
-                  className="absolute inset-0 bg-[#83802b] blur-xs"
+                  className="absolute inset-0 bg-[#d9d9d9] blur-xs"
                   initial={{ height: "100%", top: "0%", width: "100%" }}
                   animate={{
                     height: "0px",
@@ -148,12 +121,6 @@ const Dashboard = () => {
                   key="power-off-animation"/>
               )}
             </motion.div>
-            {showMenuWithDelay && (
-              <motion.div 
-                className="absolute w-full h-full">
-                  {isMenuOpen && <Menu />}
-              </motion.div>
-            )}
           </motion.div>
 
           <PowerButton
@@ -164,8 +131,6 @@ const Dashboard = () => {
           <MenuButton
             isPowerOn={isPowerOn}
             isInitialized={isInitialized}
-            isMenuOpen={isMenuOpen} 
-            setIsMenuOpen={setIsMenuOpen} 
           />
           <Cursor
             isPowerOn={isPowerOn}

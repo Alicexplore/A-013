@@ -1,50 +1,80 @@
-const Menu = () => {
+import { useState } from 'react';
+import About from '../pages/About'; 
+import Projects from '../pages/Projects';
+import Settings from '../pages/Settings';
+import Contact from '../pages/Contact'; 
 
-    return (
-      <div className="w-full h-full items-center justify-center flex">
-        <div className="w-[80%] h-[80%] p-2 mt-6">
-          <h2 className="text-center mb-10 text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">menu</h2>
-          <ul className="space-y-4">
-            <li>
-              <button
-                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
-                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
-                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  about 
-              </button>
-            </li>
-            <li>
-              <button
-                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
-                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
-                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  projects
-              </button>
-            </li>
-            <li>
-              <button
-                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
-                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
-                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  next features
-              </button>
-            </li>
-            <li>
-              <button
-                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
-                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
-                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  contact
-              </button>
-            </li>
-            <li>
-              <button
-                className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex
-                hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors">
-                <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span>  settings / infos
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    );
+const Menu = () => {
+  const [activePage, setActivePage] = useState('menu');
+
+  const handleMenuClick = (page) => {
+    setActivePage(page);
   };
-  
-  export default Menu;
-  
+
+  const goBackToMenu = () => {
+    setActivePage('menu');
+  };
+
+  const renderPage = () => {
+    switch (activePage) {
+      case 'about':
+        return <About goBackToMenu={goBackToMenu} />;
+      case 'projects':
+        return <Projects goBackToMenu={goBackToMenu} />;
+      case 'settings':
+        return <Settings goBackToMenu={goBackToMenu} />;
+      case 'contact':
+        return <Contact goBackToMenu={goBackToMenu} />;
+      default:
+        return (
+          <div className="w-full h-full items-center justify-center flex">
+            <div className="w-[80%] h-[80%] p-2 mt-8">
+              <h2 className="text-center mb-10 text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase pointer-events-none">menu</h2>
+              <ul className="space-y-4 mt-14">
+                <li>
+                  <button
+                    className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors"
+                    onClick={() => handleMenuClick('about')}
+                  >
+                    <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span> About
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors"
+                    onClick={() => handleMenuClick('projects')}
+                  >
+                    <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span> Projects
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors"
+                    onClick={() => handleMenuClick('settings')}
+                  >
+                    <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span> Settings / Infos
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors"
+                    onClick={() => handleMenuClick('contact')}
+                  >
+                    <span className="mt-[1.5px]"><ion-icon name="caret-forward-outline"></ion-icon></span> Contact
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        );
+    }
+  };
+
+  return (
+    <div>
+      {renderPage()}
+    </div>
+  );
+};
+
+export default Menu;

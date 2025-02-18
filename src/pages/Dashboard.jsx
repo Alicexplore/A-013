@@ -7,19 +7,18 @@ import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
 import Lights from "../components/Lights";
 import LightsPower from "../components/LightsPower";
-import MiniScreen from "../components/MiniScreen";
 import MenuButton from "../components/MenuButton";
 import PowerButton from "../components/PowerButton";
-import LoadingBar from "../components/LoadingBar";
-import Cursor from "../components/Cursor";
+import ButtonsDirections from "../components/ButtonsDirections";
+import EnterButton from "../components/EnterButton";
+import BootScreen from "../components/BootScreen";
 
-const Dashboard = () => {
+const Dashboard = (scrollUp, scrollDown) => {
   const [isPowerOn, setIsPowerOn] = useState(() => {
     return localStorage.getItem("isPowerOn") === "false";
   });
 
   const [isInitialized, setIsInitialized] = useState(false);
-  const [isCursorDown, setIsCursorDown] = useState(false);
 
   const handlePowerPress = () => {
     setIsPowerOn((prevState) => {
@@ -27,10 +26,6 @@ const Dashboard = () => {
       localStorage.setItem("isPowerOn", newState ? "true" : "false");
       return newState;
     });
-  };
-
-  const handlePowerOff = () => {
-    setIsPowerOn(false);
   };
 
   useEffect(() => {
@@ -105,7 +100,8 @@ const Dashboard = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ opacity: { ease: "linear", delay: 1 } }}>
-                  <LoadingBar />
+                  <BootScreen 
+                   isPowerOn= {isPowerOn}/>
                 </motion.div>
               ) : (
                 <motion.div
@@ -132,20 +128,19 @@ const Dashboard = () => {
             isPowerOn={isPowerOn}
             isInitialized={isInitialized}
           />
-          <Cursor
+          <ButtonsDirections
             isPowerOn={isPowerOn}
-            isCursorDown={isCursorDown}
-            setIsCursorDown={setIsCursorDown}
-          /> 
+            isInitialized={isInitialized}
+            onScrollUp={scrollUp}
+            onScrollDown={scrollDown}
+          />
 
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />
-          <MiniScreen
+          <EnterButton
             isPowerOn={isPowerOn} 
             isInitialized={isInitialized}
-            isCursorDown={isCursorDown}
-            onPowerOff={handlePowerOff} />
-
+           />
         </div>
       </div>
     </div>

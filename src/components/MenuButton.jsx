@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import PropTypes from "prop-types";
 
-const MenuButton = ({ isPowerOn, isInitialized, isMenuOpen, setIsMenuOpen }) => {
+const MenuButton = ({ isPowerOn, isInitialized, onMenuClick }) => {
   const [Pressed, setPressed] = useState(false);
 
   const handleClick = () => {
@@ -14,17 +14,11 @@ const MenuButton = ({ isPowerOn, isInitialized, isMenuOpen, setIsMenuOpen }) => 
     menuSound.play();
 
     setTimeout(() => setPressed(false), 150);
-    if (!isPowerOn) return;
-    if (!isMenuOpen) {
-      setIsMenuOpen(true);
+
+    if (isPowerOn && onMenuClick) {
+      onMenuClick(); // Appeler la fonction pour afficher/masquer le menu
     }
   };
-
-  useEffect(() => {
-    if (!isPowerOn && isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-  },); 
 
   return (
     <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000] cursor-pointer button">
@@ -52,8 +46,7 @@ const MenuButton = ({ isPowerOn, isInitialized, isMenuOpen, setIsMenuOpen }) => 
 MenuButton.propTypes = {
   isPowerOn: PropTypes.bool.isRequired,
   isInitialized: PropTypes.bool.isRequired,
-  isMenuOpen: PropTypes.bool.isRequired, 
-  setIsMenuOpen: PropTypes.func.isRequired, 
+  onMenuClick: PropTypes.func.isRequired, // Ajouter la prop pour gérer le click
 };
 
 export default MenuButton;

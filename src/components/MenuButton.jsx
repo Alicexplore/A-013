@@ -16,7 +16,7 @@ const MenuButton = ({ isPowerOn, isInitialized, onMenuClick }) => {
     setTimeout(() => setPressed(false), 150);
 
     if (isPowerOn && onMenuClick) {
-      onMenuClick(); // Appeler la fonction pour afficher/masquer le menu
+      onMenuClick(); 
     }
   };
 
@@ -46,7 +46,7 @@ const MenuButton = ({ isPowerOn, isInitialized, onMenuClick }) => {
 MenuButton.propTypes = {
   isPowerOn: PropTypes.bool.isRequired,
   isInitialized: PropTypes.bool.isRequired,
-  onMenuClick: PropTypes.func.isRequired, // Ajouter la prop pour gérer le click
+  onMenuClick: PropTypes.func.isRequired, 
 };
 
 export default MenuButton;

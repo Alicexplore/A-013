@@ -1,64 +1,43 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import PropTypes from "prop-types";
 
 const Projects = ({ goBackToMenu }) => {
-  const controls = useAnimation();
-  const scrollY = useRef(0); 
+  const controls = useAnimation(); 
   const textRef = useRef(null); 
-  const [maxScroll, setMaxScroll] = useState(0); 
-
-  const scrollStep = 30; 
-  const smoothness = { type: "spring", stiffness: 100, damping: 15 }; 
-
-  useEffect(() => {
-    if (textRef.current) {
-      const containerHeight = 200; 
-      const textHeight = textRef.current.scrollHeight;
-      setMaxScroll(containerHeight - textHeight); 
-    }
-  }, []);
-
-  const scrollDown = () => {
-    if (scrollY.current > maxScroll) {
-      scrollY.current = Math.max(scrollY.current - scrollStep, maxScroll); 
-      controls.start({ y: scrollY.current, transition: smoothness });
-    }
-  };
-
-  const scrollUp = () => {
-    if (scrollY.current < 0) {
-      scrollY.current = Math.min(scrollY.current + scrollStep, 0); 
-      controls.start({ y: scrollY.current, transition: smoothness });
-    }
-  };
 
   return (
     <div className="w-full h-full items-center justify-center flex flex-col p-10">
-      <h2 className="text-center mb-8 text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase pointer-events-none">
+      <h2 className="text-center mb-8 text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase pointer-events-none z-10">
         projects
       </h2>
-      <div className="w-full h-[210px] overflow-hidden p-2 relative">
+      <div className="w-full h-[210px] overflow-y-auto p-2 relative">
         <motion.div ref={textRef} animate={controls} className="w-full">
-          <p className="text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">
-            famiglia 
-          </p>
+          <h3 className="text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">
+            A-013
+          </h3>
           <br />
-          <img src="./images/famiglia.png" alt="" width={1000} />
-         
+          <img className="shadow-[0px_0px_6px_#000]" src="./images/a013.png" alt="" width={1000} />
+          <br />
+          <p className="text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">
+            Vegan restaurant built during my studies, react + tailwind
+          </p>
           <a href="https://www.linkedin.com/in/alicebergonhe/" target="_blank" rel="noopener noreferrer" className="underline
-          text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">repo github</a>
+          text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">github</a>
+
+          <h3 className="text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase mt-12">
+            famiglia 
+          </h3>
           <br />
+          <img className="shadow-[0px_0px_6px_#000]" src="./images/famiglia.png" alt="" width={1000} />
           <br />
           <p className="text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">
-            Built with care and technical precision, I bring to life the ideas she envisioned, translating them into a unique
-            web design experience that reflects her keen eye for detail and passion for aesthetics.
+            Vegan restaurant built during my studies, react + tailwind
           </p>
+          <a href="https://www.linkedin.com/in/alicebergonhe/" target="_blank" rel="noopener noreferrer" className="underline
+          text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">github</a>
           <br />
-          <p className="text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">
-            Alice is currently looking for a new opportunity as a Frontend Developer, if her vision resonates with you, feel 
-            free to reach out!
-          </p>
+        
         </motion.div>
       </div>
 
@@ -69,21 +48,7 @@ const Projects = ({ goBackToMenu }) => {
         >
           <ion-icon name="caret-back-outline"></ion-icon>
         </button>
-
-        <div className="flex flex-row gap-4">
-          <button
-            onClick={scrollUp}
-            className="text-[#fff] text-2xl transition-colors"
-          >
-            <ion-icon name="caret-up-outline"></ion-icon>
-          </button>
-          <button
-            onClick={scrollDown}
-            className="text-[#fff] text-2xl transition-colors"
-          >
-            <ion-icon name="caret-down-outline"></ion-icon>
-          </button>
-        </div>
+      
       </div>
     </div>
   );

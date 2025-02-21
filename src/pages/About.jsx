@@ -35,11 +35,11 @@ const About = ({ goBackToMenu }) => {
 
   return (
     <div className="w-full h-full items-center justify-center flex flex-col p-10">
-      <h2 className="text-center mb-8 text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase pointer-events-none">
+      <h2 className="text-center mb-8 text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase pointer-events-none z-10">
         About
       </h2>
 
-      <div className="w-full h-[210px] overflow-hidden p-2 relative">
+      <div className="w-full h-[210px] overflow-y-auto p-2 relative">
         <motion.div ref={textRef} animate={controls} className="w-full">
           <p className="text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">
             Hello, my name is A-013. I was developed by Alice Bergonhe, a highly passionate junior frontend developer.
@@ -56,8 +56,8 @@ const About = ({ goBackToMenu }) => {
           </p>
           <br />
           <p className="text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase">
-            Alice is currently looking for a new opportunity as a Frontend Developer, if her vision resonates with you, feel 
-            free to reach out!
+            I am currently looking for a new opportunity as a Frontend Developer, if you like my work 
+            and this vision resonates with you, feel free to reach out!
           </p>
         </motion.div>
       </div>

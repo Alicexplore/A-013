@@ -105,6 +105,20 @@ const Dashboard = () => {
           >
             <div className="absolute inset-0 rounded-lg md:rounded-xl bg-gradient-to-tl from-[#111]/85 to-transparent"></div>
             <div className="absolute inset-0 border-[#000] border-[0.5px] md:border-[1px] rounded-lg md:rounded-xl"></div>
+            {!isPowerOn && (
+              <motion.div
+                className="absolute inset-0 bg-[#d9d9d9] blur-xs"
+                initial={{ height: "100%", top: "0%", width: "100%" }}
+                animate={{
+                  height: "0px",
+                  top: "50%",
+                  width: "100%",
+                  color: "#222",
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                key="power-off-animation"
+              />
+            )}
             <motion.div
               className="absolute inset-0"
               initial={{ opacity: 0 }}
@@ -114,6 +128,19 @@ const Dashboard = () => {
               {isPowerOn && !isMenuVisible && (
                 <BootScreen isPowerOn={isPowerOn} onBootComplete={handleBootComplete} />
               )}
+            </motion.div>
+            <motion.div
+              className="absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeInOut", delay: 1 }}
+            >
+              <motion.span
+                className="absolute right-3 top-3 rounded-full w-3 h-3 blur-xxs"
+                initial={{ backgroundColor: isPowerOn ? "#d60000" : "#f4940b" }}
+                animate={{ backgroundColor: isPowerOn ? "#f4940b" : "#d60000" }}
+                transition={{ duration: 0.5, ease: "easeInOut"}}
+              />
             </motion.div>
             {isMenuVisible && isPowerOn && <Menu />}
           </motion.div>

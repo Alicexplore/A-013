@@ -27,10 +27,10 @@ const Menu = () => {
         return <Contact goBackToMenu={goBackToMenu} />;
       default:
         return (
-          <div className="w-full h-full items-center justify-center flex">
-            <div className="w-[80%] h-[80%] p-2 mt-8">
-              <h2 className="text-center mb-10 text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase pointer-events-none">menu</h2>
-              <ul className="space-y-4 mt-14">
+          <div className="absolute w-full h-full items-center justify-center flex pointer">
+            <div className="w-[80%] h-[80%] p-2 ">
+              <h2 className="text-center text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase pointer-events-none">menu</h2>
+              <ul className="space-y-1 md:space-y-4 mt-6 md:mt-12">
                 <li>
                   <button
                     className="w-full text-[#fff] font-Roboto text-[9px] md:text-xs tracking-widest uppercase flex hover:text-[#333] gap-2 text-left p-2 hover:bg-[#D9D9D9] transition-colors"

@@ -37,7 +37,7 @@ const RechargeButton = ({ isInitialized, handleRecharge }) => {
         }}
       >
         <h1
-          className="absolute mt-1 font-Roboto font-medium tracking-widest text-[17px] md:text-[26px]
+          className="absolute mt-1 font-Roboto font-medium tracking-widest text-[17px] md:text-[25px]
           pointer-events-none uppercase text-[#222]"
         >
           <ion-icon name="flash"></ion-icon>

@@ -1,46 +1,40 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Menu from "../components/Menu";
 import MetalPlate from "../components/MetalPlate";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
 import MediaCards from "../components/MediaCards";
 import Lights from "../components/Lights";
 import LightsPower from "../components/LightsPower";
-import MenuButton from "../components/MenuButton";
 import PowerButton from "../components/PowerButton";
 import ButtonsDirections from "../components/ButtonsDirections";
 import EnterButton from "../components/EnterButton";
 import BootScreen from "../components/BootScreen";
+import MiniScreen from "../components/MiniScreen";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
-  const [isMenuVisible, setIsMenuVisible] = useState(false);
-  const [isBootComplete, setIsBootComplete] = useState(false);
-  const [startMenuDelay, setStartMenuDelay] = useState(false);
+  const [isScreenOpen, setIsScreenOpen] = useState(false);
+  const [showMenu, setShowMenu] = useState(false); 
+  const [batteryLevel, setBatteryLevel] = useState(7);
+
+  const handleRecharge = () => {
+    setBatteryLevel(7); 
+  };
 
   useEffect(() => {
     const storedPowerState = localStorage.getItem("isPowerOn");
-    const storedMenuDelayState = localStorage.getItem("startMenuDelay");
+    const storedBatteryLevel = localStorage.getItem("batteryLevel");
 
     if (storedPowerState === "true") {
       setIsPowerOn(true);
     } else {
       setIsPowerOn(false);
     }
-
-    if (storedMenuDelayState === "true") {
-      setStartMenuDelay(true);
-    } else {
-      setStartMenuDelay(false);
+    if (storedBatteryLevel) {
+      setBatteryLevel(Number(storedBatteryLevel));
     }
-
-    setIsMenuVisible(false);
-    localStorage.setItem("isPowerOn", "false");
-    localStorage.setItem("isMenuVisible", "false");
-    localStorage.setItem("startMenuDelay", "false");
-
     const timeout = setTimeout(() => setIsInitialized(true), 500);
     return () => clearTimeout(timeout);
   }, []);
@@ -49,36 +43,29 @@ const Dashboard = () => {
     setIsPowerOn((prevState) => {
       const newState = !prevState;
       localStorage.setItem("isPowerOn", newState ? "true" : "false");
-
       if (!newState) {
-        setIsMenuVisible(false);
-        localStorage.setItem("isMenuVisible", "false");
+        localStorage.setItem("batteryLevel", batteryLevel.toString());
       }
-
-      if (newState) {
-        setIsBootComplete(false);
-        setIsMenuVisible(false);
-        localStorage.setItem("startMenuDelay", "true");
-        setTimeout(() => {
-          setStartMenuDelay(false);
-          localStorage.setItem("startMenuDelay", "false");
-        }, 7000);
-      }
-
       return newState;
     });
   };
 
-  const handleMenuClick = () => {
-    if (isBootComplete && !startMenuDelay && isPowerOn) {
-      setIsMenuVisible(true);
-      localStorage.setItem("isMenuVisible", "true");
+  useEffect(() => {
+    if (isInitialized && isPowerOn) {
+      const menuTimeout = setTimeout(() => {
+        setShowMenu(true);
+      }, 3000);
+      return () => clearTimeout(menuTimeout);
     }
-  };
+  }, [isInitialized, isPowerOn]);
 
-  const handleBootComplete = () => {
-    setIsBootComplete(true);
-  };
+  useEffect(() => {
+    if (!isPowerOn) {
+      setBatteryLevel(7); 
+    } else {
+      localStorage.setItem("batteryLevel", batteryLevel.toString());
+    }
+  }, [isPowerOn, batteryLevel]);
 
   return (
     <div className="h-svh w-full bg-[#d9d9d9] overflow-hidden flex flex-col items-center justify-center relative">
@@ -125,10 +112,20 @@ const Dashboard = () => {
               animate={{ opacity: isInitialized ? 1 : 0 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             >
-              {isPowerOn && !isMenuVisible && (
-                <BootScreen isPowerOn={isPowerOn} onBootComplete={handleBootComplete} />
+              {isPowerOn && (
+                <BootScreen isPowerOn={isPowerOn} />
               )}
             </motion.div>
+       
+            {showMenu && (
+              <motion.div
+                className="absolute inset-0 w-full h-full"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: "easeInOut", delay: 3 }} 
+              >
+              </motion.div>
+            )}
             <motion.div
               className="absolute inset-0"
               initial={{ opacity: 0 }}
@@ -136,28 +133,37 @@ const Dashboard = () => {
               transition={{ duration: 0.5, ease: "easeInOut", delay: 1 }}
             >
               <motion.span
-                className="absolute right-3 top-3 rounded-full w-3 h-3 blur-xxs"
+                className="absolute right-2 top-2 md:right-3 md:top-3 rounded-full w-[10px] h-[10px] md:w-3 md:h-3 blur-xxs"
                 initial={{ backgroundColor: isPowerOn ? "#d60000" : "#f4940b" }}
                 animate={{ backgroundColor: isPowerOn ? "#f4940b" : "#d60000" }}
                 transition={{ duration: 0.5, ease: "easeInOut"}}
               />
             </motion.div>
-            {isMenuVisible && isPowerOn && <Menu />}
           </motion.div>
           <PowerButton
             handlePowerPress={handlePowerPress}
             isPowerOn={isPowerOn}
             isInitialized={isInitialized}
           />
-          <MenuButton
+          <MiniScreen
             isPowerOn={isPowerOn}
-            isInitialized={isInitialized}
-            onMenuClick={handleMenuClick}
+            isOpen={isScreenOpen} 
+            setIsOpen={setIsScreenOpen} 
+            onPowerOff={() => setIsPowerOn(false)}
+            batteryLevel={batteryLevel}
+            setBatteryLevel={setBatteryLevel}
           />
-          <ButtonsDirections isPowerOn={isPowerOn} isInitialized={isInitialized} />
+          <ButtonsDirections 
+            isPowerOn={isPowerOn} 
+            isInitialized={isInitialized} 
+          />
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />
-          <EnterButton isPowerOn={isPowerOn} isInitialized={isInitialized} />
+          <EnterButton 
+            isPowerOn={isPowerOn} 
+            isInitialized={isInitialized} 
+            handleRecharge={handleRecharge} 
+          />
         </div>
       </div>
     </div>
@@ -165,4 +171,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

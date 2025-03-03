@@ -8,7 +8,7 @@ import Lights from "../components/Lights";
 import LightsPower from "../components/LightsPower";
 import PowerButton from "../components/PowerButton";
 import ButtonsDirections from "../components/ButtonsDirections";
-import EnterButton from "../components/EnterButton";
+import RechargeButton from "../components/RechargeButton";
 import BootScreen from "../components/BootScreen";
 import MiniScreen from "../components/MiniScreen";
 
@@ -159,7 +159,7 @@ const Dashboard = () => {
           />
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />
-          <EnterButton 
+          <RechargeButton 
             isPowerOn={isPowerOn} 
             isInitialized={isInitialized} 
             handleRecharge={handleRecharge} 

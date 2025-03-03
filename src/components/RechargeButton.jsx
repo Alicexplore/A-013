@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const EnterButton = ({ isInitialized, handleRecharge }) => {
+const RechargeButton = ({ isInitialized, handleRecharge }) => {
   const [Pressed, setPressed] = useState(false);
   const [enterAudio, setEnterAudio] = useState(null);
 
@@ -50,9 +50,9 @@ const EnterButton = ({ isInitialized, handleRecharge }) => {
   );
 };
 
-EnterButton.propTypes = {
+RechargeButton.propTypes = {
   isInitialized: PropTypes.bool.isRequired,  
   handleRecharge: PropTypes.func.isRequired,
 };
 
-export default EnterButton;
+export default RechargeButton;

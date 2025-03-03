@@ -7,7 +7,7 @@ This project represents my vision of a neo-futuristic mini-computer designed to 
 
 </br>
 
-<img width="1440" alt="A-013 screenshot" src="https://github.com/user-attachments/assets/fd7b4d44-8d76-4a9a-99c1-6f9868986745"/>
+<img width="1440" alt="A-013 screenshot" src="https://github.com/user-attachments/assets/4762bc56-2260-4992-90ba-2c755a33b88e" />
 
 </br>
 

@@ -2,9 +2,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const EnterButton = ({ isPowerOn, isInitialized }) => {
+const EnterButton = ({ isInitialized, handleRecharge }) => {
   const [Pressed, setPressed] = useState(false);
-
   const [enterAudio, setEnterAudio] = useState(null);
 
   useEffect(() => {
@@ -18,10 +17,11 @@ const EnterButton = ({ isPowerOn, isInitialized }) => {
   };
 
   const handleClick = () => {
-    if (!isInitialized) return;
+    if (!isInitialized) return; 
     playSound(enterAudio); 
-    setPressed(true);
-    setTimeout(() => setPressed(false), 150);
+    setPressed(true); 
+    handleRecharge();
+    setTimeout(() => setPressed(false), 150); 
   };
 
   return (
@@ -37,24 +37,22 @@ const EnterButton = ({ isPowerOn, isInitialized }) => {
         }}
       >
         <h1
-          className={`font-Roboto font-medium tracking-widest text-[8px] md:text-[11px]
-          pointer-events-none uppercase transition duration-700
-          ${
-            isPowerOn
-              ? "text-[#222] opacity-100"
-              : "text-[#222] opacity-100 pointer-events-none"
-          }`}
+          className="absolute mt-1 font-Roboto font-medium tracking-widest text-[17px] md:text-[26px]
+          pointer-events-none uppercase text-[#222]"
         >
-          enter
+          <ion-icon name="flash"></ion-icon>
         </h1>
+        <div className="absolute bottom-[10px] md:bottom-[13px] w-2/4 h-[2px] md:h-[3px] rounded-full"
+             style={{ boxShadow: "inset 1px 1px 1px #fff, inset -1px -1px 1px #939393, 0px 1px 2px #777777"}}>
+        </div> 
       </motion.div>
     </div>
   );
 };
 
 EnterButton.propTypes = {
-  isPowerOn: PropTypes.bool.isRequired,
-  isInitialized: PropTypes.bool.isRequired,
+  isInitialized: PropTypes.bool.isRequired,  
+  handleRecharge: PropTypes.func.isRequired,
 };
 
 export default EnterButton;

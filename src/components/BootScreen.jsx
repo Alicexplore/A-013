@@ -61,7 +61,7 @@ const BootScreen = ({ isPowerOn }) => {
       >
         <motion.img
           className="w-[200px] md:w-[300px]"
-          src="./images/LogoHorizontalPower.svg"
+          src="./images/LogoPower.svg"
           alt="Logo"
           initial={{ clipPath: "inset(50% 0 50% 0)", opacity: 0 }}
           animate={logoControls}

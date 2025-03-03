@@ -17,7 +17,8 @@ const PowerButton = ({ handlePowerPress, isPowerOn, isInitialized }) => {
   const handleClick = () => {
     if (!isInitialized) return;
 
-    playSound(powerAudio); 
+    playSound(powerAudio);
+     
 
     setPressed(true);
     setTimeout(() => setPressed(false), 150);

@@ -1,69 +1,60 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const MiniScreen = ({ isCursorDown, isPowerOn, onPowerOff }) => {
-  const [batteryLevel, setBatteryLevel] = useState(4);
-  const timeoutRef = useRef(null);
+const MiniScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatteryLevel }) => {
   const dischargeIntervalRef = useRef(null);
-  const [shadow, setShadow] = useState("");
+  const shutdownTimeoutRef = useRef(null);
 
   useEffect(() => {
-    if (isCursorDown) {
-      setShadow("inset 1px 1px 3px #939393, inset -1px -1px 3px #939393");
+    if (isPowerOn) {
+      setIsOpen(true);
     } else {
-      setTimeout(() => setShadow(""), 1500);
+      setIsOpen(false);
     }
-  }, [isCursorDown]);
-
-  useEffect(() => {
-    if (!isPowerOn) {
-      setBatteryLevel(4);
-      clearTimeout(timeoutRef.current);
-      clearInterval(dischargeIntervalRef.current);
-    }
-  }, [isPowerOn]);
+  }, [isPowerOn, setIsOpen]);
 
   useEffect(() => {
     if (isPowerOn && batteryLevel > 0) {
       dischargeIntervalRef.current = setInterval(() => {
         setBatteryLevel((prev) => Math.max(prev - 1, 0));
-      }, 120000);
+      }, 1000);
     }
 
     return () => clearInterval(dischargeIntervalRef.current);
-  }, [isPowerOn, batteryLevel]);
+  }, [isPowerOn, batteryLevel, setBatteryLevel]); 
 
   useEffect(() => {
-    if (batteryLevel === 0 && isPowerOn) {
-      timeoutRef.current = setTimeout(() => {
+    if (batteryLevel === 0) {
+      shutdownTimeoutRef.current = setTimeout(() => {
+        setIsOpen(false);
         onPowerOff();
-      }, 120000);
+      }, 1000); 
     } else {
-      clearTimeout(timeoutRef.current);
+      clearTimeout(shutdownTimeoutRef.current);
     }
-  }, [batteryLevel, isPowerOn, onPowerOff]);
 
-  useEffect(() => {
-    if (isCursorDown && isPowerOn) {
-      clearTimeout(timeoutRef.current);
-      setBatteryLevel(4);
-    }
-  }, [isCursorDown, isPowerOn]);
+    return () => clearTimeout(shutdownTimeoutRef.current);
+  }, [batteryLevel, onPowerOff, setIsOpen]);
 
-  const batteryColors = ["bg-[#d60000]", "bg-[#e53600]", "bg-[#dd6900]", "bg-[#f4940b]"];
+  const batteryColors = [
+    "bg-[#d60000]", "bg-[#e53600]", "bg-[#dd6900]", "bg-[#f4940b]",
+    "bg-[#f2b50c]", "bg-[#baab25]", "bg-[#999100]"
+  ];
 
   return (
-    <div className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-black overflow-hidden">
+    <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-black overflow-hidden">
       <div className="absolute inset-[1px] bg-[#333] flex flex-col items-center justify-center shadow-[inset_-2px_-2px_6px_#111,inset_2px_2px_6px_#111]">
         {isPowerOn && (
           <>
-            <p className="mb-2 font-Roboto uppercase text-[8px] md:text-[10px] tracking-wider text-[#c3c3c3] z-20 pointer-events-none">
-              battery
-            </p>
             <div className="flex flex-row gap-1 z-20">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className={`w-2 md:w-3 h-[25px] md:h-[35px] ${batteryLevel > i ? batteryColors[i] : "bg-[#444]"}`} />
+              {[...Array(7)].map((_, i) => (
+                <div
+                  key={i}
+                  className={`w-[10px] md:w-4 h-[30px] md:h-[40px] ${
+                    batteryLevel > i ? batteryColors[i] : "bg-[#444]"
+                  }`}
+                />
               ))}
             </div>
             <div className="absolute inset-0 bg-gradient-to-tl from-[#000]/45 to-transparent z-10"></div>
@@ -72,12 +63,9 @@ const MiniScreen = ({ isCursorDown, isPowerOn, onPowerOff }) => {
       </div>
 
       <motion.div
-        className="absolute top-[1px] left-[1px] right-[1px] h-[calc(100%-2px)] rounded-[4px] md:rounded-md bg-[#d9d9d9] z-50"
-        initial={{ y: 0, boxShadow: "" }}
-        animate={{
-          y: isCursorDown ? "102%" : "0%",
-          boxShadow: isCursorDown ? "inset 1px 1px 3px #939393, inset -1px -1px 3px #939393" : shadow,
-        }}
+        className="absolute top-[1px] left-[1px] right-[1px] h-[calc(100%-2px)] bg-[#d9d9d9] z-50 flex items-center justify-center"
+        initial={{ y: 0 }}
+        animate={{ y: isPowerOn ? "102%" : "0%" }}
         transition={{ type: "tween", duration: 1, ease: "easeInOut" }}
       />
     </div>
@@ -85,9 +73,11 @@ const MiniScreen = ({ isCursorDown, isPowerOn, onPowerOff }) => {
 };
 
 MiniScreen.propTypes = {
-  isCursorDown: PropTypes.bool.isRequired,
   isPowerOn: PropTypes.bool.isRequired,
   onPowerOff: PropTypes.func.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+  batteryLevel: PropTypes.number.isRequired,
+  setBatteryLevel: PropTypes.func.isRequired, 
 };
 
 export default MiniScreen;

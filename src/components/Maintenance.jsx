@@ -78,7 +78,7 @@ const Maintenance = () => {
         </div>
 
         <motion.img
-          src="./images/logo-white.svg"
+          src="./images/LogoWhite.svg"
           alt="logo white"
           className="-mt-1 w-[35px] md:w-[50px]"
           initial={{ opacity: 0 }}

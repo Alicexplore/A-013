@@ -1,10 +1,20 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
 const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatteryLevel }) => {
   const dischargeIntervalRef = useRef(null);
   const shutdownTimeoutRef = useRef(null);
+  const [powerAudio, setPowerAudio] = useState(null);
+
+  useEffect(() => {
+    setPowerAudio(new Audio('/sounds/PowerButton.mp3'));
+  }, []);
+
+  const playSound = (sound) => {
+    sound.currentTime = 0; 
+    sound.play();
+  };
 
   useEffect(() => {
     if (isPowerOn) {
@@ -29,6 +39,8 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
       shutdownTimeoutRef.current = setTimeout(() => {
         setIsOpen(false);
         onPowerOff();
+        playSound(powerAudio); 
+
       }, 180000); 
     } else {
       clearTimeout(shutdownTimeoutRef.current);

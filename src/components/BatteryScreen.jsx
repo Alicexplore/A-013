@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const MiniScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatteryLevel }) => {
+const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatteryLevel }) => {
   const dischargeIntervalRef = useRef(null);
   const shutdownTimeoutRef = useRef(null);
 
@@ -18,7 +18,7 @@ const MiniScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBattery
     if (isPowerOn && batteryLevel > 0) {
       dischargeIntervalRef.current = setInterval(() => {
         setBatteryLevel((prev) => Math.max(prev - 1, 0));
-      }, 1000);
+      }, 180000);
     }
 
     return () => clearInterval(dischargeIntervalRef.current);
@@ -29,7 +29,7 @@ const MiniScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBattery
       shutdownTimeoutRef.current = setTimeout(() => {
         setIsOpen(false);
         onPowerOff();
-      }, 1000); 
+      }, 180000); 
     } else {
       clearTimeout(shutdownTimeoutRef.current);
     }
@@ -72,7 +72,7 @@ const MiniScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBattery
   );
 };
 
-MiniScreen.propTypes = {
+BatteryScreen.propTypes = {
   isPowerOn: PropTypes.bool.isRequired,
   onPowerOff: PropTypes.func.isRequired,
   setIsOpen: PropTypes.func.isRequired,
@@ -80,4 +80,4 @@ MiniScreen.propTypes = {
   setBatteryLevel: PropTypes.func.isRequired, 
 };
 
-export default MiniScreen;
+export default BatteryScreen;

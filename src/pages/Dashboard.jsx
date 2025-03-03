@@ -10,7 +10,7 @@ import PowerButton from "../components/PowerButton";
 import ButtonsDirections from "../components/ButtonsDirections";
 import RechargeButton from "../components/RechargeButton";
 import BootScreen from "../components/BootScreen";
-import MiniScreen from "../components/MiniScreen";
+import BatteryScreen from "../components/BatteryScreen";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(false);
@@ -145,7 +145,7 @@ const Dashboard = () => {
             isPowerOn={isPowerOn}
             isInitialized={isInitialized}
           />
-          <MiniScreen
+          <BatteryScreen
             isPowerOn={isPowerOn}
             isOpen={isScreenOpen} 
             setIsOpen={setIsScreenOpen} 

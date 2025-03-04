@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const ButtonsDirections = ({ isInitialized }) => {
+const DirectionButtons = ({ isInitialized }) => {
   const [upPressed, setUpPressed] = useState(false);
   const [downPressed, setDownPressed] = useState(false);
 
@@ -85,10 +85,10 @@ const ButtonsDirections = ({ isInitialized }) => {
   );
 };
 
-ButtonsDirections.propTypes = {
+DirectionButtons.propTypes = {
   isInitialized: PropTypes.bool.isRequired,
 };
 
-export default ButtonsDirections;
+export default DirectionButtons;
 
 

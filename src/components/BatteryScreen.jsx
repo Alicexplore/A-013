@@ -47,7 +47,7 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
     }
 
     return () => clearTimeout(shutdownTimeoutRef.current);
-  }, [batteryLevel, onPowerOff, setIsOpen]);
+  }, [batteryLevel, onPowerOff, setIsOpen, powerAudio]);
 
   const batteryColors = [
     "bg-[#d60000]", "bg-[#e53600]", "bg-[#dd6900]", "bg-[#f4940b]",

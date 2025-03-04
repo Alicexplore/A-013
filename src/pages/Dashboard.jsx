@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import MetalPlate from "../components/MetalPlate";
 import TextFolio from "../components/TextFolio";
 import TextName from "../components/TextName";
@@ -7,21 +7,19 @@ import MediaCards from "../components/MediaCards";
 import Lights from "../components/Lights";
 import LightsPower from "../components/LightsPower";
 import PowerButton from "../components/PowerButton";
-import ButtonsDirections from "../components/ButtonsDirections";
+import DirectionButtons from "../components/DirectionButtons";
 import RechargeButton from "../components/RechargeButton";
 import BootScreen from "../components/BootScreen";
 import BatteryScreen from "../components/BatteryScreen";
+import Menu from "../pages/Menu";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const [isScreenOpen, setIsScreenOpen] = useState(false);
-  const [showMenu, setShowMenu] = useState(false); 
   const [batteryLevel, setBatteryLevel] = useState(7);
-
-  const handleRecharge = () => {
-    setBatteryLevel(7); 
-  };
+  const [bootCompleted, setBootCompleted] = useState(false);
+  const [showBootScreen, setShowBootScreen] = useState(false);
 
   useEffect(() => {
     const storedPowerState = localStorage.getItem("isPowerOn");
@@ -32,9 +30,11 @@ const Dashboard = () => {
     } else {
       setIsPowerOn(false);
     }
+
     if (storedBatteryLevel) {
       setBatteryLevel(Number(storedBatteryLevel));
     }
+
     const timeout = setTimeout(() => setIsInitialized(true), 500);
     return () => clearTimeout(timeout);
   }, []);
@@ -45,37 +45,43 @@ const Dashboard = () => {
       localStorage.setItem("isPowerOn", newState ? "true" : "false");
       if (!newState) {
         localStorage.setItem("batteryLevel", batteryLevel.toString());
+        setBootCompleted(false);
+        setShowBootScreen(false);
       }
       return newState;
     });
   };
 
   useEffect(() => {
-    if (isInitialized && isPowerOn) {
-      const menuTimeout = setTimeout(() => {
-        setShowMenu(true);
-      }, 3000);
-      return () => clearTimeout(menuTimeout);
-    }
-  }, [isInitialized, isPowerOn]);
-
-  useEffect(() => {
     if (!isPowerOn) {
-      setBatteryLevel(7); 
+      setBatteryLevel(7);
     } else {
       localStorage.setItem("batteryLevel", batteryLevel.toString());
     }
   }, [isPowerOn, batteryLevel]);
 
+  const handleRecharge = () => {
+    setBatteryLevel(7);
+  };
+
+  useEffect(() => {
+    if (!isPowerOn) {
+      setBootCompleted(false);
+    }
+  }, [isPowerOn]);
+
+  useEffect(() => {
+    if (isPowerOn) {
+      setShowBootScreen(true);
+    }
+  }, [isPowerOn]);
+
   return (
     <div className="h-svh w-full bg-[#d9d9d9] overflow-hidden flex flex-col items-center justify-center relative">
       <TextName />
       <TextFolio />
-      <div className="flex items-center justify-center rounded-xl md:rounded-3xl relative z-10 w-[90%] max-w-[380px] 
-        md:max-w-[500px] aspect-[5/6] bg-[#d9d9d9] shadow-[4px_20px_30px_#222,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#979797] 
-        md:shadow-[6px_35px_30px_#222,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#979797]">
-        <div className="absolute inset-[3px] md:inset-[5px] rounded-xl md:rounded-[20px] border-[#fff]/70 
-            md:border-[#fff]/90 border-[2px] bg-transparent flex items-center justify-center blur-xs md:blur-s"></div>
+      <div className="flex items-center justify-center rounded-xl md:rounded-3xl relative z-10 w-[90%] max-w-[380px] md:max-w-[500px] aspect-[5/6] bg-[#d9d9d9] shadow-[4px_20px_30px_#222,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#979797] md:shadow-[6px_35px_30px_#222,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#979797]">
+        <div className="absolute inset-[3px] md:inset-[5px] rounded-xl md:rounded-[20px] border-[#fff]/70 md:border-[#fff]/90 border-[2px] bg-transparent flex items-center justify-center blur-xs md:blur-s"></div>
         <div className="hidden md:block">
           <MediaCards />
         </div>
@@ -106,26 +112,43 @@ const Dashboard = () => {
                 key="power-off-animation"
               />
             )}
-            <motion.div
-              className="absolute inset-0"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isInitialized ? 1 : 0 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            >
-              {isPowerOn && (
-                <BootScreen isPowerOn={isPowerOn} />
+            <AnimatePresence>
+              {showBootScreen && isPowerOn && (
+                <motion.div
+                  key="bootScreen"
+                  className="absolute inset-0"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  onAnimationComplete={() => {
+                    if (!isPowerOn) setShowBootScreen(false);
+                  }}
+                >
+                  <BootScreen
+                    isPowerOn={isPowerOn}
+                    onBootEnd={() => {
+                      setBootCompleted(true);
+                      setTimeout(() => setShowBootScreen(false), 500);
+                    }}
+                  />
+                </motion.div>
               )}
-            </motion.div>
-       
-            {showMenu && (
-              <motion.div
-                className="absolute inset-0 w-full h-full"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, ease: "easeInOut", delay: 3 }} 
-              >
-              </motion.div>
-            )}
+            </AnimatePresence>
+            <AnimatePresence>
+              {bootCompleted && isPowerOn && !showBootScreen && (
+                <motion.div
+                  key="menu"
+                  initial={{ opacity: 0, scale: 0.98 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  <Menu />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             <motion.div
               className="absolute inset-0"
               initial={{ opacity: 0 }}
@@ -134,9 +157,9 @@ const Dashboard = () => {
             >
               <motion.span
                 className="absolute right-2 top-2 md:right-3 md:top-3 rounded-full w-[10px] h-[10px] md:w-3 md:h-3 blur-xxs"
-                initial={{ backgroundColor: isPowerOn ? "#d60000" : "#f4940b" }}
-                animate={{ backgroundColor: isPowerOn ? "#f4940b" : "#d60000" }}
-                transition={{ duration: 0.5, ease: "easeInOut"}}
+                initial={{ backgroundColor: isPowerOn ? "#d60000" : "#B9AB24" }}
+                animate={{ backgroundColor: isPowerOn ? "#B9AB24" : "#d60000" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               />
             </motion.div>
           </motion.div>
@@ -147,22 +170,22 @@ const Dashboard = () => {
           />
           <BatteryScreen
             isPowerOn={isPowerOn}
-            isOpen={isScreenOpen} 
-            setIsOpen={setIsScreenOpen} 
+            isOpen={isScreenOpen}
+            setIsOpen={setIsScreenOpen}
             onPowerOff={() => setIsPowerOn(false)}
             batteryLevel={batteryLevel}
             setBatteryLevel={setBatteryLevel}
           />
-          <ButtonsDirections 
-            isPowerOn={isPowerOn} 
-            isInitialized={isInitialized} 
+          <DirectionButtons
+            isPowerOn={isPowerOn}
+            isInitialized={isInitialized}
           />
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />
-          <RechargeButton 
-            isPowerOn={isPowerOn} 
-            isInitialized={isInitialized} 
-            handleRecharge={handleRecharge} 
+          <RechargeButton
+            isPowerOn={isPowerOn}
+            isInitialized={isInitialized}
+            handleRecharge={handleRecharge}
           />
         </div>
       </div>
@@ -171,3 +194,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+

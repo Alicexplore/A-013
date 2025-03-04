@@ -3,7 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import ScrambleTextScreen from "./ScrambleTextScreen"; 
 import PropTypes from "prop-types";
 
-const BootScreen = ({ isPowerOn }) => {
+const BootScreen = ({ isPowerOn, onBootEnd }) => {
   const controls = useAnimation();
   const logoControls = useAnimation();
   const [startLoading, setStartLoading] = useState(false);
@@ -52,6 +52,16 @@ const BootScreen = ({ isPowerOn }) => {
     sequence();
   }, [startLoading, controls, logoControls]);
 
+  useEffect(() => {
+    if (showText && onBootEnd) {
+      const endDelay = setTimeout(() => {
+        onBootEnd(); 
+      }, 500); 
+  
+      return () => clearTimeout(endDelay);
+    }
+  }, [showText, onBootEnd]);
+
   return (
     <div className="relative w-full h-full flex items-center justify-center">
       <motion.div
@@ -93,6 +103,7 @@ const BootScreen = ({ isPowerOn }) => {
 
 BootScreen.propTypes = {
   isPowerOn: PropTypes.bool.isRequired,
+  onBootEnd: PropTypes.bool.isRequired,
 };
 
 export default BootScreen;

@@ -2,24 +2,31 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const DirectionButtons = ({ isInitialized }) => {
+const DirectionButtons = ({ isInitialized, setCurrentComponent, currentComponent }) => {
   const [upPressed, setUpPressed] = useState(false);
   const [downPressed, setDownPressed] = useState(false);
 
   const keyPressSound = new Audio('/sounds/ButtonDirection.mp3');
   keyPressSound.volume = 0.2; 
 
+  const components = ["about", "projects", "stack", "contact"]; 
+  const currentIndex = components.indexOf(currentComponent);
+
   const handleUpClick = () => {
     if (!isInitialized) return;
     setUpPressed(true);
-    keyPressSound.play();  
+    keyPressSound.play();
+    const nextIndex = (currentIndex - 1 + components.length) % components.length;
+    setCurrentComponent(components[nextIndex]);
     setTimeout(() => setUpPressed(false), 150);
   };
 
   const handleDownClick = () => {
     if (!isInitialized) return;
     setDownPressed(true);
-    keyPressSound.play();  
+    keyPressSound.play();
+    const nextIndex = (currentIndex + 1) % components.length; 
+    setCurrentComponent(components[nextIndex]);
     setTimeout(() => setDownPressed(false), 150);
   };
 
@@ -87,8 +94,8 @@ const DirectionButtons = ({ isInitialized }) => {
 
 DirectionButtons.propTypes = {
   isInitialized: PropTypes.bool.isRequired,
+  setCurrentComponent: PropTypes.func.isRequired, 
+  currentComponent: PropTypes.string.isRequired,
 };
 
 export default DirectionButtons;
-
-

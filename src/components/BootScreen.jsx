@@ -13,7 +13,7 @@ const BootScreen = ({ isPowerOn, onBootEnd }) => {
     if (isPowerOn) {
       const powerOnDelay = setTimeout(() => {
         setStartLoading(true);
-      }, 1000);
+      }, 500);
 
       return () => clearTimeout(powerOnDelay);
     }
@@ -28,7 +28,7 @@ const BootScreen = ({ isPowerOn, onBootEnd }) => {
       await logoControls.start({
         clipPath: "inset(0% 0 0% 0)",
         opacity: 1,
-        transition: { delay: 0.5, duration: 0.75, ease: "easeInOut" },
+        transition: { delay: 0, duration: 0.75, ease: "easeInOut" },
       });
 
       await controls.start({
@@ -94,7 +94,7 @@ const BootScreen = ({ isPowerOn, onBootEnd }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.5 } }}
         >
-          <ScrambleTextScreen text="HELLO MY NAME IS A-013" scrambleDuration={2.5} />
+          <ScrambleTextScreen text="HELLO MY NAME IS A-013" scrambleDuration={2} />
         </motion.div>
       )}
     </div>

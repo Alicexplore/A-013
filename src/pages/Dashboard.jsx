@@ -183,6 +183,7 @@ const Dashboard = () => {
             isInitialized={isInitialized}
             currentComponent={currentComponent}
             setCurrentComponent={setCurrentComponent}
+            showBootScreen={showBootScreen}
           />
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />

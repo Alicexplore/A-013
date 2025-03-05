@@ -36,12 +36,9 @@ const RechargeButton = ({ isInitialized, handleRecharge }) => {
           transition: "box-shadow 0.1s ease-in-out", 
         }}
       >
-        <h1
-          className="absolute mt-1 font-Roboto font-medium tracking-widest text-[17px] md:text-[25px]
-          pointer-events-none uppercase text-[#222]"
-        >
-          <ion-icon name="flash"></ion-icon>
-        </h1>
+        <div className="absolute pointer-events-none flex items-center justify-center w-[13px] md:w-[18px]">
+          <img src="./images/flash.svg" alt="flash icon"/>
+        </div>
         <div className="absolute bottom-[10px] md:bottom-[13px] w-2/4 h-[2px] md:h-[3px] rounded-full"
              style={{ boxShadow: "inset 1px 1px 1px #fff, inset -1px -1px 1px #939393, 0px 1px 2px #777777"}}>
         </div> 

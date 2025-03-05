@@ -131,7 +131,7 @@ const Dashboard = () => {
                     isPowerOn={isPowerOn}
                     onBootEnd={() => {
                       setBootCompleted(true);
-                      setTimeout(() => setShowBootScreen(false), 3500);
+                      setTimeout(() => setShowBootScreen(false), 3000);
                     }}
                   />
                 </motion.div>

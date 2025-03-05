@@ -20,21 +20,21 @@ const Dashboard = () => {
   const [batteryLevel, setBatteryLevel] = useState(7);
   const [bootCompleted, setBootCompleted] = useState(false);
   const [showBootScreen, setShowBootScreen] = useState(false);
+  const [currentComponent, setCurrentComponent] = useState("instructions");
 
   useEffect(() => {
+    localStorage.setItem("isPowerOn", "false");
+    setIsPowerOn(false); 
     const storedPowerState = localStorage.getItem("isPowerOn");
     const storedBatteryLevel = localStorage.getItem("batteryLevel");
-
     if (storedPowerState === "true") {
       setIsPowerOn(true);
     } else {
       setIsPowerOn(false);
     }
-
     if (storedBatteryLevel) {
       setBatteryLevel(Number(storedBatteryLevel));
     }
-
     const timeout = setTimeout(() => setIsInitialized(true), 500);
     return () => clearTimeout(timeout);
   }, []);
@@ -45,8 +45,10 @@ const Dashboard = () => {
       localStorage.setItem("isPowerOn", newState ? "true" : "false");
       if (!newState) {
         localStorage.setItem("batteryLevel", batteryLevel.toString());
+        localStorage.setItem("currentComponent", "instructions");
         setBootCompleted(false);
         setShowBootScreen(false);
+        setCurrentComponent("instructions");
       }
       return newState;
     });
@@ -129,7 +131,7 @@ const Dashboard = () => {
                     isPowerOn={isPowerOn}
                     onBootEnd={() => {
                       setBootCompleted(true);
-                      setTimeout(() => setShowBootScreen(false), 500);
+                      setTimeout(() => setShowBootScreen(false), 3500);
                     }}
                   />
                 </motion.div>
@@ -139,12 +141,12 @@ const Dashboard = () => {
               {bootCompleted && isPowerOn && !showBootScreen && (
                 <motion.div
                   key="menu"
+                  className="absolute inset-0"
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  <Menu />
+                  <Menu currentComponent={currentComponent} setCurrentComponent={setCurrentComponent} />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -179,6 +181,8 @@ const Dashboard = () => {
           <DirectionButtons
             isPowerOn={isPowerOn}
             isInitialized={isInitialized}
+            currentComponent={currentComponent}
+            setCurrentComponent={setCurrentComponent}
           />
           {isPowerOn ? <LightsPower /> : <Lights />}
           <MetalPlate />

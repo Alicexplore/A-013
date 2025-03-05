@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const DirectionButtons = ({ isInitialized, setCurrentComponent, currentComponent }) => {
+const DirectionButtons = ({ isInitialized, setCurrentComponent, currentComponent, showBootScreen }) => {
   const [upPressed, setUpPressed] = useState(false);
   const [downPressed, setDownPressed] = useState(false);
 
@@ -15,19 +15,27 @@ const DirectionButtons = ({ isInitialized, setCurrentComponent, currentComponent
   const handleUpClick = () => {
     if (!isInitialized) return;
     setUpPressed(true);
-    keyPressSound.play();
-    const nextIndex = (currentIndex - 1 + components.length) % components.length;
-    setCurrentComponent(components[nextIndex]);
-    setTimeout(() => setUpPressed(false), 150);
+    keyPressSound.play();   
+    if (!showBootScreen) { 
+      const nextIndex = (currentIndex - 1 + components.length) % components.length;
+      setCurrentComponent(components[nextIndex]);
+      setTimeout(() => setUpPressed(false), 150);
+    } else {
+      setTimeout(() => setUpPressed(false), 150); 
+    }
   };
 
   const handleDownClick = () => {
     if (!isInitialized) return;
     setDownPressed(true);
     keyPressSound.play();
-    const nextIndex = (currentIndex + 1) % components.length; 
-    setCurrentComponent(components[nextIndex]);
-    setTimeout(() => setDownPressed(false), 150);
+    if (!showBootScreen) {
+      const nextIndex = (currentIndex + 1) % components.length; 
+      setCurrentComponent(components[nextIndex]);
+      setTimeout(() => setDownPressed(false), 150);
+    } else {
+      setTimeout(() => setDownPressed(false), 150);
+    };
   };
 
   return (
@@ -44,10 +52,8 @@ const DirectionButtons = ({ isInitialized, setCurrentComponent, currentComponent
                   : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #222",
                   transition: "box-shadow 0.1s ease-in-out", 
               }}>
-              <span
-                className="text-lg md:text-2xl flex items-center justify-center cursor-pointer transition-none"
-                style={{ transition: "none" }}>
-                  <ion-icon name="caret-up-outline"></ion-icon>
+              <span className="absolute pointer-events-none flex items-center justify-center w-[12px] md:w-[17px]">
+                <img src="./images/uparrow.svg" alt="flash icon"/>
               </span>
             </motion.div>
 
@@ -79,11 +85,9 @@ const DirectionButtons = ({ isInitialized, setCurrentComponent, currentComponent
                   : "inset 2px 2px 2px #fff, inset -2px -2px 2px #939393, 5px 5px 8px #222",
                   transition: "box-shadow 0.1s ease-in-out",
               }}>
-                <span
-                className="text-lg md:text-2xl flex items-center justify-center cursor-pointer transition-none"
-                style={{ transition: "none" }}>
-                  <ion-icon name="caret-down-outline"></ion-icon>
-              </span>
+                <span className="absolute pointer-events-none flex items-center justify-center w-[12px] md:w-[17px]">
+                  <img src="./images/downarrow.svg" alt="flash icon"/>
+                </span>
             </motion.div>
           </div>
         </div>
@@ -96,6 +100,7 @@ DirectionButtons.propTypes = {
   isInitialized: PropTypes.bool.isRequired,
   setCurrentComponent: PropTypes.func.isRequired, 
   currentComponent: PropTypes.string.isRequired,
+  showBootScreen: PropTypes.bool.isRequired,
 };
 
 export default DirectionButtons;

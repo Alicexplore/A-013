@@ -103,7 +103,7 @@ const BootScreen = ({ isPowerOn, onBootEnd }) => {
 
 BootScreen.propTypes = {
   isPowerOn: PropTypes.bool.isRequired,
-  onBootEnd: PropTypes.bool.isRequired,
+  onBootEnd: PropTypes.func.isRequired,
 };
 
 export default BootScreen;

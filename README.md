@@ -3,7 +3,7 @@
 [![Star](https://img.shields.io/github/stars/Alicexplore/A-013?style=for-the-badge)](https://github.com/Alicexplore/A-013/stargazers)
 
 Welcome to **A-013**, my 2025 personal website. 
-This project represents my vision of a neo-futuristic mini-computer designed to showcase my passion for **Frontend Development**, both through its technical complexity and its ultra-realistic visuals entirely crafted in **CSS with Tailwind**.
+This project represents my vision of a neo-futuristic mini-computer designed to showcase my passion for **Frontend Development**, both through its technical challenges and its ultra-realistic visuals entirely crafted in **CSS with Tailwind**.
 
 </br>
 
@@ -22,13 +22,13 @@ This project represents my vision of a neo-futuristic mini-computer designed to 
 ## 🚀 About the Project
 
 **A-013** is a unique interface inspired by a retro-futuristic console.  
-The goal? To demonstrate my expertise in **React**, **modern CSS**, and **JavaScript**, while creating an immersive and visually striking user experience.
+The goal? To demonstrate my experience in **React**, **modern CSS**, and **JavaScript**, while creating an immersive and visually striking user experience.
 
 
 ### ✨ Main Features
 
 - **Ultra-realistic CSS design**: Every element, from buttons to the cards, has been meticulously crafted for a life-like rendering.  
-- **Interactive Frontend Logic**: Complex user interactions, such as the **power button**, seamless transitions, and dynamic element responses, demonstrate my passion for Frontend Development.  
+- **Interactive Frontend Logic**: Challenging user interactions, seamless transitions, and dynamic element responses to demonstrate my passion for Frontend Development.  
 - **Responsive and fluid design**: Built for an immersive experience across all devices.  
 - **Scalable structure**: A project designed to adapt and improve, showcasing its potential for evolution.
 
@@ -43,11 +43,10 @@ React was chosen for its component-based architecture, ease of state management,
 Tailwind CSS enables rapid styling with a focus on utility classes. It helps maintain consistent designs and speeds up development time without sacrificing creativity. Its flexibility made it perfect for crafting the ultra-realistic visuals of this project.  
 
 ### **Why Vite?**
-Vite provides a lightning-fast development experience due to its modern build tools and HMR (Hot Module Replacement). It enhances performance and debugging during development compared to older bundlers like Webpack.  
+Vite provides a lightning-fast development experience due to its modern build tools and HMR (Hot Module Replacement). It enhances performance and debugging during development.  
 
 ### Additional Tools:
 - **Framer Motion**: For fluid animations and transitions.
-- **Ionicons**: For sleek, modern icons.
 - **JavaScript ES6+**: Ensuring a robust and dynamic logic layer.  
 
 </br>
@@ -59,15 +58,13 @@ This project is constantly evolving. Here are some ideas I plan to implement:
 2. **Advanced Fullscreen Animations**: When switching to fullscreen mode, introducing a set of contemporary animations that contrast with the retro vibe of the console.
 3. **Website Preloader animation**: Card's animation inserted in the console.  
 4. **Interactive Cards**: The cards on the left will become fully interactive, possibly integrating APIs.  
-5. **Custom Games**: Adding unique games that I design myself, to enhance interactivity.  
-6. **New Sections**: Adding more projects, a blog, or a gallery feature.
 
 </br>
 
 ## 📌 About Me
 
 My name is **Alice**, a passionate Junior Frontend Developer.  
-After completing an apprenticeship at **Qonto**, I continue honing my skills by working on innovative projects like **A-013**.
+After completing an apprenticeship at **Qonto**, I continue honing my skills by working on creative projects like **A-013**.
 
 🎯 **Actively looking for a Frontend Developer position!**  
 If you’re looking for a passionate, creative, and detail-oriented developer, feel free to reach out. 🚀  

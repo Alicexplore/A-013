@@ -177,6 +177,7 @@ const Dashboard = () => {
             onPowerOff={() => setIsPowerOn(false)}
             batteryLevel={batteryLevel}
             setBatteryLevel={setBatteryLevel}
+            setCurrentComponent={setCurrentComponent}
           />
           <DirectionButtons
             isPowerOn={isPowerOn}

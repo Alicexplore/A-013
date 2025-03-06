@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatteryLevel }) => {
+const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatteryLevel, setCurrentComponent }) => {
   const dischargeIntervalRef = useRef(null);
   const shutdownTimeoutRef = useRef(null);
   const [powerAudio, setPowerAudio] = useState(null);
@@ -19,20 +19,25 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
   useEffect(() => {
     if (isPowerOn) {
       setIsOpen(true);
+      const storedComponent = localStorage.getItem("currentComponent");
+      if (storedComponent) {
+        setCurrentComponent(storedComponent);
+      }
     } else {
       setIsOpen(false);
+      localStorage.setItem("currentComponent", "instructions"); 
     }
-  }, [isPowerOn, setIsOpen]);
+  }, [isPowerOn, setIsOpen, setCurrentComponent]);
 
   useEffect(() => {
     if (isPowerOn && batteryLevel > 0) {
       dischargeIntervalRef.current = setInterval(() => {
         setBatteryLevel((prev) => Math.max(prev - 1, 0));
-      }, 180000);
+      }, 3000);
     }
 
     return () => clearInterval(dischargeIntervalRef.current);
-  }, [isPowerOn, batteryLevel, setBatteryLevel]); 
+  }, [isPowerOn, batteryLevel, setBatteryLevel]);
 
   useEffect(() => {
     if (batteryLevel === 0) {
@@ -40,8 +45,8 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
         setIsOpen(false);
         onPowerOff();
         playSound(powerAudio); 
-
-      }, 180000); 
+        localStorage.setItem("currentComponent", "instructions");
+      }, 3000);
     } else {
       clearTimeout(shutdownTimeoutRef.current);
     }
@@ -89,7 +94,8 @@ BatteryScreen.propTypes = {
   onPowerOff: PropTypes.func.isRequired,
   setIsOpen: PropTypes.func.isRequired,
   batteryLevel: PropTypes.number.isRequired,
-  setBatteryLevel: PropTypes.func.isRequired, 
+  setBatteryLevel: PropTypes.func.isRequired,
+  setCurrentComponent: PropTypes.func.isRequired,
 };
 
 export default BatteryScreen;

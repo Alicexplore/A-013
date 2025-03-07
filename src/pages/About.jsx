@@ -26,13 +26,13 @@ const About = () => {
     >
       <div className="flex items-center justify-between w-full text-[10px] md:text-sm text-center font-medium">
         <span className="flex-1 h-[1px] bg-white"></span>
-        <h1 className="px-4">about</h1>
+        <h1 className="px-4">who am i</h1>
         <span className="flex-1 h-[1px] bg-white"></span>
       </div>
 
       <div
         ref={contentRef}
-        className="flex-1 mt-6 overflow-y-auto text-[10px] md:text-[12px] space-y-6 md:space-y-8 font-normal"
+        className="flex-1 mt-6 md:mt-8 overflow-y-auto text-[9px] md:text-[12px] space-y-6 md:space-y-8 font-normal"
       >
         <p className="leading-relaxed">
           Hi, my name is Alice Bergonhe and I’m a frontend developer. I’ve been coding since 2022 and haven’t looked back since.
@@ -54,18 +54,13 @@ const About = () => {
         </p>
       </div>
 
-      <div className="absolute bottom-2 right-4 md:right-5 flex flex-col items-center justify-between text-sm md:text-xl">
-        <div
-          onClick={scrollUp}
-          className="cursor-pointer">
+      <div className="absolute bottom-1 md:bottom-2 flex flex-row gap-[6px] md:gap-2 text-md md:text-2xl left-1/2 -translate-x-1/2">
+        <div onClick={scrollUp} className="cursor-pointer hover:text-white/70 transform duration-500">
           <ion-icon name="caret-up-outline"></ion-icon>
         </div>
-
-        <div
-          onClick={scrollDown}
-          className="cursor-pointer">
+        <div onClick={scrollDown} className="cursor-pointer hover:text-white/70 transform duration-500">
           <ion-icon name="caret-down-outline"></ion-icon>
-        </div>
+        </div> 
       </div>
 
     </motion.div>

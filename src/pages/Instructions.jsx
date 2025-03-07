@@ -55,7 +55,7 @@ const Instructions = () => {
         </p>
       </div>
 
-      <div className="absolute bottom-1 md:bottom-2 flex flex-row gap-[6px] md:gap-2 text-md md:text-2xl left-1/2 -translate-x-1/2">
+      <div className="absolute bottom-[2px] md:bottom-2 flex flex-row gap-[6px] md:gap-2 text-md md:text-2xl left-1/2 -translate-x-1/2">
         <div onClick={scrollUp} className="cursor-pointer hover:text-white/70 transform duration-500">
           <ion-icon name="caret-up-outline"></ion-icon>
         </div>

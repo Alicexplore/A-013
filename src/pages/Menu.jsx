@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import About from "../pages/About";
 import Projects from "../pages/Projects";
-import Stack from "../pages/Stack";
 import Contact from "../pages/Contact";
 import Instructions from "../pages/Instructions";
 
@@ -11,7 +10,6 @@ const Menu = ({ currentComponent }) => {
       {currentComponent === "instructions" && <Instructions />}
       {currentComponent === "about" && <About />}
       {currentComponent === "projects" && <Projects />}
-      {currentComponent === "stack" && <Stack />}
       {currentComponent === "contact" && <Contact />}
     </div>
   );

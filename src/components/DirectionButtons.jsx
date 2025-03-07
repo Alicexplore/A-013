@@ -9,7 +9,7 @@ const DirectionButtons = ({ isInitialized, setCurrentComponent, currentComponent
   const keyPressSound = new Audio('/sounds/ButtonDirection.mp3');
   keyPressSound.volume = 0.2; 
 
-  const components = ["about", "projects", "stack", "contact"]; 
+  const components = ["about", "projects", "contact"]; 
   const currentIndex = components.indexOf(currentComponent);
 
   const handleUpClick = () => {

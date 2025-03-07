@@ -1,59 +1,71 @@
 import { motion } from 'framer-motion';
-import { fadeIn } from '../fadeIn';
+import { useRef } from 'react';
 
 const Instructions = () => {
-    return (
-      <div className="flex flex-col items-center w-full h-full text-white uppercase p-[30px] md:p-10">
-        <motion.h1
-          className="text-[10px] md:text-sm font-roboto mt-1 md:mt-2"
-          initial="hidden"
-          whileInView="show"
-          variants={fadeIn(0.5)}
-          viewport={{ once: true, amount: 0 }}
-        > 
-          welcome
-        </motion.h1>
-            <div className="space-y-3 md:space-y-5">
-                <motion.p
-                  className="text-[7px] md:text-[11px] mt-8 md:mt-12 text-justify"
-                  initial="hidden"
-                  whileInView="show"
-                  variants={fadeIn(1)}
-                  viewport={{ once: true, amount: 0 }}
-                > 
-                  Thank you for being here and taking the time to explore!
-                 </motion.p>
-                <motion.p
-                  className="text-[7px] md:text-[11px] mt-8 md:mt-12 text-justify"
-                  initial="hidden"
-                  whileInView="show"
-                  variants={fadeIn(1.5)}
-                  viewport={{ once: true, amount: 0 }}
-                > 
-                  Please use the arrow keys to navigate through the console and find out a little more about me and my work.
-                 </motion.p>
-                 <motion.p
-                  className="text-[7px] md:text-[11px] mt-8 md:mt-12 text-justify"
-                  initial="hidden"
-                  whileInView="show"
-                  variants={fadeIn(2)}
-                  viewport={{ once: true, amount: 0 }}
-                > 
-                  Please also note that A-013 is equipped with a battery that decrements over time, causing the console to turn off if left unused. Remember to press the recharge key to refill the battery if you don&rsquo;t want the console to turn off.
-                 </motion.p>
-                 <motion.p
-                  className="text-[7px] md:text-[11px] mt-8 md:mt-12 text-justify"
-                  initial="hidden"
-                  whileInView="show"
-                  variants={fadeIn(2.5)}
-                  viewport={{ once: true, amount: 0 }}
-                > 
-                  Hope you enjoy the ride! I love receiving feedback, so feel free to reach out and share your 
-                  thoughts on my work! ツ
-                 </motion.p>
-            </div>
+  const contentRef = useRef(null);
+
+  const scrollDown = () => {
+    if (contentRef.current) {
+      contentRef.current.scrollBy({ top: 100, behavior: 'smooth' });
+    }
+  };
+
+  const scrollUp = () => {
+    if (contentRef.current) {
+      contentRef.current.scrollBy({ top: -100, behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <motion.div
+      className="flex flex-col w-full h-full uppercase p-[32px] md:p-12 overflow-hidden z-50 text-white font-Roboto cursor-default relative"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, ease: 'easeInOut' }}
+      viewport={{ once: true, amount: 0 }}
+    >
+      <div className="flex items-center justify-between w-full text-[10px] md:text-sm text-center font-medium">
+        <span className="flex-1 h-[1px] bg-white"></span>
+        <h1 className="px-4">instructions</h1>
+        <span className="flex-1 h-[1px] bg-white"></span>
       </div>
-    )
-  }
-  
-  export default Instructions
+
+      <div
+        ref={contentRef}
+        className="flex-1 mt-6 overflow-y-auto text-[10px] md:text-[12px] space-y-6 md:space-y-8 font-normal"
+      >
+        <p className="leading-relaxed">
+          Thank you for being here and taking the time to explore A-013!
+        </p>
+        <p className="leading-relaxed">
+          Please use the arrow keys to navigate through the sections and find out a little more about me and my work.
+        </p>
+        <p className="leading-relaxed">
+          As you can see A-013 is equipped with a battery that decrements over time, causing the console to turn off 
+          if left unused. Remember to press the recharge key to refill the battery if you don&rsquo;t want the console 
+          to turn off.
+        </p>
+        <p className="leading-relaxed">
+          Hope you enjoy the ride! I love receiving feedback, so feel free to reach out and share your thoughts on my work! ツ
+        </p>
+      </div>
+
+      <div className="absolute bottom-2 right-4 md:right-5 flex flex-col items-center justify-between text-sm md:text-xl">
+        <div
+          onClick={scrollUp}
+          className="cursor-pointer">
+          <ion-icon name="caret-up-outline"></ion-icon>
+        </div>
+
+        <div
+          onClick={scrollDown}
+          className="cursor-pointer">
+          <ion-icon name="caret-down-outline"></ion-icon>
+        </div>
+      </div>
+
+    </motion.div>
+  );
+};
+
+export default Instructions;

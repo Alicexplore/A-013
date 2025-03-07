@@ -61,7 +61,7 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
 
   return (
     <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-black overflow-hidden">
-      <div className="absolute inset-[1px] bg-[#333] flex flex-col items-center justify-center shadow-[inset_-2px_-2px_6px_#111,inset_2px_2px_6px_#111]">
+      <div className="absolute inset-[1px] bg-[#222] flex flex-col items-center justify-center shadow-[inset_-2px_-2px_6px_#111,inset_2px_2px_6px_#111]">
         {isPowerOn && (
           <>
             <div className="flex flex-row gap-1 z-20">

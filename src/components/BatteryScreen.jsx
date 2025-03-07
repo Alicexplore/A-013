@@ -33,7 +33,7 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
     if (isPowerOn && batteryLevel > 0) {
       dischargeIntervalRef.current = setInterval(() => {
         setBatteryLevel((prev) => Math.max(prev - 1, 0));
-      }, 180000);
+      }, 60000);
     }
 
     return () => clearInterval(dischargeIntervalRef.current);
@@ -46,7 +46,7 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
         onPowerOff();
         playSound(powerAudio); 
         localStorage.setItem("currentComponent", "instructions");
-      }, 180000);
+      }, 60000);
     } else {
       clearTimeout(shutdownTimeoutRef.current);
     }

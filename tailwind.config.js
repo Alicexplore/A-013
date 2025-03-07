@@ -8,7 +8,6 @@ export default {
     extend: {
       fontFamily: {
         'Roboto': '"Roboto Mono", monospace',
-        'Proggy': '"ProggySquareTTSZ", sans-serif',
       },
       blur: {
         s: '1px',

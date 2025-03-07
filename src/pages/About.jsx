@@ -1,20 +1,6 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
 
 const About = () => {
-  const contentRef = useRef(null);
-
-  const scrollDown = () => {
-    if (contentRef.current) {
-      contentRef.current.scrollBy({ top: 100, behavior: 'smooth' });
-    }
-  };
-
-  const scrollUp = () => {
-    if (contentRef.current) {
-      contentRef.current.scrollBy({ top: -100, behavior: 'smooth' });
-    }
-  };
 
   return (
     <motion.div
@@ -30,10 +16,7 @@ const About = () => {
         <span className="flex-1 h-[1px] bg-white"></span>
       </div>
 
-      <div
-        ref={contentRef}
-        className="flex-1 mt-6 md:mt-8 overflow-y-auto text-[9px] md:text-[12px] space-y-6 md:space-y-8 font-normal"
-      >
+      <div className="flex-1 mt-6 md:mt-8 overflow-y-auto text-[9px] md:text-[12px] space-y-6 md:space-y-8 font-normal">
         <p className="leading-relaxed">
           Hi, my name is Alice Bergonhe and I’m a frontend developer. I’ve been coding since 2022 and haven’t looked back since.
         </p>
@@ -53,16 +36,6 @@ const About = () => {
           that values my work and helps me grow. If this resonates with you, feel free to reach out! ツ
         </p>
       </div>
-
-      <div className="absolute bottom-[2px] md:bottom-2 flex flex-row gap-[6px] md:gap-2 text-md md:text-2xl left-1/2 -translate-x-1/2">
-        <div onClick={scrollUp} className="cursor-pointer hover:text-white/70 transform duration-500">
-          <ion-icon name="caret-up-outline"></ion-icon>
-        </div>
-        <div onClick={scrollDown} className="cursor-pointer hover:text-white/70 transform duration-500">
-          <ion-icon name="caret-down-outline"></ion-icon>
-        </div> 
-      </div>
-
     </motion.div>
   );
 };

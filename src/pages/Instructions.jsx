@@ -38,6 +38,11 @@ const Instructions = () => {
           Hope you enjoy the ride! I love receiving feedback, so feel free to reach out and share your thoughts on my work! ツ
         </p>
       </div>
+
+      <div className='absolute bottom-2 md:bottom-3 text-md md:text-2xl left-1/2 -translate-x-1/2 flex items-center justify center'>
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </div>
+
 </motion.div>
   );
 };

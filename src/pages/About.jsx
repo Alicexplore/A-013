@@ -36,6 +36,11 @@ const About = () => {
           that values my work and helps me grow. If this resonates with you, feel free to reach out! ツ
         </p>
       </div>
+
+      <div className='absolute bottom-2 md:bottom-3 text-md md:text-2xl left-1/2 -translate-x-1/2 flex items-center justify center'>
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </div>
+
     </motion.div>
   );
 };

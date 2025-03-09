@@ -25,10 +25,6 @@ const About = () => {
           I also strive every day to write clean, performant code, and that’s an area I’m eager to keep improving.
         </p>
         <p className="leading-relaxed">
-          I’m also passionate about creating sleek and interactive UIs with smooth animations,
-          using technologies like React, Tailwind CSS, and Framer Motion.
-        </p>
-        <p className="leading-relaxed">
           When I’m not coding, I like to focus on my NFT collection, a dystopian world that I like to immerse myself in to take my mind off things.
         </p>
         <p className="leading-relaxed">

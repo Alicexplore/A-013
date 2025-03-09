@@ -28,7 +28,11 @@ const About = () => {
           frontend development. It’s a craft I continuously refine, and I’m eager to keep improving.
         </p>
         <p className="leading-relaxed">
-          I mainly work with React.js, Tailwind CSS, and Framer Motion. React offers flexibility and a component-based approach.
+          I mainly work with React.js, Tailwind CSS, and Framer Motion.
+        </p>
+        <p className="leading-relaxed">
+          React offers flexibility and a component-based approach, it allows me to create highly interactive user interfaces 
+          and reusable components efficiently.
         </p>
         <p className="leading-relaxed">
           Tailwind keeps styles scalable and maintainable, while Framer Motion allows me to add subtle, 

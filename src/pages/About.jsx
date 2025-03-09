@@ -21,8 +21,18 @@ const About = () => {
           Hi, my name is Alice Bergonhe and I’m a frontend developer. I’ve been coding since 2022 and haven’t looked back since.
         </p>
         <p className="leading-relaxed">
-          I focus a lot on user experience, as I believe it’s essential to engage users and keep them hooked.
-          I also strive every day to write clean, performant code, and that’s an area I’m eager to keep improving.
+          I focus on writing clean, efficient code that enhances user experience without compromising performance.
+        </p>
+        <p className="leading-relaxed">
+          While design is important, my role is to build smooth, accessible, and interactive interfaces through solid 
+          frontend development. It’s a craft I continuously refine, and I’m eager to keep improving.
+        </p>
+        <p className="leading-relaxed">
+          I mainly work with React.js, Tailwind CSS, and Framer Motion. React offers flexibility and a component-based approach.
+        </p>
+        <p className="leading-relaxed">
+          Tailwind keeps styles scalable and maintainable, while Framer Motion allows me to add subtle, 
+          fluid animations that make interactions more engaging.
         </p>
         <p className="leading-relaxed">
           When I’m not coding, I like to focus on my NFT collection, a dystopian world that I like to immerse myself in to take my mind off things.

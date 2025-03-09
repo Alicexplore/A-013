@@ -15,7 +15,7 @@ function App() {
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <Maintenance />
         </div>
-      )}
+      )} 
     </div>
   );
 }

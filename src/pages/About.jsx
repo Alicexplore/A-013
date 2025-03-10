@@ -18,32 +18,31 @@ const About = () => {
 
       <div className="flex-1 mt-6 md:mt-8 overflow-y-auto text-[9px] md:text-[12px] space-y-6 md:space-y-8 font-normal">
         <p className="leading-relaxed">
-          Hi, my name is Alice Bergonhe and I’m a frontend developer. I’ve been coding since 2022 and haven’t looked back since.
+        Hi, my name is Alice Bergonhe and I’m a frontend developer with a passion for crafting smooth, interactive, 
+        and user-friendly interfaces.
         </p>
         <p className="leading-relaxed">
-          I focus on writing clean, efficient code that enhances user experience without compromising performance.
+        Since I started coding in 2022, I’ve been committed to writing clean, efficient code that enhances user
+         experience without compromising performance.
         </p>
         <p className="leading-relaxed">
-          While design is important, my role is to build smooth, accessible, and interactive interfaces through solid 
-          frontend development. It’s a craft I continuously refine, and I’m eager to keep improving.
+        I mainly work with React.js, Tailwind CSS, and Framer Motion.
         </p>
         <p className="leading-relaxed">
-          I mainly work with React.js, Tailwind CSS, and Framer Motion.
+        React’s flexibility and component-based approach allow me to build dynamic and reusable interfaces efficiently.
         </p>
         <p className="leading-relaxed">
-          React offers flexibility and a component-based approach, it allows me to create highly interactive user interfaces 
-          and reusable components efficiently.
+        Tailwind helps maintain scalable and consistent styling, while Framer Motion adds subtle animations that make interactions more engaging.
         </p>
         <p className="leading-relaxed">
-          Tailwind keeps styles scalable and maintainable, while Framer Motion allows me to add subtle, 
-          fluid animations that make interactions more engaging.
+        Beyond coding, I enjoy immersing myself in my NFT collection, a dystopian world that serves as my creative escape.
         </p>
         <p className="leading-relaxed">
-          When I’m not coding, I like to focus on my NFT collection, a dystopian world that I like to immerse myself in to take my mind off things.
+        After a year as a frontend engineer apprentice at Qonto, I’m now looking for a frontend developer role in a 
+        company that values my skills and encourages growth.
         </p>
         <p className="leading-relaxed">
-          After a year as a frontend engineer apprentice at Qonto, I’m now looking for a frontend developer role in a company
-          that values my work and helps me grow. If this resonates with you, feel free to reach out! ツ
+        If this resonates with you, feel free to reach out! ツ
         </p>
       </div>
 

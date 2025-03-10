@@ -22,18 +22,26 @@ const Instructions = () => {
           Thank you for being here and taking the time to explore A-013!
         </p>
         <p className="leading-relaxed">
-          Please use the big arrow keys to navigate through the sections and find out a little more about me and my work.
+          Please use the big arrow keys to navigate through the console and find out a little more about me and my work.
         </p>
         <p className="leading-relaxed">
           As you can see A-013 is equipped with a battery that decrements over time, causing the console to turn off 
-          if left unused. Remember to press the recharge key to refill the battery if you don&rsquo;t want the console 
+          if left unused.
+        </p>
+        <p className="leading-relaxed">
+          Remember to press the recharge key to refill the battery if you don&rsquo;t want the console 
           to turn off.
         </p>
         <p className="leading-relaxed">
           A-013 was built to grow with me. It’s not just a project, but a space where I continuously refine, optimize,  
-          and push my skills further. The next major update will be a full migration to TypeScript.
+          and push my skills further. 
         </p>
-
+        <p className="leading-relaxed">
+          The next major update will be a full migration to TypeScript.
+        </p>
+        <p className="leading-relaxed">
+          The A-013 you’re visiting today may not be the same one tomorrow!
+        </p>
         <p className="leading-relaxed">
           Hope you enjoy the ride! I love receiving feedback, so feel free to reach out and share your thoughts on my work! ツ
         </p>

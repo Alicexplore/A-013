@@ -38,11 +38,7 @@ const About = () => {
         Beyond coding, I enjoy immersing myself in my NFT collection, a dystopian world that serves as my creative escape.
         </p>
         <p className="leading-relaxed">
-        After a year as a frontend engineer apprentice at Qonto, I’m now looking for a frontend developer role in a 
-        company that values my skills and encourages growth.
-        </p>
-        <p className="leading-relaxed">
-        If this resonates with you, feel free to reach out! ツ
+        I love to talk around web development, feel free to reach out! ツ
         </p>
       </div>
 

@@ -65,7 +65,7 @@ const LoadingBar = () => {
     
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.img
-          className="w-[200px] md:w-[300px]"
+          className="w-[400px] md:w-[300px]"
           src="./images/LogoHorizontalPower.svg"
           alt="Logo"
           initial={{ clipPath: "inset(50% 0 50% 0)", opacity: 0 }}
@@ -76,15 +76,16 @@ const LoadingBar = () => {
         />
       </div>
 
-      <div className="absolute bottom-5 w-full px-10">
-        <div className="relative h-4 w-full bg-transparent">
-          <motion.div
-            className="h-[6px] bg-[#d9d9d9] rounded-lg"
-            initial={{ opacity: 0, width: "0%" }}
-            animate={controls}
-          />
-        </div>
-      </div>
+      <div className="absolute bottom-5 left-0 w-screen px-2 md:px-10">
+  <div className="relative h-2 md:h-4 w-full bg-[#222] rounded-lg overflow-hidden">
+    <motion.div
+      className="h-full bg-[#00f] rounded-lg"
+      initial={{ opacity: 0, width: "0%" }}
+      animate={controls}
+    />
+  </div>
+</div>
+
       {showPressMenuMessage && (
       <motion.div
         className="absolute inset-0 flex flex-col items-center justify-center"

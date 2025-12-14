@@ -12,6 +12,11 @@ import RechargeButton from "../components/RechargeButton";
 import BootScreen from "../components/BootScreen";
 import BatteryScreen from "../components/BatteryScreen";
 import Menu from "../pages/Menu";
+import CardPlayer from "../components/CardPlayer";
+import MiniScreen from "../components/MiniScreen";
+import MediumScreen from "../components/MediumScreen";
+// import Floppy from "./Floppy";
+// import Modal from "./Modal";
 
 const Dashboard = () => {
   const [isPowerOn, setIsPowerOn] = useState(false);
@@ -21,10 +26,11 @@ const Dashboard = () => {
   const [bootCompleted, setBootCompleted] = useState(false);
   const [showBootScreen, setShowBootScreen] = useState(false);
   const [currentComponent, setCurrentComponent] = useState("instructions");
+  const [floppyActive, setFloppyActive] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("isPowerOn", "false");
-    setIsPowerOn(false); 
+    setIsPowerOn(false);
     const storedPowerState = localStorage.getItem("isPowerOn");
     const storedBatteryLevel = localStorage.getItem("batteryLevel");
     if (storedPowerState === "true") {
@@ -80,14 +86,34 @@ const Dashboard = () => {
 
   return (
     <div className="h-svh w-full bg-[#d9d9d9] overflow-hidden flex flex-col items-center justify-center relative">
+      {/* <Modal isPowerOn={isPowerOn} /> */}
       <TextName />
       <TextFolio />
-      <div className="flex items-center justify-center rounded-xl md:rounded-3xl relative z-10 w-[90%] max-w-[380px] md:max-w-[500px] aspect-[5/6] bg-[#d9d9d9] shadow-[4px_20px_30px_#222,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#979797] md:shadow-[6px_35px_30px_#222,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#979797]">
+      <motion.div
+  className="z-0"
+  initial={false}
+  onClick={() => setFloppyActive((prev) => !prev)}
+  animate={{
+    x: floppyActive ? -1 : 0,
+    boxShadow: floppyActive
+      ? "0px 25px 45px rgba(0,0,0,0.45)"
+      : "0px 6px 12px rgba(0,0,0,0.2)",
+  }}
+  transition={{
+    duration: 0.55,
+    ease: [0.22, 1, 0.36, 1],
+  }}
+  style={{ cursor: "pointer" }}
+>
+  {/* <Floppy /> */}
+</motion.div>
+
+      <div className="flex items-center justify-center rounded-xl md:rounded-3xl relative z-10 w-[90%] max-w-[540px] md:max-w-[700px] aspect-[7/6] bg-[#d9d9d9] shadow-[4px_20px_30px_#222,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#979797] md:shadow-[6px_35px_30px_#222,inset_4px_4px_4px_#fff,inset_-4px_-4px_4px_#979797]">
         <div className="absolute inset-[3px] md:inset-[5px] rounded-xl md:rounded-[20px] border-[#fff]/70 md:border-[#fff]/90 border-[2px] bg-transparent flex items-center justify-center blur-xs md:blur-s"></div>
         <div className="hidden md:block">
           <MediaCards />
         </div>
-        <div className="grid grid-cols-5 grid-rows-6 w-full h-full gap-[8px] p-[10px] md:p-[14px] relative overflow-hidden">
+        <div className="grid grid-cols-7 grid-rows-6 w-full h-full gap-[8px] p-[10px] md:p-[14px] relative overflow-hidden">
           <motion.div
             className="col-span-5 row-span-4 rounded-lg md:rounded-xl relative h-full w-full"
             style={{
@@ -146,7 +172,10 @@ const Dashboard = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <Menu currentComponent={currentComponent} setCurrentComponent={setCurrentComponent} />
+                  <Menu
+                    currentComponent={currentComponent}
+                    setCurrentComponent={setCurrentComponent}
+                  />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -158,13 +187,18 @@ const Dashboard = () => {
               transition={{ duration: 0.5, ease: "easeInOut", delay: 1 }}
             >
               <motion.span
-                className="absolute right-2 top-2 md:right-3 md:top-3 rounded-full w-[10px] h-[10px] md:w-3 md:h-3 blur-xxs"
+                className="absolute right-2 top-2 md:right-3 md:top-3 rounded-full w-[7px] h-[7px] md:w-3 md:h-3 blur-xxs"
                 initial={{ backgroundColor: isPowerOn ? "#d60000" : "#B9AB24" }}
                 animate={{ backgroundColor: isPowerOn ? "#B9AB24" : "#d60000" }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               />
             </motion.div>
           </motion.div>
+
+          <MiniScreen isPowerOn={isPowerOn} />
+          <CardPlayer />
+          <MediumScreen isPowerOn={isPowerOn}  />
+
           <PowerButton
             handlePowerPress={handlePowerPress}
             isPowerOn={isPowerOn}
@@ -200,4 +234,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

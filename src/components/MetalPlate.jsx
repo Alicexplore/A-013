@@ -1,50 +1,73 @@
 const MetalPlate = () => {
   return (
-    <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] rounded-bl-lg border-[#000] bg-[#000] pointer-events-none">
-      <div className="absolute inset-[1px] rounded-sm rounded-bl-md flex items-center justify-center"
-      style={{ background: 'conic-gradient(from 135deg, #b2a9a9, #b2a8a8, #ffffff, #d7dbd9, #ffffff, #b2a8a8)' }}> 
+    <div className="relative col-span-2 row-span-1 md:border-[1px] rounded-bl-md md:rounded-bl-[8px] border-[#000] bg-[#000] pointer-events-none">
+      <div
+        className="absolute inset-[1px] rounded-sm rounded-bl-[4px] md:rounded-bl-md flex items-center justify-center"
+        style={{
+          background:
+            "conic-gradient(from 135deg, #b2a9a9, #b2a8a8, #ffffff, #d7dbd9, #ffffff, #b2a8a8)",
+        }}
+      >
         <div className="absolute flex flex-col items-center">
-        <h1 className=" font-Roboto text-[#222] text-[8px] md:text-[11px] uppercase">a-013 / v1.0.0</h1>
-        <p className="font-Roboto tracking-widest text-[#222] text-[5px] md:text-[7px] uppercase">serial number 13051984</p>
-        <p className="font-Roboto tracking-widest text-[#222] text-[5px] md:text-[7px] uppercase">alice bergonhe / 2025</p>
+          <h1 className=" font-Roboto text-[#222] text-[6px] md:text-[11px] uppercase">
+            a-013 / v1.0.0
+          </h1>
+          <p className="font-Roboto tracking-widest text-[#222] text-[4px] md:text-[7px] uppercase">
+            serial number 13051984
+          </p>
+          <p className="font-Roboto tracking-widest text-[#222] text-[4px] md:text-[7px] uppercase">
+            alice bergonhe / 2025
+          </p>
         </div>
 
-        <div className="w-full h-full flex flex-col justify-between p-[3px] md:p-1">
+        <div className="w-full h-full flex flex-col justify-between p-[2px] md:p-1">
+          <div className="flex flex-row justify-between">
+            <div
+              className="h-[3px] w-[3px] md:h-[8px] md:w-[8px] bg-[] rounded-full border-[0.5px] md:border-[0.5px]
+          border-[#494949] flex items-center justify-center rotate-45 relative"
+            >
+              <div
+                className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
+             -translate-y-1/2"
+              ></div>
+            </div>
+
+            <div
+              className="h-[3px] w-[3px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px]
+          border-[#494949] flex items-center justify-center rotate-90 relative"
+            >
+              <div
+                className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
+             -translate-y-1/2"
+              ></div>
+            </div>
+          </div>
 
           <div className="flex flex-row justify-between">
+            <div
+              className="h-[3px] w-[3px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px] 
+          border-[#494949] flex items-center justify-center relative"
+            >
+              <div
+                className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
+             -translate-y-1/2"
+              ></div>
+            </div>
 
-          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-[] rounded-full border-[0.5px] md:border-[0.5px]
-          border-[#494949] flex items-center justify-center rotate-45 relative">
-            <div className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
-             -translate-y-1/2"></div>
+            <div
+              className="h-[3px] w-[3px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px]
+          border-[#494949] flex items-center justify-center -rotate-45 relative"
+            >
+              <div
+                className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
+             -translate-y-1/2"
+              ></div>
+            </div>
           </div>
-
-          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px]
-          border-[#494949] flex items-center justify-center rotate-90 relative">
-            <div className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
-             -translate-y-1/2"></div>
-          </div>
-          </div>
-
-          <div className="flex flex-row justify-between">
-          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px] 
-          border-[#494949] flex items-center justify-center relative">
-            <div className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
-             -translate-y-1/2"></div>
-          </div>
-
-          <div className="h-[5px] w-[5px] md:h-[8px] md:w-[8px] bg-transparent rounded-full border-[0.5px] md:border-[0.5px]
-          border-[#494949] flex items-center justify-center -rotate-45 relative">
-            <div className="absolute w-full h-[0.5px] bg-[#6e6e6e] top-1/2 left-1/2 transform -translate-x-1/2
-             -translate-y-1/2"></div>
-          </div>
-
-          </div>
-
-        </div> 
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MetalPlate
+export default MetalPlate;

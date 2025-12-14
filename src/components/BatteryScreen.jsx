@@ -2,17 +2,24 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatteryLevel, setCurrentComponent }) => {
+const BatteryScreen = ({
+  isPowerOn,
+  onPowerOff,
+  setIsOpen,
+  batteryLevel,
+  setBatteryLevel,
+  setCurrentComponent,
+}) => {
   const dischargeIntervalRef = useRef(null);
   const shutdownTimeoutRef = useRef(null);
   const [powerAudio, setPowerAudio] = useState(null);
 
   useEffect(() => {
-    setPowerAudio(new Audio('/sounds/PowerButton.mp3'));
+    setPowerAudio(new Audio("/sounds/PowerButton.mp3"));
   }, []);
 
   const playSound = (sound) => {
-    sound.currentTime = 0; 
+    sound.currentTime = 0;
     sound.play();
   };
 
@@ -25,7 +32,7 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
       }
     } else {
       setIsOpen(false);
-      localStorage.setItem("currentComponent", "instructions"); 
+      localStorage.setItem("currentComponent", "instructions");
     }
   }, [isPowerOn, setIsOpen, setCurrentComponent]);
 
@@ -44,7 +51,7 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
       shutdownTimeoutRef.current = setTimeout(() => {
         setIsOpen(false);
         onPowerOff();
-        playSound(powerAudio); 
+        playSound(powerAudio);
         localStorage.setItem("currentComponent", "instructions");
       }, 60000);
     } else {
@@ -55,20 +62,25 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
   }, [batteryLevel, onPowerOff, setIsOpen, powerAudio]);
 
   const batteryColors = [
-    "bg-[#d60000]", "bg-[#e53600]", "bg-[#dd6900]", "bg-[#f4940b]",
-    "bg-[#f2b50c]", "bg-[#baab25]", "bg-[#999100]"
+    "bg-[#d60000]",
+    "bg-[#e53600]",
+    "bg-[#dd6900]",
+    "bg-[#f4940b]",
+    "bg-[#f2b50c]",
+    "bg-[#baab25]",
+    "bg-[#999100]",
   ];
 
   return (
-    <div className="relative col-span-2 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-black overflow-hidden">
+    <div className="relative col-span-2 row-span-1 md:border-[1px] border-[#000] bg-black overflow-hidden">
       <div className="absolute inset-[1px] bg-[#222] flex flex-col items-center justify-center shadow-[inset_-2px_-2px_6px_#111,inset_2px_2px_6px_#111]">
         {isPowerOn && (
           <>
-            <div className="flex flex-row gap-1 z-20">
+            <div className="flex flex-row gap-[2px] md:gap-1 z-20">
               {[...Array(7)].map((_, i) => (
                 <div
                   key={i}
-                  className={`w-[10px] md:w-4 h-[30px] md:h-[40px] ${
+                  className={`w-[8px] md:w-4 h-[20px] md:h-[40px] ${
                     batteryLevel > i ? batteryColors[i] : "bg-[#444]"
                   }`}
                 />

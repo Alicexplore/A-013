@@ -70,16 +70,16 @@ const BootScreen = ({ isPowerOn, onBootEnd }) => {
         animate={{ opacity: showText ? 0 : 1, transition: { duration: 0.5 } }}
       >
         <motion.img
-          className="w-[200px] md:w-[300px]"
+          className="w-[150px] md:w-[300px]"
           src="./images/LogoPower.svg"
           alt="Logo"
           initial={{ clipPath: "inset(50% 0 50% 0)", opacity: 0 }}
           animate={logoControls}
         />
 
-        <motion.div className="absolute bottom-5 w-full px-10">
+        <motion.div className="absolute bottom-5 w-full px-5 md:px-10">
           <motion.div
-            className="h-[6px] bg-[#d9d9d9] rounded-lg"
+            className="h-[4px] md:h-[6px] bg-[#d9d9d9] rounded-lg"
             initial={{ width: "0%", opacity: 0 }}
             animate={startLoading ? controls : { width: "0%" }}
           />

@@ -25,7 +25,7 @@ const RechargeButton = ({ isInitialized, handleRecharge }) => {
   };
 
   return (
-    <div className="relative col-span-1 row-span-1 border-[0.5px] md:border-[1px] border-[#000] bg-[#000]">
+    <div className="relative col-span-1 row-span-1 md:border-[1px] border-[#000] bg-[#000]">
       <motion.div
         onClick={handleClick}
         className="absolute inset-[1px] rounded-[4px] md:rounded-md bg-[#d9d9d9] flex items-center justify-center cursor-pointer"
@@ -36,10 +36,10 @@ const RechargeButton = ({ isInitialized, handleRecharge }) => {
           transition: "box-shadow 0.1s ease-in-out", 
         }}
       >
-        <div className="absolute pointer-events-none flex items-center justify-center w-[13px] md:w-[18px]">
+        <div className="absolute pointer-events-none flex items-center justify-center w-[8px] md:w-[18px]">
           <img src="./images/flash.svg" alt="flash icon"/>
         </div>
-        <div className="absolute bottom-[10px] md:bottom-[13px] w-2/4 h-[2px] md:h-[3px] rounded-full"
+        <div className="absolute bottom-[7px] md:bottom-[13px] w-2/4 h-[1.5px] md:h-[3px] rounded-full"
              style={{ boxShadow: "inset 1px 1px 1px #fff, inset -1px -1px 1px #939393, 0px 1px 2px #777777"}}>
         </div> 
       </motion.div>

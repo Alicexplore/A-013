@@ -21,7 +21,7 @@ const Instructions = () => {
           Thank you for being here and taking the time to explore A-013!
         </p>
         <p className="leading-relaxed">
-          s Please use the big arrow keys to navigate through the console and
+          Please use the big arrow keys to navigate through the console and
           find out a little more about me and my work.
         </p>
         <p className="leading-relaxed">

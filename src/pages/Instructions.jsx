@@ -37,9 +37,6 @@ const Instructions = () => {
           where I continuously refine, optimize, and push my skills further.
         </p>
         <p className="leading-relaxed">
-          The next major update will be a full migration to TypeScript.
-        </p>
-        <p className="leading-relaxed">
           The A-013 you’re visiting today may not be the same one tomorrow!
         </p>
         <p className="leading-relaxed">

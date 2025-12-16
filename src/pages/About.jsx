@@ -26,7 +26,7 @@ const About = () => {
          experience without compromising performance.
         </p>
         <p className="leading-relaxed">
-        I mainly work with React.js, Tailwind CSS, and Framer Motion.
+        I mainly work with React.js/ts, Tailwind CSS, and Framer Motion.
         </p>
         <p className="leading-relaxed">
         React’s flexibility and component-based approach allow me to build dynamic and reusable interfaces efficiently.

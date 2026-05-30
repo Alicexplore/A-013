@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 
-const LightsPower = () => {
+const LightsPower = ({ batteryLevel }) => {
+  const isLowBattery = batteryLevel <= 2;
   return (
     <div className="col-span-1 row-span-2 flex items-center justify-center">
       <div className="w-full h-full relative flex items-center rounded-br-lg bg-black border-[0.5px] md:border-[1px] border-black">
@@ -14,9 +16,11 @@ const LightsPower = () => {
                 .map((_, index) => (
                   <motion.div
                     key={index}
-                    className="relative bg-[#938e00] rounded-none md:rounded-[1px] w-full h-full border-l-[4px] border-r-[4px] border-black"
+                    className={`relative ${isLowBattery ? "bg-[#d60000]" : "bg-[#938e00]"} rounded-none md:rounded-[1px] w-full h-full border-l-[4px] border-r-[4px] border-black`}
                     animate={{
-                      backgroundColor: ["#222", "#fff", "#fff", "#222"],
+                      backgroundColor: isLowBattery
+                        ? ["#222", "#d60000", "#d60000", "#222"]
+                        : ["#222", "#fff", "#fff", "#222"],
                     }}
                     transition={{
                       delay: 4 + index * -0.1,
@@ -40,6 +44,10 @@ const LightsPower = () => {
       </div>
     </div>
   );
+};
+
+LightsPower.propTypes = {
+  batteryLevel: PropTypes.number.isRequired,
 };
 
 export default LightsPower;

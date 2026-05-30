@@ -41,7 +41,7 @@ const BatteryScreen = ({
     if (isPowerOn && batteryLevel > 0) {
       dischargeIntervalRef.current = setInterval(() => {
         setBatteryLevel((prev) => Math.max(prev - 1, 0));
-      }, 20000);
+      }, 17000);
     }
 
     return () => clearInterval(dischargeIntervalRef.current);

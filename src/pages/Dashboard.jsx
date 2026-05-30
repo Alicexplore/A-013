@@ -207,7 +207,7 @@ const Dashboard = () => {
             setCurrentComponent={setCurrentComponent}
             showBootScreen={showBootScreen}
           />
-          {isPowerOn ? <LightsPower /> : <Lights />}
+          {isPowerOn ? <LightsPower batteryLevel={batteryLevel} /> : <Lights />}
           <MetalPlate />
           <RechargeButton
             isPowerOn={isPowerOn}

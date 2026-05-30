@@ -4,7 +4,7 @@ const MetalPlate = () => {
       <div className="absolute inset-[1px] rounded-sm rounded-bl-md flex items-center justify-center"
       style={{ background: 'conic-gradient(from 135deg, #b2a9a9, #b2a8a8, #ffffff, #d7dbd9, #ffffff, #b2a8a8)' }}> 
         <div className="absolute flex flex-col items-center">
-        <h1 className=" font-Roboto text-[#222] text-[8px] md:text-[11px] uppercase">a-013 / v1.0.0</h1>
+        <h1 className=" font-Roboto text-[#222] text-[8px] md:text-[11px] uppercase">a-013 / v1.1.0</h1>
         <p className="font-Roboto tracking-widest text-[#222] text-[5px] md:text-[7px] uppercase">serial number 13051984</p>
         <p className="font-Roboto tracking-widest text-[#222] text-[5px] md:text-[7px] uppercase">alice bergonhe / 2025</p>
         </div>

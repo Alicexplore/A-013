@@ -22,20 +22,13 @@ const About = () => {
         and user-friendly interfaces.
         </p>
         <p className="leading-relaxed">
-        Since I started coding in 2022, I’ve been committed to writing clean, efficient code that enhances user
-         experience without compromising performance.
+        Since discovering web development in 2022, I’ve enjoyed turning ideas into thoughtful digital experiences, balancing functionality, design, and attention to detail.
         </p>
         <p className="leading-relaxed">
-        I mainly work with React.js, Tailwind CSS, and Framer Motion.
+        I mainly work with React, TypeScript, Tailwind CSS or pure CSS, and Framer Motion.
         </p>
         <p className="leading-relaxed">
-        React’s flexibility and component-based approach allow me to build dynamic and reusable interfaces efficiently.
-        </p>
-        <p className="leading-relaxed">
-        Tailwind helps maintain scalable and consistent styling, while Framer Motion adds subtle animations that make interactions more engaging.
-        </p>
-        <p className="leading-relaxed">
-        Beyond coding, I enjoy immersing myself in my NFT collection, a dystopian world that serves as my creative escape.
+        When I’m not coding, you’ll usually find me building something, exploring a new idea, or diving into my latest obsession.
         </p>
         <p className="leading-relaxed">
         I love to talk around web development, feel free to reach out! ツ

@@ -22,7 +22,10 @@ const Instructions = () => {
           Thank you for being here and taking the time to explore A-013!
         </p>
         <p className="leading-relaxed">
-          Please use the big arrow keys to navigate through the console and find out a little more about me and my work.
+          To read this screen and the next ones, scroll with your mouse wheel or swipe on mobile.
+        </p>
+         <p className="leading-relaxed">
+          Then use the physical ▲ ▼ buttons below to switch between console sections.
         </p>
         <p className="leading-relaxed">
           As you can see A-013 is equipped with a battery that decrements over time, causing the console to turn off 
@@ -44,9 +47,9 @@ const Instructions = () => {
         </p>
       </div>
 
-      <div className='absolute bottom-2 md:bottom-3 text-md md:text-2xl left-1/2 -translate-x-1/2 flex items-center justify center'>
+      {/* <div className='absolute bottom-2 md:bottom-3 text-md md:text-2xl left-1/2 -translate-x-1/2 flex items-center justify center'>
         <ion-icon name="chevron-down-outline"></ion-icon>
-      </div>
+      </div> */}
 
 </motion.div>
   );

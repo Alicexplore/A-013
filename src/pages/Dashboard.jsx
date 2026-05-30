@@ -179,7 +179,7 @@ const Dashboard = () => {
                     : batteryLevel <= 2
                       ? isLowBatteryBlinking
                         ? "#d60000"
-                        : "#B9AB24"
+                        : "transparent"
                       : "#B9AB24",
                 }}
                 transition={{ duration: 0.25, ease: "easeInOut" }}

@@ -21,10 +21,11 @@ const Dashboard = () => {
   const [bootCompleted, setBootCompleted] = useState(false);
   const [showBootScreen, setShowBootScreen] = useState(false);
   const [currentComponent, setCurrentComponent] = useState("instructions");
+  const [isLowBatteryBlinking, setIsLowBatteryBlinking] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("isPowerOn", "false");
-    setIsPowerOn(false); 
+    setIsPowerOn(false);
     const storedPowerState = localStorage.getItem("isPowerOn");
     const storedBatteryLevel = localStorage.getItem("batteryLevel");
     if (storedPowerState === "true") {
@@ -38,6 +39,16 @@ const Dashboard = () => {
     const timeout = setTimeout(() => setIsInitialized(true), 500);
     return () => clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    if (isPowerOn && batteryLevel <= 2) {
+      const interval = setInterval(() => {
+        setIsLowBatteryBlinking((prev) => !prev);
+      }, 500);
+      return () => clearInterval(interval);
+    }
+    setIsLowBatteryBlinking(false);
+  }, [isPowerOn, batteryLevel]);
 
   const handlePowerPress = () => {
     setIsPowerOn((prevState) => {
@@ -146,7 +157,10 @@ const Dashboard = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <Menu currentComponent={currentComponent} setCurrentComponent={setCurrentComponent} />
+                  <Menu
+                    currentComponent={currentComponent}
+                    setCurrentComponent={setCurrentComponent}
+                  />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -159,9 +173,16 @@ const Dashboard = () => {
             >
               <motion.span
                 className="absolute right-2 top-2 md:right-3 md:top-3 rounded-full w-[10px] h-[10px] md:w-3 md:h-3 blur-xxs"
-                initial={{ backgroundColor: isPowerOn ? "#d60000" : "#B9AB24" }}
-                animate={{ backgroundColor: isPowerOn ? "#B9AB24" : "#d60000" }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                animate={{
+                  backgroundColor: !isPowerOn
+                    ? "#d60000"
+                    : batteryLevel <= 2
+                      ? isLowBatteryBlinking
+                        ? "#d60000"
+                        : "#B9AB24"
+                      : "#B9AB24",
+                }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
               />
             </motion.div>
           </motion.div>
@@ -200,4 +221,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

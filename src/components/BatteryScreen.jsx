@@ -2,17 +2,25 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 
-const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatteryLevel, setCurrentComponent }) => {
+const BatteryScreen = ({
+  isPowerOn,
+  onPowerOff,
+  setIsOpen,
+  batteryLevel,
+  setBatteryLevel,
+  setCurrentComponent,
+}) => {
   const dischargeIntervalRef = useRef(null);
   const shutdownTimeoutRef = useRef(null);
   const [powerAudio, setPowerAudio] = useState(null);
 
   useEffect(() => {
-    setPowerAudio(new Audio('/sounds/PowerButton.mp3'));
+    setPowerAudio(new Audio("/sounds/PowerButton.mp3"));
   }, []);
 
   const playSound = (sound) => {
-    sound.currentTime = 0; 
+    if (!sound) return;
+    sound.currentTime = 0;
     sound.play();
   };
 
@@ -25,7 +33,7 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
       }
     } else {
       setIsOpen(false);
-      localStorage.setItem("currentComponent", "instructions"); 
+      localStorage.setItem("currentComponent", "instructions");
     }
   }, [isPowerOn, setIsOpen, setCurrentComponent]);
 
@@ -33,30 +41,36 @@ const BatteryScreen = ({ isPowerOn, onPowerOff, setIsOpen, batteryLevel, setBatt
     if (isPowerOn && batteryLevel > 0) {
       dischargeIntervalRef.current = setInterval(() => {
         setBatteryLevel((prev) => Math.max(prev - 1, 0));
-      }, 60000);
+      }, 20000);
     }
 
     return () => clearInterval(dischargeIntervalRef.current);
   }, [isPowerOn, batteryLevel, setBatteryLevel]);
 
   useEffect(() => {
-    if (batteryLevel === 0) {
-      shutdownTimeoutRef.current = setTimeout(() => {
-        setIsOpen(false);
-        onPowerOff();
-        playSound(powerAudio); 
-        localStorage.setItem("currentComponent", "instructions");
-      }, 60000);
-    } else {
+    if (!isPowerOn) {
       clearTimeout(shutdownTimeoutRef.current);
+      return;
+    }
+
+    if (batteryLevel === 0) {
+      setIsOpen(false);
+      onPowerOff();
+      playSound(powerAudio);
+      localStorage.setItem("currentComponent", "instructions");
     }
 
     return () => clearTimeout(shutdownTimeoutRef.current);
-  }, [batteryLevel, onPowerOff, setIsOpen, powerAudio]);
+  }, [batteryLevel, isPowerOn, onPowerOff, setIsOpen, powerAudio]);
 
   const batteryColors = [
-    "bg-[#d60000]", "bg-[#e53600]", "bg-[#dd6900]", "bg-[#f4940b]",
-    "bg-[#f2b50c]", "bg-[#baab25]", "bg-[#999100]"
+    "bg-[#d60000]",
+    "bg-[#e53600]",
+    "bg-[#dd6900]",
+    "bg-[#f4940b]",
+    "bg-[#f2b50c]",
+    "bg-[#baab25]",
+    "bg-[#999100]",
   ];
 
   return (
